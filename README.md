@@ -5,3 +5,4 @@ dotfiles
 
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
+    ln -s .dotfiles/screenrc ${HOME}/.screenrc
