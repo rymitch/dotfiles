@@ -25,7 +25,7 @@ There are two ways to do this:
 
    This has the disadvantage that some tools will automatically
    expand the link for display. That means the ugly `/cygdrive/c`
-   will show up when you don't want it to.
+   can sometimes show up when I don't want it to.
 
 2. Use a mount point.
 
@@ -33,10 +33,10 @@ There are two ways to do this:
    of the Cygwin envrionment. Edit /etc/fstab and add the
    following line:
 
-       C:/Projects /Projects ntfs binary,posix=0 0 0
+         C:/Projects /Projects ntfs binary,posix=0 0 0
 
    Then issue the following command to refresh the current
    mount table:
 
-       mount -a
+         mount -a
 
