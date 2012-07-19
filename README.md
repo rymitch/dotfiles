@@ -12,6 +12,26 @@ For now, this will work:
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
 
+## Why symlinks?
+
+For several reasons, I want to avoid making my entire home
+directory a git repository.
+
+* Having my entire home directory as a git repository makes
+  git attempt to [track many files](http://www.charlietanksley.net/philtex/dotfiles-and-git/)
+  that I don't want versioned.
+* Additionally, any child git repositories will
+  [inherit the .gitignore](http://www.charlietanksley.net/philtex/dotfiles-and-git-take-2/)
+  file from the $HOME repository.
+* Finally, some of my dotfiles have sensitive information
+  that I don't want to include in my public repository. I
+  want to track those in a private repository, but there is
+  not a straightforward way to have two repositories in the
+  same directory.
+
+Note that [git does not play well](http://stackoverflow.com/questions/3729278/git-and-hard-links)
+with hard links, so symlinks appear to be the way to go.
+
 ## Cygwin Notes
 
 On Windows, I like to have a directory called `C:\Projects`
@@ -38,4 +58,3 @@ this to `/Projects`. I know of two methods:
    mount table:
 
          mount -a
-
