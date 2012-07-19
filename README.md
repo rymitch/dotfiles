@@ -10,6 +10,7 @@ For now, this will work:
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
+    ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
 
 ## Why symlinks?
