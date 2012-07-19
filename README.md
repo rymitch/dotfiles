@@ -30,7 +30,7 @@ There are two ways to do this:
 2. Use a mount point.
 
    This seems to integrate the most naturally with the rest
-   of the Cygwin envrionment. Edit /etc/fstab and add the
+   of the Cygwin envrionment. Edit `/etc/fstab` and add the
    following line:
 
          C:/Projects /Projects ntfs binary,posix=0 0 0
