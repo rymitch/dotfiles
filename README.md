@@ -13,11 +13,11 @@ For now, this will work:
 
 ## Cygwin Notes
 
-On Windows, I like to have a directory called "C:\Projects"
+On Windows, I like to have a directory called `C:\Projects`
 where my projects are stored.
 
 Under [Cygwin](http://www.cygwin.com/) it is natural to map
-this to /Projects.
+this to `/Projects`.
 
 There are two ways to do this:
 
@@ -33,10 +33,10 @@ There are two ways to do this:
    of the Cygwin envrionment. Edit /etc/fstab and add the
    following line:
 
-      C:/Projects /Projects ntfs binary,posix=0 0 0
+       C:/Projects /Projects ntfs binary,posix=0 0 0
 
    Then issue the following command to refresh the current
    mount table:
 
-      mount -a
+       mount -a
 
