@@ -9,6 +9,7 @@ For now, this will work:
 
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
+    ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
 
 ## Cygwin Notes
@@ -17,9 +18,7 @@ On Windows, I like to have a directory called `C:\Projects`
 where my projects are stored.
 
 Under [Cygwin](http://www.cygwin.com/) it is natural to map
-this to `/Projects`.
-
-There are two ways to do this:
+this to `/Projects`. I know of two methods:
 
 1. Use a symbolic link: `ln -s /cygdrive/c/Projects /Projects`
 
@@ -29,9 +28,9 @@ There are two ways to do this:
 
 2. Use a mount point.
 
-   This seems to integrate the most naturally with the rest
-   of the Cygwin envrionment. Edit `/etc/fstab` and add the
-   following line:
+   This seems to be the most seamless way to integrate with
+   the rest of the Cygwin envrionment. Edit `/etc/fstab` and
+   add the following line:
 
          C:/Projects /Projects ntfs binary,posix=0 0 0
 

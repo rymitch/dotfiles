@@ -1,0 +1,66 @@
+# The following line is actually
+# equivalent to "\C-?": delete-char
+"\e[3~": delete-char
+
+# VT
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# kvt
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+# rxvt and konsole (i.e. the KDE-app...)
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+
+# VT220
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+
+# File name completion ignores case
+set completion-ignore-case on
+
+# Underscores and hyphens are similar
+set completion-map-case on
+
+# Don't repeat the prefix characters
+# when listing files
+set completion-prefix-display-length 2
+
+# Show listing immediately
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Use ctrl+j and ctrl+k to cycle through
+# the matches
+Control-j: menu-complete
+Control-k: menu-complete-backward
+
+# Append "/" to all dirnames
+set mark-directories on
+set mark-symlinked-directories on
+
+# Match all files
+set match-hidden-files on
+
+# Allow 8-bit input/output
+#set meta-flag on
+#set convert-meta off
+#set input-meta on
+#set output-meta on
+#$if Bash
+  # Don't ring bell on completion
+  #set bell-style none
+
+  # or, don't beep at me - show me
+  #set bell-style visible
+
+  # Expand homedir name
+  #set expand-tilde on
+
+  # 'Magic Space'
+  # Insert a space character then performs
+  # a history expansion in the line
+  #Space: magic-space
+#$endif
