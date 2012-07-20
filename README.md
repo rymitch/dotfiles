@@ -12,6 +12,7 @@ For now, this will work:
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
+    ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
 
 ## Why symlinks?
 
