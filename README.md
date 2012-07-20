@@ -7,12 +7,13 @@ For now, this will work:
 
     git clone git@github.com:rymitch/dotfiles.git .dotfiles
 
-    ln -s .dotfiles/vim ${HOME}/.vim
-    ln -s .dotfiles/vimrc ${HOME}/.vimrc
+    ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
+    ln -s .dotfiles/profile ${HOME}/.profile
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
-    ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
+    ln -s .dotfiles/vim ${HOME}/.vim
+    ln -s .dotfiles/vimrc ${HOME}/.vimrc
 
 ## Why symlinks?
 
