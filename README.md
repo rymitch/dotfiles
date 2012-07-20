@@ -7,6 +7,7 @@ For now, this will work:
 
     git clone git@github.com:rymitch/dotfiles.git .dotfiles
 
+    ln -s .dotfiles/bash_aliases ${HOME}/.bash_aliases
     ln -s .dotfiles/bash_cygwin ${HOME}/.bash_cygwin
     ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
     ln -s .dotfiles/gitconfig ${HOME}/.gitconfig
