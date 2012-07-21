@@ -10,6 +10,7 @@ For now, this will work:
     ln -s .dotfiles/bash_aliases ${HOME}/.bash_aliases
     ln -s .dotfiles/bash_cygwin ${HOME}/.bash_cygwin
     ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
+    ln -s .dotfiles/bashrc ${HOME}/.bashrc
     ln -s .dotfiles/gitconfig ${HOME}/.gitconfig
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
