@@ -137,6 +137,6 @@ fi
 
 # Load any existing private configuration.
 
-if [ -f "${HOME}/.bash_private" ]; then
-  source "${HOME}/.bash_private"
+if [ -f "${HOME}/.dotlocal/bash_private" ]; then
+  source "${HOME}/.dotlocal/bash_private"
 fi
