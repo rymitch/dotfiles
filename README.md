@@ -16,6 +16,7 @@ For now, this will work:
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/profile ${HOME}/.profile
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
+    ln -s .dotfiles/tarsnaprc ${HOME}/.tarsnaprc
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
 

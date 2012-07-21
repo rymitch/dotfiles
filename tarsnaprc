@@ -1,0 +1,18 @@
+# Tarsnap cache directory
+cachedir /Projects/SysBackup/tarsnap-cache
+
+# Tarsnap key file
+keyfile /Projects/SysBackup/tarsnap.key
+
+# Don't archive files which have the nodump flag set
+nodump
+
+# Print statistics when creating or deleting archives
+print-stats
+humanize-numbers
+
+# Create a checkpoint once per GB of uploaded data.
+checkpoint-bytes 1G
+
+# Maximum upload bandwidth rate.
+maxbw-rate-up 256000
