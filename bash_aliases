@@ -58,3 +58,7 @@ alias du='du -h'
 # Clear the screen.
 
 alias cls=clear
+
+# Retrieve my external IP address.
+
+alias myip='curl ifconfig.me'
