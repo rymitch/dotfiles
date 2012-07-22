@@ -5,7 +5,7 @@
 A script to do this automatically is coming in the future.
 For now, this will work:
 
-    git clone git@github.com:rymitch/dotfiles.git .dotfiles
+    git clone git://github.com/rymitch/dotfiles.git .dotfiles
 
     ln -s .dotfiles/bash_aliases ${HOME}/.bash_aliases
     ln -s .dotfiles/bash_cygwin ${HOME}/.bash_cygwin
