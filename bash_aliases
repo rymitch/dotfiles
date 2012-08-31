@@ -62,3 +62,7 @@ alias cls=clear
 # Retrieve my external IP address.
 
 alias myip='curl ifconfig.me'
+
+# Count lines.
+
+alias lncn='wc -l `find -type f -name "*"`'
