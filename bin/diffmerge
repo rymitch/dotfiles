@@ -1,0 +1,9 @@
+#/usr/bin/env bash
+
+if [ -f /Applications/DiffMerge.app/Contents/Resources/diffmerge.sh ]; then
+  DIFFMERGE=/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh
+  ARG1=$1
+  ARG2=$2
+fi
+
+$DIFFMERGE $ARG1 $ARG2
