@@ -18,6 +18,7 @@ set autoindent
 set nobackup
 set ch=1
 set mousehide
+set nofoldenable
 set nowrap
 set wildchar=^I
 set ts=2
