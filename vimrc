@@ -174,13 +174,18 @@ endfunction
  
 " Paste from the Windows clipboard with leader-v.
 function! Getclip()
-  let reg_save = @@
-  let @@ = join(readfile('/dev/clipboard'), "\n")
-  setlocal paste
-  exe 'normal p'
-  setlocal nopaste
-  let @@ = reg_save
+  execute ':r! pbpaste'
 endfunction
+if has('win16') || has('win32') || has('win64') || has('win95')
+  function! Getclip()
+    let reg_save = @@
+    let @@ = join(readfile('/dev/clipboard'), "\n")
+    setlocal paste
+    exe 'normal p'
+    setlocal nopaste
+    let @@ = reg_save
+  endfunction
+endif
 nnoremap <silent> <leader>v :call Getclip()<CR>
 
 " Open the CtrlP plugin with Leader-p.
