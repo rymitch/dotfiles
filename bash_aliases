@@ -24,8 +24,8 @@ if command_exists gls ; then
   # This is probably OSX with MacPorts, where GNU ls
   # is installed as gls.
 
-  alias ls='LC_COLLATE=C gls -hF --color=auto'
-  alias dir='LC_COLLATE=C gls -ahlF --color=auto'
+  alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C gls -ahlF --color=auto --group-directories-first'
 
 elif [ `uname` == "Darwin" ]; then
 
