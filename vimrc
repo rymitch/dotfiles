@@ -172,21 +172,26 @@ function! s:Hex2dec(line1, line2, arg) range
   endif
 endfunction
  
-" Paste from the Windows clipboard with leader-v.
-function! Getclip()
+" Paste from the clipboard with leader-v.
+function! GetClipMac()
   execute ':r! pbpaste'
 endfunction
-if has('win16') || has('win32') || has('win64') || has('win95')
-  function! Getclip()
-    let reg_save = @@
-    let @@ = join(readfile('/dev/clipboard'), "\n")
-    setlocal paste
-    exe 'normal p'
-    setlocal nopaste
-    let @@ = reg_save
-  endfunction
+function! GetClipWin()
+  let reg_save = @@
+  let @@ = join(readfile('/dev/clipboard'), "\n")
+  setlocal paste
+  exe 'normal p'
+  setlocal nopaste
+  let @@ = reg_save
+endfunction
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    nnoremap <silent> <leader>v :call GetClipMac()<CR>
+  else
+    nnoremap <silent> <leader>v :call GetClipWin()<CR>
+  endif
 endif
-nnoremap <silent> <leader>v :call Getclip()<CR>
 
 " Open the CtrlP plugin with Leader-p.
 let g:ctrlp_working_path_mode = 0
