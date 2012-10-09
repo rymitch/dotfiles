@@ -5,7 +5,7 @@
   la = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(cyan)%cD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)— %ae%C(reset)' --abbrev-commit
   l = !"git --no-pager la --max-count=25 ; echo"
   dm = !"git diffall"
-  st = !"git status -sb"
+  st = status -sb
 [diff]
   tool = diffmerge
 [difftool "diffmerge"]
