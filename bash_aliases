@@ -44,6 +44,13 @@ else
 
 fi
 
+# Start a Windows explorer window in the current working
+# directory.
+
+if command_exists explorer.exe ; then
+  alias explore='cygstart explorer `cygpath -aw .`'
+fi
+
 # Colorize grep output.
 
 alias grep='grep --color=auto'
