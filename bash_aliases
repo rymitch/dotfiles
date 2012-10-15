@@ -72,4 +72,4 @@ alias myip='curl ifconfig.me'
 
 # Count lines.
 
-alias lncn='wc -l `find -type f -name "*"`'
+alias lncn='wc -l `find . -type f -name "*"`'
