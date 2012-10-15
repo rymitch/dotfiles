@@ -146,7 +146,17 @@ fi
 
 # CUDA.
 
-export PATH=/usr/local/cuda/bin:$PATH
-export LPATH=/usr/lib/nvidia-current:$LPATH
-export LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/nvidia-current:/usr/local/cuda/lib64:/usr/local/cuda/lib
+if [ -d /usr/local/cuda/lib ]; then
+  LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
+fi
+if [ -d /usr/local/cuda/lib64 ]; then
+  LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+fi
+if [ -d /usr/local/cuda/bin ]; then
+  PATH=/usr/local/cuda/bin:$PATH
+fi
+if [ -d /usr/lib/nvidia-current ]; then
+  LPATH=/usr/lib/nvidia-current:$LPATH
+  LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
+  LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
+fi
