@@ -31,31 +31,31 @@ fi
 # MANPATH environment variable
 
 if [ -d "/usr/local/man" ]; then
-  MANPATH=/usr/local/man:${MANPATH}
+  export MANPATH=/usr/local/man:${MANPATH}
 fi
 if [ -d "/opt/local/man" ]; then
-  MANPATH=/opt/local/man:${MANPATH}
+  export MANPATH=/opt/local/man:${MANPATH}
 fi
 if [ -d "${HOME}/man" ]; then
-  MANPATH=${HOME}/man:${MANPATH}
+  export MANPATH=${HOME}/man:${MANPATH}
 fi
 
 # INFOPATH environment variable
 
 if [ -d "/usr/local/info" ]; then
-  INFOPATH=/usr/local/info:${INFOPATH}
+  export INFOPATH=/usr/local/info:${INFOPATH}
 fi
 if [ -d "/opt/local/info" ]; then
-  INFOPATH=/opt/local/info:${INFOPATH}
+  export INFOPATH=/opt/local/info:${INFOPATH}
 fi
 if [ -d "${HOME}/info" ]; then
-  INFOPATH=${HOME}/info:${INFOPATH}
+  export INFOPATH=${HOME}/info:${INFOPATH}
 fi
 
 # PYTHONPATH environment variable
 
 if [ -d "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages" ]; then
-  PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}
+  export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}
 fi
 
 # Ruby RVM
@@ -147,16 +147,16 @@ fi
 # CUDA.
 
 if [ -d /usr/local/cuda/lib ]; then
-  LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
 fi
 if [ -d /usr/local/cuda/lib64 ]; then
-  LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 fi
 if [ -d /usr/local/cuda/bin ]; then
   PATH=/usr/local/cuda/bin:$PATH
 fi
 if [ -d /usr/lib/nvidia-current ]; then
-  LPATH=/usr/lib/nvidia-current:$LPATH
-  LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
-  LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
+  export LPATH=/usr/lib/nvidia-current:$LPATH
+  export LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
 fi
