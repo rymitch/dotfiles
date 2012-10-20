@@ -1,8 +1,8 @@
 # Tarsnap cache directory
-cachedir /Projects/SysBackup/tarsnap-cache
+cachedir ~/.tarsnap/cache
 
 # Tarsnap key file
-keyfile /Projects/SysBackup/tarsnap.key
+keyfile ~/.tarsnap/tarsnap.key
 
 # Don't archive files which have the nodump flag set
 nodump
