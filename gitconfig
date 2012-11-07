@@ -2,8 +2,9 @@
 	status = auto
 	branch = auto
 [alias]
-  la = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(cyan)%cD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)— %ae%C(reset)' --abbrev-commit
-  l = !"git --no-pager la --max-count=25 ; echo"
+  lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%cD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)— %ae%C(reset)' --abbrev-commit
+  la = !"git lg --all ; echo"
+  l = !"git --no-pager lg --max-count=25 ; echo"
   dm = !"git diffall"
   st = status -sb
 [diff]
