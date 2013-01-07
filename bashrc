@@ -58,6 +58,10 @@ if [ -d "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2
   export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}
 fi
 
+# Git tab completion from bash.
+
+[[ -s "$HOME/bin/git-completion.bash" ]] && source "$HOME/bin/git-completion.bash"
+
 # Ruby RVM
 
 if [ -d "${HOME}/.rvm" ]; then
