@@ -62,6 +62,11 @@ fi
 
 [[ -s "$HOME/bin/git-completion.bash" ]] && source "$HOME/bin/git-completion.bash"
 
+_git_dm()
+{
+  _git_branch
+}
+
 # Ruby RVM
 
 if [ -d "${HOME}/.rvm" ]; then
