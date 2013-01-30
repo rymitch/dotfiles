@@ -7,6 +7,8 @@
   l = !"git --no-pager lg --max-count=25 ; echo"
   dm = !"git diffall"
   st = status -sb
+[push]
+  default = current
 [diff]
   tool = diffmerge
 [difftool "diffmerge"]
