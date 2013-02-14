@@ -1,4 +1,4 @@
-# Ryan Mitchell's Dot Files
+# Dot Files
 
 ## Installation
 
