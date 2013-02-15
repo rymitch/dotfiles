@@ -82,6 +82,23 @@ fi
 
 umask 0027
 
+# CUDA
+
+if [ -d /usr/local/cuda/lib ]; then
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
+fi
+if [ -d /usr/local/cuda/lib64 ]; then
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+fi
+if [ -d /usr/local/cuda/bin ]; then
+  PATH=/usr/local/cuda/bin:$PATH
+fi
+if [ -d /usr/lib/nvidia-current ]; then
+  export LPATH=/usr/lib/nvidia-current:$LPATH
+  export LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
+fi
+
 # If not running interactively, don't do anything else.
 
 [ -z "$PS1" ] && return
@@ -151,21 +168,4 @@ fi
 
 if [ -f "${HOME}/.dotlocal/bash_private" ]; then
   source "${HOME}/.dotlocal/bash_private"
-fi
-
-# CUDA.
-
-if [ -d /usr/local/cuda/lib ]; then
-  export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
-fi
-if [ -d /usr/local/cuda/lib64 ]; then
-  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-fi
-if [ -d /usr/local/cuda/bin ]; then
-  PATH=/usr/local/cuda/bin:$PATH
-fi
-if [ -d /usr/lib/nvidia-current ]; then
-  export LPATH=/usr/lib/nvidia-current:$LPATH
-  export LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
-  export LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
 fi
