@@ -103,6 +103,25 @@ fi
 
 [ -z "$PS1" ] && return
 
+# Start the ssh-agent. From http://mah.everybody.org/docs/ssh.
+
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+   /usr/bin/ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
+   chmod 600 "${SSH_ENV}"
+   . "${SSH_ENV}" > /dev/null
+}
+
+if [ -f "${SSH_ENV}" ]; then
+   . "${SSH_ENV}" > /dev/null
+   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+       start_agent;
+   }
+else
+   start_agent;
+fi
+
 # Don't put duplicate lines in the history.
 # Ignore common commands.
 
