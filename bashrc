@@ -75,6 +75,9 @@ fi
 if [ -d "${HOME}/.gem/ruby/1.8/bin" ]; then
   PATH=$PATH:${HOME}/.gem/ruby/1.8/bin
 fi
+if [ -d "${HOME}/.gem/ruby/1.9.1/bin" ]; then
+  PATH=$PATH:${HOME}/.gem/ruby/1.9.1/bin
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
