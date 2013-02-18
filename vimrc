@@ -64,6 +64,12 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Wrap text in markdown files
+autocmd BufEnter *.md set wrap|set linebreak|set nolist
+
+" Change the location for vim temporary files
+set directory=~/.vimswap//
+
 " Keep more lines of context
 set scrolloff=3
 
