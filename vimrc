@@ -73,6 +73,10 @@ set directory=~/.vimswap//
 " Keep more lines of context
 set scrolloff=3
 
+" Move up/down by screen row instead of line
+nmap j gj
+nmap k gk
+
 " Make backspace delete lots of things
 set backspace=indent,eol,start
 
