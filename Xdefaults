@@ -9,6 +9,7 @@ URxvt.boldFont:    xft:Inconsolata:pixelsize=14
 
 URxvt.foreground:  rgb:2e/34/36
 URxvt.background:  rgb:ff/ff/ff
+URxvt*fading:      0
 
 # black
 URxvt.color0:      rgb:2e/34/36
