@@ -44,6 +44,9 @@ set mark-symlinked-directories on
 # Match all files
 set match-hidden-files on
 
+# Turn off bell
+set bell-style none
+
 # Allow 8-bit input/output
 #set meta-flag on
 #set convert-meta off
