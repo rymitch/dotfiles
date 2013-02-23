@@ -15,7 +15,7 @@ URxvt.color0:      rgb:2e/34/36
 URxvt.color8:      rgb:55/57/53
 
 # red
-URxvt.color1:      rgb:cc/00/00  
+URxvt.color1:      rgb:cc/00/00
 URxvt.color9:      rgb:ef/29/29
 
 # green
