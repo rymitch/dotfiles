@@ -1,0 +1,43 @@
+URxvt.geometry:    105x66
+URxvt.scrollBar:   false
+
+URxvt.cursorBlink: true
+URxvt.cursorColor: rgb:00/ff/00
+
+URxvt.font:        xft:Inconsolata:pixelsize=14
+URxvt.boldFont:    xft:Inconsolata:pixelsize=14
+
+URxvt.foreground:  rgb:2e/34/36
+URxvt.background:  rgb:ff/ff/ff
+
+# black
+URxvt.color0:      rgb:2e/34/36
+URxvt.color8:      rgb:55/57/53
+
+# red
+URxvt.color1:      rgb:cc/00/00  
+URxvt.color9:      rgb:ef/29/29
+
+# green
+URxvt.color2:      rgb:4e/9a/06
+URxvt.color10:     rgb:6e/b5/2a
+
+# brown/yellow
+URxvt.color3:      rgb:c4/a0/00
+URxvt.color11:     rgb:fc/e9/4f
+
+# blue
+URxvt.color4:      rgb:34/65/a4
+URxvt.color12:     rgb:66/8f/ba
+
+# magenta
+URxvt.color5:      rgb:75/50/7b
+URxvt.color13:     rgb:ad/7f/a8
+
+# cyan
+URxvt.color6:      rgb:06/98/9a
+URxvt.color14:     rgb:2f/cb/cb
+
+# white
+URxvt.color7:      rgb:d3/d7/cf
+URxvt.color15:     rgb:ee/ee/ec
