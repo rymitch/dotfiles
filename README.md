@@ -21,6 +21,7 @@ For now, this will work:
     ln -s .dotfiles/tarsnaprc ${HOME}/.tarsnaprc
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
+    ln -s .dotfiles/Xdefaults ${HOME}/.Xdefaults
 
 ## Why symlinks?
 
