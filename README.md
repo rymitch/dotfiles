@@ -22,6 +22,7 @@ For now, this will work:
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
     ln -s .dotfiles/Xdefaults ${HOME}/.Xdefaults
+    ln -s .dotfiles/XWinrc ${HOME}/.XWinrc
 
 ## Why symlinks?
 
