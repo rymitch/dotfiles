@@ -37,6 +37,10 @@ set show-all-if-unmodified on
 Control-j: menu-complete
 Control-k: menu-complete-backward
 
+# Bind the up arrow to history search, instead of history step
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
 # Append "/" to all dirnames
 set mark-directories on
 set mark-symlinked-directories on
