@@ -1,0 +1,2 @@
+# Leave empty so that no apps are started with the X server.
+# If this file is missing, then a single xterm will start.
