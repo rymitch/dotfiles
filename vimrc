@@ -207,4 +207,7 @@ endif
 let g:ctrlp_working_path_mode = 0
 nmap <silent> <leader>t :CtrlP<CR>
 
+" Open the yankring plugin with Leader-r.
+nnoremap <silent> <leader>r :YRShow<CR>
+
 " vim: set ts=2 sw=2 et:
