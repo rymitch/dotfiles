@@ -67,6 +67,9 @@ set smartcase
 " Wrap text in markdown files
 autocmd BufEnter *.md set wrap|set linebreak|set nolist
 
+" No syntax highlighting in FCS files
+autocmd BufEnter *.fcs set wrap|syntax off
+
 " Change the location for vim temporary files
 set directory=~/.vimswap//
 
