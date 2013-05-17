@@ -141,7 +141,7 @@ command! -nargs=1 Silent
 
 " Set the vimwiki path
 let g:vimwiki_list = [
-\ {'path': '~/.dotlocal/vimwiki/', 'path_html': '~/vimwiki_html/'}]
+\ {'path': '~/.dotlocal/vim/wiki/', 'path_html': '~/vimwiki_html/'}]
 
 " Set the vimwiki browser
 function! VimwikiWeblinkHandler(weblink) 
