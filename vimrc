@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 
 filetype off
-call pathogen#infect()
+call pathogen#infect('bundle/{}', '~/.dotlocal/vim/bundle/{}')
 filetype plugin indent on
 
 set viminfo='50,<1000,s100,:0,n~/.viminfo
