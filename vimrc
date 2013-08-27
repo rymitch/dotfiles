@@ -138,16 +138,6 @@ au BufEnter * :syntax sync minlines=500
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
-
-" Set the vimwiki path
-let g:vimwiki_list = [
-\ {'path': '~/.dotlocal/vim/wiki/', 'path_html': '~/vimwiki_html/'}]
-
-" Set the vimwiki browser
-function! VimwikiWeblinkHandler(weblink) 
-  execute ':Silent '.$BROWSER." ".a:weblink
-endfunction 
-
 "Convert between hex and decimal
 command! -nargs=? -range Dec2hex call s:Dec2hex(<line1>, <line2>, '<args>')
 function! s:Dec2hex(line1, line2, arg) range
