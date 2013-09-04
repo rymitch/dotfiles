@@ -12,6 +12,11 @@ elif [ -f /cygdrive/c/Program\ Files/SourceGear/Common/DiffMerge/sgdm.exe ]; the
   DIFFMERGE=/cygdrive/c/Program\ Files/SourceGear/Common/DiffMerge/sgdm.exe
   ARG1=`cygpath -aw "$1"`
   ARG2=`cygpath -aw "$2"`
+elif [ -f /cygdrive/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe ]; then
+  DIFFMERGE=/cygdrive/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe
+  ARG1=`cygpath -aw "$1"`
+  ARG2=`cygpath -aw "$2"`
+
 fi
 
 "$DIFFMERGE" "$ARG1" "$ARG2"
