@@ -27,6 +27,12 @@ fi
 if [ "$OSTYPE" = "cygwin" ] && [ -d "${HOME}/bin/win" ]; then
   PATH=${HOME}/bin/win:${PATH}
 fi
+if [ -d /cygdrive/c/Program\ Files/Oracle/VirtualBox ]; then
+  PATH=/cygdrive/c/Program\ Files/Oracle/VirtualBox:${PATH}
+fi
+if [ -d /cygdrive/c/HashiCorp/Vagrant/bin ]; then
+  PATH=/cygdrive/c/HashiCorp/Vagrant/bin:${PATH}
+fi
 
 # MANPATH environment variable
 
