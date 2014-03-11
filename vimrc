@@ -196,14 +196,11 @@ if has("unix")
   endif
 endif
 
-" Open the CtrlP plugin with Leader-p.
+" Open the CtrlP plugin with Leader-t.
 let g:ctrlp_working_path_mode = 0
 nmap <silent> <leader>t :CtrlP<CR>
 
-" Open the yankring plugin with Leader-r.
-nnoremap <silent> <leader>r :YRShow<CR>
-
-" Move the yankring history file out of $HOME.
-let g:yankring_history_dir = '$HOME/.vim'
+" Rewrap the current paragraph with Leader-r.
+nnoremap <silent> <leader>r gq}
 
 " vim: set ts=2 sw=2 et:
