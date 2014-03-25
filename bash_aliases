@@ -66,6 +66,10 @@ alias du='du -h'
 
 alias cls=clear
 
+# Start tmux in 256 color mode.
+
+alias tmux='tmux -2'
+
 # Retrieve my external IP address.
 
 alias myip='curl ifconfig.me'

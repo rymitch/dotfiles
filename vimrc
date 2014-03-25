@@ -28,10 +28,12 @@ set noerrorbells
 set vb t_vb=
 set printoptions=paper:letter
 set modelines=5
-set t_Co=256
-
 set sidescroll=1
 set sidescrolloff=3
+
+" 256 colors in xterm and tmux
+set t_Co=256
+hi Search cterm=NONE ctermbg=220
 
 " Change <Leader>
 let mapleader = ","
