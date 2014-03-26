@@ -20,6 +20,7 @@ For now, this will work:
     ln -s .dotfiles/screenrc ${HOME}/.screenrc
     ln -s .dotfiles/startxwinrc ${HOME}/.startxwinrc
     ln -s .dotfiles/tarsnaprc ${HOME}/.tarsnaprc
+    ln -s .dotfiles/tmux.conf ${HOME}/.tmux.conf
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
     ln -s .dotfiles/Xdefaults ${HOME}/.Xdefaults
