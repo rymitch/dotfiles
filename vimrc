@@ -205,4 +205,7 @@ nmap <silent> <leader>t :CtrlP<CR>
 " Rewrap the current paragraph with Leader-r.
 nnoremap <silent> <leader>r gq}
 
+" Realign the current line with Leader-e.
+nmap <silent> <leader>e :Align<CR>
+
 " vim: set ts=2 sw=2 et:
