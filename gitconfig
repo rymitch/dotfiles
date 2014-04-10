@@ -1,5 +1,6 @@
 [color]
-	status = auto
+	status = always
+
 	branch = auto
 [alias]
   lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
@@ -7,6 +8,7 @@
   l = !"git --no-pager lg --max-count=25 ; echo"
   dm = !"git difftool --dir-diff"
   st = status -sb
+  stp= !"git -c color.status=always status -sb | less -R"
 [push]
   default = current
 [diff]
