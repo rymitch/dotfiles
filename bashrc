@@ -36,9 +36,6 @@ fi
 if [ -d /cygdrive/c/Program\ Files/nodejs ]; then
   PATH=/cygdrive/c/Program\ Files/nodejs:${PATH}
 fi
-if [ -d `cygpath "$APPDATA\npm"` ]; then
-  PATH=`cygpath "$APPDATA\npm"`:${PATH}
-fi
 
 # MANPATH environment variable
 

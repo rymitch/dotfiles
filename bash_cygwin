@@ -47,4 +47,10 @@ if [ "$OSTYPE" = "cygwin" ]; then
   if [ -d /cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 10.0/Common7/Tools ]; then
     PATH=${PATH}:/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 10.0/Common7/Tools
   fi
+
+  # Node.js
+
+  if [ -d `cygpath "$APPDATA\npm"` ]; then
+    PATH=`cygpath "$APPDATA\npm"`:${PATH}
+  fi
 fi
