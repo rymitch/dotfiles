@@ -5,8 +5,8 @@ URxvt.scrollBar:   false
 URxvt.cursorBlink: true
 URxvt.cursorColor: rgb:00/ff/00
 
-URxvt.font:        xft:Inconsolata:pixelsize=14
-URxvt.boldFont:    xft:Inconsolata:pixelsize=14
+URxvt.font:        xft:Inconsolata:pixelsize=12
+URxvt.boldFont:    xft:Inconsolata:pixelsize=12
 
 URxvt.foreground:  rgb:2e/34/36
 URxvt.background:  rgb:ff/ff/ff
