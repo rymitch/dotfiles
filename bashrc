@@ -36,6 +36,9 @@ fi
 if [ -d /cygdrive/c/Program\ Files/nodejs ]; then
   PATH=/cygdrive/c/Program\ Files/nodejs:${PATH}
 fi
+if [ -d /usr/lib/lapack ]; then
+  PATH=${PATH}:/usr/lib/lapack
+fi
 
 # MANPATH environment variable
 
