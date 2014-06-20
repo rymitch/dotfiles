@@ -5,6 +5,10 @@ if [ "$OSTYPE" = "cygwin" ]; then
   source ${HOME}/.bash_cygwin
 fi
 
+# DISPLAY environment variable
+
+export DISPLAY=:0.0
+
 # PATH environment variable
 
 if [ -d "/usr/local/bin" ]; then
