@@ -208,4 +208,7 @@ nnoremap <silent> <leader>r gq}
 " Realign the current line with Leader-e.
 nmap <silent> <leader>e :Align<CR>
 
+" Configure vim-slime.
+let g:slime_target = "tmux"
+
 " vim: set ts=2 sw=2 et:
