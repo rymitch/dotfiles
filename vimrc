@@ -67,7 +67,7 @@ set ignorecase
 set smartcase
 
 " Wrap text in markdown files
-autocmd BufEnter *.md set wrap|set linebreak|set nolist
+autocmd BufEnter *.md set wrap|set linebreak|set nolist|set nofoldenable
 
 " No syntax highlighting in FCS files
 autocmd BufEnter *.fcs set wrap|syntax off
