@@ -1,0 +1,34 @@
+#/usr/bin/env bash
+
+# Find the dropbox folder.
+
+DROPBOX=~/Dropbox
+if [ -d /Projects/Dropbox ]; then
+  DROPBOX=/Projects/Dropbox
+fi
+if [ ! -d $DROPBOX ]; then
+  echo Error: Cannot find dropbox folder.
+  exit 1
+fi
+
+# Create the backup file name.
+
+REPO=$(basename $(pwd))
+NAME=$REPO.`date +%Y%m%d.%H%M%S`
+FULL=$DROPBOX/Bundles/$NAME
+
+# See if cwd is part of a git repository.
+
+GITREPO=1
+git status >/dev/null 2>&1 || GITREPO=0
+
+# Call git or hg to bundle the repository.
+
+if [ $GITREPO -eq 1 ]; then
+  git bundle create $FULL.git --all
+elif [ -d .hg ]; then
+  hg bundle --all $FULL.hg
+else
+  echo Error: Unrecognized repository.
+  exit 2
+fi
