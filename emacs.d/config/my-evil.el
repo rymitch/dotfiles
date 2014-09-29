@@ -49,4 +49,19 @@
     (setq evil-want-change-word-to-end t)
     ))
 
+(defun highlight-remove-all ()
+  (interactive)
+  (hi-lock-mode -1)
+  (hi-lock-mode 1))
+(defun search-highlight-persist ()
+  (highlight-regexp (car-safe (if isearch-regexp
+                                  regexp-search-ring
+                                search-ring)) (facep 'hi-yellow)))
+(defadvice isearch-exit (after isearch-hl-persist activate)
+  (highlight-remove-all)
+  (search-highlight-persist))
+(defadvice evil-search-incrementally (after evil-search-hl-persist activate)
+  (highlight-remove-all)
+  (search-highlight-persist))
+
 (provide 'my-evil)

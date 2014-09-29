@@ -45,4 +45,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (evil-fill-and-move beg end)))
 (evil-leader/set-key "r" 'reformat-current-paragraph)
 
+; Quit higlighting.
+(evil-leader/set-key "q" 'highlight-remove-all)
+
 (provide 'my-bindings)
