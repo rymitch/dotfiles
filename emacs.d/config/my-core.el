@@ -74,4 +74,7 @@
 ;; Highlight matching pairs of parentheses.
 (show-paren-mode 1)
 
+;; .ms files are scheme unit test files.
+(setq auto-mode-alist (cons '("\\.ms" . scheme-mode) auto-mode-alist))
+
 (provide 'my-core)
