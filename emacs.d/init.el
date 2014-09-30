@@ -17,5 +17,6 @@
 (require 'my-ag)
 (require 'my-elisp)
 (require 'my-evil)
+(require 'my-markdown)
 (require 'my-term)
 (require 'my-bindings)
