@@ -14,6 +14,7 @@
 (require 'use-package)
 
 (require 'my-core)
+(require 'my-ag)
 (require 'my-elisp)
 (require 'my-evil)
 (require 'my-term)

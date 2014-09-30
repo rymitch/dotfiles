@@ -7,4 +7,6 @@
 
 (evil-leader/set-key "`" 'visit-term-buffer)
 
+(evil-leader/set-key "a" 'ag-project)
+
 (provide 'my-bindings)
