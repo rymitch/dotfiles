@@ -43,6 +43,9 @@ fi
 if [ -d /usr/lib/lapack ]; then
   PATH=${PATH}:/usr/lib/lapack
 fi
+if [ -d /Projects/Ag ]; then
+  PATH=${PATH}:/Projects/Ag
+fi
 
 # MANPATH environment variable
 
