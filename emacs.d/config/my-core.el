@@ -53,7 +53,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 
 ;; This isn't a typewriter (even if it is a terminal); one space after sentences,
 ;; please.
@@ -68,13 +68,21 @@
 (when window-system
   (progn
     (set-face-attribute 'default nil :font "Consolas-10")
-    (set-frame-font "Consolas-10" nil t)
-))
+    (set-frame-font "Consolas-10" nil t)))
 
 ;; Highlight matching pairs of parentheses.
 (show-paren-mode 1)
 
 ;; .ms files are scheme unit test files.
 (setq auto-mode-alist (cons '("\\.ms" . scheme-mode) auto-mode-alist))
+
+;; Set the initial window size.
+
+(when window-system
+  (setq initial-frame-alist
+    `((top . 0)
+      (left . 0)
+      (width . 112)
+      (height . 64))))
 
 (provide 'my-core)
