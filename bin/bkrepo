@@ -6,6 +6,9 @@ DROPBOX=~/Dropbox
 if [ -d /Projects/Dropbox ]; then
   DROPBOX=/Projects/Dropbox
 fi
+if [ -d /Volumes/home/Dropbox ]; then
+  DROPBOX=/Volumes/home/Dropbox
+fi
 if [ ! -d $DROPBOX ]; then
   echo Error: Cannot find dropbox folder.
   exit 1
