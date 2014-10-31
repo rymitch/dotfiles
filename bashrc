@@ -14,37 +14,17 @@ export DISPLAY=:0.0
 if [ -d "/usr/local/bin" ]; then
   PATH=/usr/local/bin:${PATH}
 fi
-
 if [ -d /opt/local/sbin ]; then
   PATH=/opt/local/sbin:${PATH}
 fi
 if [ -d /opt/local/bin ]; then
   PATH=/opt/local/bin:${PATH}
 fi
-
 if [ -d "${HOME}/bin" ]; then
   PATH=${HOME}/bin:${PATH}
 fi
-if [ "$OSTYPE" = "darwin11" ] && [ -d "${HOME}/bin/osx" ]; then
-  PATH=${HOME}/bin/osx:${PATH}
-fi
-if [ "$OSTYPE" = "cygwin" ] && [ -d "${HOME}/bin/win" ]; then
-  PATH=${HOME}/bin/win:${PATH}
-fi
-if [ -d /cygdrive/c/Program\ Files/Oracle/VirtualBox ]; then
-  PATH=/cygdrive/c/Program\ Files/Oracle/VirtualBox:${PATH}
-fi
-if [ -d /cygdrive/c/HashiCorp/Vagrant/bin ]; then
-  PATH=/cygdrive/c/HashiCorp/Vagrant/bin:${PATH}
-fi
-if [ -d /cygdrive/c/Program\ Files/nodejs ]; then
-  PATH=/cygdrive/c/Program\ Files/nodejs:${PATH}
-fi
-if [ -d /usr/lib/lapack ]; then
-  PATH=${PATH}:/usr/lib/lapack
-fi
-if [ -d /Projects/Ag ]; then
-  PATH=${PATH}:/Projects/Ag
+if [ -d "${HOME}/local/bin" ]; then
+  PATH=${HOME}/local/bin:${PATH}
 fi
 
 # MANPATH environment variable
@@ -58,6 +38,9 @@ fi
 if [ -d "${HOME}/man" ]; then
   export MANPATH=${HOME}/man:${MANPATH}
 fi
+if [ -d "${HOME}/local/man" ]; then
+  export MANPATH=${HOME}/local/man:${MANPATH}
+fi
 
 # INFOPATH environment variable
 
@@ -69,6 +52,9 @@ if [ -d "/opt/local/info" ]; then
 fi
 if [ -d "${HOME}/info" ]; then
   export INFOPATH=${HOME}/info:${INFOPATH}
+fi
+if [ -d "${HOME}/local/info" ]; then
+  export INFOPATH=${HOME}/local/info:${INFOPATH}
 fi
 
 # PYTHONPATH environment variable
@@ -85,20 +71,6 @@ _git_dm()
 {
   _git_branch
 }
-
-# Ruby RVM
-
-if [ -d "${HOME}/.rvm" ]; then
-  PATH=$PATH:$HOME/.rvm/bin
-fi
-if [ -d "${HOME}/.gem/ruby/1.8/bin" ]; then
-  PATH=$PATH:${HOME}/.gem/ruby/1.8/bin
-fi
-if [ -d "${HOME}/.gem/ruby/1.9.1/bin" ]; then
-  PATH=$PATH:${HOME}/.gem/ruby/1.9.1/bin
-fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # User has read/write, group has read, other has none.
 
