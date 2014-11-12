@@ -21,26 +21,25 @@ function mkcd () {
 
 if command_exists gls ; then
 
-  # This is probably OSX with MacPorts, where GNU ls
-  # is installed as gls.
+  # When GNU coreutils is available and installed with
+  # a 'g' prefix, then use gls.
 
   alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
   alias dir='LC_COLLATE=C gls -ahlF --color=auto --group-directories-first'
 
-elif [ `uname` == "Darwin" ]; then
+elif [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
 
-  # OSX base install. GNU ls is not available.
+  # BSD style options.
 
   alias ls='LC_COLLATE=C ls -hFG'
   alias dir='LC_COLLATE=C ls -ahlFG'
 
 else
 
-  # In most other circumstances, it should be safe
-  # to assume that GNU ls is available.
+  # Not certain - assume that this is GNU ls.
 
-  alias ls='LC_COLLATE=C ls -hF --color=auto --group-directories-first'
-  alias dir='LC_COLLATE=C ls -ahlF --color=auto --group-directories-first'
+  alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C gls -ahlF --color=auto --group-directories-first'
 
 fi
 
