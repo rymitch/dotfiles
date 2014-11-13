@@ -21,8 +21,8 @@ function mkcd () {
 
 if command_exists gls ; then
 
-  # When GNU coreutils is available and installed with
-  # a 'g' prefix, then use gls.
+  # When GNU coreutils is installed with a
+  # 'g' prefix, then use gls.
 
   alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
   alias dir='LC_COLLATE=C gls -ahlF --color=auto --group-directories-first'
@@ -34,12 +34,20 @@ elif [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
   alias ls='LC_COLLATE=C ls -hFG'
   alias dir='LC_COLLATE=C ls -ahlFG'
 
+elif [ "$OSTYPE" = "cygwin" ]; then
+
+  # Cygwin uses GNU coreutils.
+
+  alias ls='LC_COLLATE=C ls -hF --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C ls -ahlF --color=auto --group-directories-first'
+
 else
 
-  # Not certain - assume that this is GNU ls.
+  # It is unclear which variant of 'ls' is
+  # available. Fall back to safe defaults.
 
-  alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
-  alias dir='LC_COLLATE=C gls -ahlF --color=auto --group-directories-first'
+  alias ls='ls -F'
+  alias dir='ls -alF'
 
 fi
 
