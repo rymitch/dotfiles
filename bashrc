@@ -175,6 +175,12 @@ export PS2="\[\e[1;31m\]\h:\w> \[\e[m\]"
 
 export PROMPT_COMMAND="history -a"
 
+# Load "z". Make sure this happens after setting PROMPT_COMMAND.
+
+if [[ -s "$HOME/local/src/z/z.sh" ]]; then
+  source "$HOME/local/src/z/z.sh"
+fi
+
 # Load aliases.
 
 if [ -f "${HOME}/.bash_aliases" ]; then
