@@ -102,7 +102,7 @@ fi
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
-   /usr/bin/ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
+   ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
    chmod 600 "${SSH_ENV}"
    . "${SSH_ENV}" > /dev/null
 }
