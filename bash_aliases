@@ -34,7 +34,7 @@ elif [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
   alias ls='LC_COLLATE=C ls -hFG'
   alias dir='LC_COLLATE=C ls -ahlFG'
 
-elif [ "$OSTYPE" = "cygwin" ]; then
+elif [ "$OSTYPE" = "cygwin" -o $(uname) == "Linux" ]; then
 
   # Cygwin uses GNU coreutils.
 
