@@ -77,6 +77,10 @@ alias cls=clear
 
 alias tmux='tmux -2'
 
+# Emacs
+
+alias e='emacsclient -n'
+
 # Retrieve my external IP address.
 
 alias myip='curl ifconfig.me'
