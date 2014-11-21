@@ -14,7 +14,7 @@
 (require 'use-package)
 
 (require 'my-core)
-(require 'my-linum)
+; Too slow! (require 'my-linum)
 (require 'my-ag)
 (require 'my-elisp)
 (require 'my-evil)
