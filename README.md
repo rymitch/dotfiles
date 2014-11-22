@@ -15,6 +15,7 @@ For now, this will work:
     ln -s .dotfiles/emacs.d ${HOME}/.emacs.d
     ln -s .dotfiles/gitconfig ${HOME}/.gitconfig
     ln -s .dotfiles/hgrc ${HOME}/.hgrc
+    ln -s .dotfiles/i3 ${HOME}/.i3
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/profile ${HOME}/.profile
