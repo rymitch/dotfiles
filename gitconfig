@@ -10,7 +10,8 @@
   l = !"git --no-pager lg --max-count=25 ; echo"
   dm = !"git difftool --dir-diff"
   st = status -sb
-  stp= !"git -c color.status=always status -sb | less -R"
+  stp = !"git -c color.status=always status -sb | less -R"
+  serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 [push]
   default = current
 [diff]
