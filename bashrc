@@ -70,6 +70,10 @@ fi
 
 [[ -s "$HOME/bin/git-completion.bash" ]] && source "$HOME/bin/git-completion.bash"
 
+# AWS bash tab completion.
+
+[[ -x $(which aws_completer) ]] && complete -C aws_completer aws
+
 _git_dm()
 {
   _git_branch
