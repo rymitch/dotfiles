@@ -72,7 +72,7 @@ fi
 
 # AWS bash tab completion.
 
-[[ -x $(which aws_completer) ]] && complete -C aws_completer aws
+command -v aws_completer >/dev/null && complete -C aws_completer aws
 
 _git_dm()
 {
