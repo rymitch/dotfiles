@@ -5,6 +5,8 @@ if [ "$OSTYPE" = "cygwin" ]; then
   source ${HOME}/.bash_cygwin
 fi
 
+exists() { type -t "$1" > /dev/null 2>&1; }
+
 # DISPLAY environment variable
 
 export DISPLAY=:0.0
@@ -66,9 +68,27 @@ if [ -d "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2
   export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}
 fi
 
-# Git tab completion from bash.
+# Tab completion.
 
-[[ -s "$HOME/bin/git-completion.bash" ]] && source "$HOME/bin/git-completion.bash"
+if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/git-completion.bash" ]]; then
+. "`brew --prefix`/etc/bash_completion.d/git-completion.bash"
+elif [[ -f /etc/bash_completion.d/git ]]; then
+. /etc/bash_completion.d/git
+fi
+
+if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/hg-completion.bash" ]]; then
+. "`brew --prefix`/etc/bash_completion.d/hg-completion.bash"
+elif [[ -f /etc/bash_completion.d/hg ]]; then
+. /etc/bash_completion.d/hg
+fi
+
+if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/docker" ]]; then
+. "`brew --prefix`/etc/bash_completion.d/docker"
+fi
+
+if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/npm" ]]; then
+. "`brew --prefix`/etc/bash_completion.d/npm"
+fi
 
 # AWS bash tab completion.
 
