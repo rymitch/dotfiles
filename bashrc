@@ -72,20 +72,13 @@ fi
 
 if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/git-completion.bash" ]]; then
 . "`brew --prefix`/etc/bash_completion.d/git-completion.bash"
-elif [[ -f /etc/bash_completion.d/git ]]; then
-. /etc/bash_completion.d/git
 fi
-
 if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/hg-completion.bash" ]]; then
 . "`brew --prefix`/etc/bash_completion.d/hg-completion.bash"
-elif [[ -f /etc/bash_completion.d/hg ]]; then
-. /etc/bash_completion.d/hg
 fi
-
 if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/docker" ]]; then
 . "`brew --prefix`/etc/bash_completion.d/docker"
 fi
-
 if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/npm" ]]; then
 . "`brew --prefix`/etc/bash_completion.d/npm"
 fi
@@ -189,9 +182,9 @@ set -o ignoreeof
 # enhancements. Any completions you add in ~/.bash_completion
 # are sourced last.
 
-case $- in
-  *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion ;;
-esac
+# case $- in
+#   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion ;;
+# esac
 
 # Prompts.
 
