@@ -19,8 +19,8 @@ EOF
 # Copy stdin to a temporary file. Emacs can't deal with stdin.
 
 working=$tempdir/$(basename $0).$(date +%Y%m%d.%H%M%S).ss
-while read input; do
-  echo $input >>$working
+while read -r input; do
+  echo "$input" >>$working
 done
 
 # Call Emacs in batch mode to reformat the file.
