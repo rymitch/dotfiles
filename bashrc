@@ -197,8 +197,8 @@ export PROMPT_COMMAND="history -a"
 
 # Load "z". Make sure this happens after setting PROMPT_COMMAND.
 
-if [[ -s "$HOME/local/src/z/z.sh" ]]; then
-  source "$HOME/local/src/z/z.sh"
+if [[ -s "$HOME/local/share/z/z.sh" ]]; then
+  source "$HOME/local/share/z/z.sh"
 fi
 
 # Load aliases.
