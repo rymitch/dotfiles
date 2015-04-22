@@ -4,6 +4,8 @@ FontHeight=10
 CursorType=block
 Columns=105
 Rows=66
+Locale=en_US
+Charset=UTF-8
 
 ForegroundColour=46,52,54
 BackgroundColour=255,255,255
