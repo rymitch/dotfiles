@@ -1,9 +1,17 @@
-# Customize the environment for Cygwin. This must execute
-# before any other commands that modify PATH.
+# Customize the environment for Cygwin. This must
+# execute before any other commands that modify PATH.
 
 if [ "$OSTYPE" = "cygwin" ]; then
   source ${HOME}/.bash_cygwin
 fi
+
+# Load .bash_local, if it exists.
+
+if [ -f "${HOME}/.bash_local" ]; then
+  source "${HOME}/.bash_local"
+fi
+
+# Does the command exist?
 
 exists() { type -t "$1" > /dev/null 2>&1; }
 
