@@ -214,9 +214,3 @@ fi
 if [ -f "${HOME}/.bash_aliases" ]; then
   source "${HOME}/.bash_aliases"
 fi
-
-# Load any existing private configuration.
-
-if [ -f "${HOME}/.dotlocal/bash_private" ]; then
-  source "${HOME}/.dotlocal/bash_private"
-fi
