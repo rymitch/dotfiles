@@ -5,6 +5,7 @@
 	status = always
 	branch = auto
 [alias]
+  cab = !"f() { git push $2 refs/remotes/$1/*:refs/heads/*; }; f origin thumb"
   lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
   la = !"git lg --all ; echo"
   l = !"git --no-pager lg --max-count=25 ; echo"
