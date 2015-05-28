@@ -1,80 +1,77 @@
-# Customize the environment for Cygwin. This must
-# execute before any other commands that modify PATH.
-
-if [ "$OSTYPE" = "cygwin" ]; then
-  source ${HOME}/.bash_cygwin
-fi
-
-# Load .bash_local, if it exists.
-
-if [ -f "${HOME}/.bash_local" ]; then
-  source "${HOME}/.bash_local"
-fi
-
 # Does the command exist?
 
 exists() { type -t "$1" > /dev/null 2>&1; }
 
-# DISPLAY environment variable
+# Add to the path, if the directory exists and it is
+# not already in the path.
 
-export DISPLAY=:0.0
+path-append() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="${PATH:+"$PATH:"}$1"
+  fi
+}
 
-# PATH environment variable
+# Don't put duplicate lines in the history. Ignore
+# common commands.
 
-if [ -d "/usr/local/bin" ]; then
-  PATH=/usr/local/bin:${PATH}
-fi
-if [ -d /opt/local/sbin ]; then
-  PATH=/opt/local/sbin:${PATH}
-fi
-if [ -d /opt/local/bin ]; then
-  PATH=/opt/local/bin:${PATH}
-fi
-if [ -d /usr/pkg/bin ]; then
-  PATH=/usr/pkg/bin:${PATH}
-fi
-if [ -d "${HOME}/bin" ]; then
-  PATH=${HOME}/bin:${PATH}
-fi
-if [ -d "${HOME}/local/bin" ]; then
-  PATH=${HOME}/local/bin:${PATH}
-fi
+export HISTCONTROL="ignoreboth"
+export HISTIGNORE="[   ]*:&:bg:fg:exit"
 
-# MANPATH environment variable
+# Append to the history file (don't overwrite it).
 
-if [ -d "/usr/local/man" ]; then
-  export MANPATH=/usr/local/man:${MANPATH}
-fi
-if [ -d "/opt/local/man" ]; then
-  export MANPATH=/opt/local/man:${MANPATH}
-fi
-if [ -d "${HOME}/man" ]; then
-  export MANPATH=${HOME}/man:${MANPATH}
-fi
-if [ -d "${HOME}/local/man" ]; then
-  export MANPATH=${HOME}/local/man:${MANPATH}
+shopt -s histappend
+
+# Whenever displaying the prompt, write the previous
+# line to disk. Make sure to do this prior to sourcing
+# ~/local/etc/bashrc.
+
+export PROMPT_COMMAND="history -a"
+
+# Prompts.
+
+export PS1="\[\e[0;32m\]\h:\w\$ \[\e[m\]"
+export PS2="\[\e[1;31m\]\h:\w> \[\e[m\]"
+
+# Load the local bashrc.
+
+if [ -f "$HOME/local/etc/bashrc" ]; then
+  source "$HOME/local/etc/bashrc"
 fi
 
-# INFOPATH environment variable
+# On cygwin, ignore some specific parts of the
+# environment that don't translate well.
 
-if [ -d "/usr/local/info" ]; then
-  export INFOPATH=/usr/local/info:${INFOPATH}
-fi
-if [ -d "/opt/local/info" ]; then
-  export INFOPATH=/opt/local/info:${INFOPATH}
-fi
-if [ -d "${HOME}/info" ]; then
-  export INFOPATH=${HOME}/info:${INFOPATH}
-fi
-if [ -d "${HOME}/local/info" ]; then
-  export INFOPATH=${HOME}/local/info:${INFOPATH}
+if [ "$OSTYPE" = "cygwin" ]; then
+  unset PATH
+  unset VIM
 fi
 
-# PYTHONPATH environment variable
+# Load aliases.
 
-if [ -d "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages" ]; then
-  export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}
+if [ -f "$HOME/.bash_aliases" ]; then
+  source "$HOME/.bash_aliases"
 fi
+
+# Load .bash_local, if it exists.
+
+if [ -f "$HOME/.bash_local" ]; then
+  source "$HOME/.bash_local"
+fi
+
+# Update PATH.
+
+path-append /usr/local/bin
+path-append /usr/bin
+path-append /bin
+path-append /usr/sbin
+path-append /sbin
+path-append /opt/X11/bin
+path-append $HOME/local/bin
+path-append $HOME/bin
+path-append /cygdrive/c/Windows/system32
+path-append /cygdrive/c/Windows
+path-append /cygdrive/c/Windows/System32/Wbem
+path-append /cygdrive/c/Windows/System32/WindowsPowerShell/v1.0
 
 # Tab completion.
 
@@ -104,23 +101,6 @@ _git_dm()
 
 umask 0027
 
-# CUDA
-
-if [ -d /usr/local/cuda/lib ]; then
-  export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
-fi
-if [ -d /usr/local/cuda/lib64 ]; then
-  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-fi
-if [ -d /usr/local/cuda/bin ]; then
-  PATH=/usr/local/cuda/bin:$PATH
-fi
-if [ -d /usr/lib/nvidia-current ]; then
-  export LPATH=/usr/lib/nvidia-current:$LPATH
-  export LIBRARY_PATH=/usr/lib/nvidia-current:$LIBRARY_PATH
-  export LD_LIBRARY_PATH=/usr/lib/nvidia-current:$LD_LIBRARY_PATH
-fi
-
 # If not running interactively, don't do anything else.
 
 [ -z "$PS1" ] && return
@@ -144,12 +124,6 @@ else
    start_agent;
 fi
 
-# Don't put duplicate lines in the history.
-# Ignore common commands.
-
-export HISTCONTROL="ignoreboth"
-export HISTIGNORE="[   ]*:&:bg:fg:exit"
-
 # Set the default editor.
 
 export EDITOR=vim
@@ -159,10 +133,6 @@ export EDITOR=vim
 if [ -n "$USERPROFILE" ]; then
   export BROWSER=`cygpath "$USERPROFILE"`/AppData/Local/Google/Chrome/Application/chrome.exe
 fi
-
-# Append to the history file (don't overwrite it).
-
-shopt -s histappend
 
 # When changing directory small typos can be ignored by bash.
 # For example, cd /vr/lgo/apaache would find /var/log/apache.
@@ -193,24 +163,3 @@ set -o ignoreeof
 # case $- in
 #   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion ;;
 # esac
-
-# Prompts.
-
-export PS1="\[\e[0;32m\]\h:\w\$ \[\e[m\]"
-export PS2="\[\e[1;31m\]\h:\w> \[\e[m\]"
-
-# Whenever displaying the prompt, write the previous line to disk.
-
-export PROMPT_COMMAND="history -a"
-
-# Load "z". Make sure this happens after setting PROMPT_COMMAND.
-
-if [[ -s "$HOME/local/share/z/z.sh" ]]; then
-  source "$HOME/local/share/z/z.sh"
-fi
-
-# Load aliases.
-
-if [ -f "${HOME}/.bash_aliases" ]; then
-  source "${HOME}/.bash_aliases"
-fi
