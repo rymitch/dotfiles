@@ -46,18 +46,6 @@ if [ "$OSTYPE" = "cygwin" ]; then
   unset VIM
 fi
 
-# Load aliases.
-
-if [ -f "$HOME/.bash_aliases" ]; then
-  source "$HOME/.bash_aliases"
-fi
-
-# Load .bash_local, if it exists.
-
-if [ -f "$HOME/.bash_local" ]; then
-  source "$HOME/.bash_local"
-fi
-
 # Update PATH.
 
 path-append /usr/local/bin
@@ -72,6 +60,18 @@ path-append /cygdrive/c/Windows/system32
 path-append /cygdrive/c/Windows
 path-append /cygdrive/c/Windows/System32/Wbem
 path-append /cygdrive/c/Windows/System32/WindowsPowerShell/v1.0
+
+# Load aliases.
+
+if [ -f "$HOME/.bash_aliases" ]; then
+  source "$HOME/.bash_aliases"
+fi
+
+# Load .bash_local, if it exists.
+
+if [ -f "$HOME/.bash_local" ]; then
+  source "$HOME/.bash_local"
+fi
 
 # Tab completion.
 
