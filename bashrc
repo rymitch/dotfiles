@@ -41,8 +41,8 @@ fi
 # On cygwin, ignore some specific parts of the
 # environment that don't translate well.
 
-if [ "$OSTYPE" = "cygwin" ]; then
-  unset PATH
+if [ "$OSTYPE" == "cygwin" ]; then
+  export PATH=/usr/local/bin:/usr/bin
   unset VIM
 fi
 
@@ -50,9 +50,9 @@ fi
 
 path-append /usr/local/bin
 path-append /usr/bin
-path-append /bin
+[ "$OSTYPE" != "cygwin" ] && path-append /bin
 path-append /usr/sbin
-path-append /sbin
+[ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
 path-append $HOME/local/bin
 path-append $HOME/bin
