@@ -1,4 +1,5 @@
-BoldAsFont=no
+BoldAsColour=yes
+BoldAsFont=yes
 Font=Consolas
 FontHeight=10
 CursorType=block
