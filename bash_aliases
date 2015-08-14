@@ -71,7 +71,8 @@ alias du='du -h'
 
 # Clear the screen.
 
-alias cls=clear
+alias clear='printf "\033c"'
+alias cls='printf "\033c"'
 
 # Start tmux in 256 color mode.
 
