@@ -5,17 +5,17 @@
 	status = always
 	branch = auto
 [alias]
-  cab = !"f() { git push $2 refs/remotes/$1/*:refs/heads/*; }; f origin thumb"
-  lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
-  la = !"git lg --all ; echo"
-  l = !"git --no-pager lg --max-count=25 ; echo"
-  dm = !"git difftool --dir-diff"
-  st = status -sb
-  stp = !"git -c color.status=always status -sb | less -R"
-  serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+	cab = !"f() { git push $2 refs/remotes/$1/*:refs/heads/*; }; f origin thumb"
+	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
+	la = !"git lg --all ; echo"
+	l = !"git --no-pager lg --max-count=25 ; echo"
+	dm = !"git difftool --dir-diff"
+	st = status -sb
+	stp = !"git -c color.status=always status -sb | less -R"
+	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 [push]
-  default = current
+	default = current
 [diff]
-  tool = diffmerge
+	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
