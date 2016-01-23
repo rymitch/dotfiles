@@ -10,12 +10,6 @@ command_exists () {
   type "$1" &> /dev/null ;
 }
 
-# Create a directory and chdir into it.
-
-function mkcd () {
-  mkdir -p "$@" && eval cd "\"\$$#\"" ;
-}
-
 # Aliases for 'ls'. The specific flags depend
 # on whether the system has BSD ls or GNU ls.
 
@@ -90,7 +84,3 @@ alias e='emacsclient -n'
 
 alias myip='curl ifconfig.me'
 alias myhost='curl ifconfig.me/host'
-
-# Count lines.
-
-alias lncn='wc -l `find . -type f -name "*"`'

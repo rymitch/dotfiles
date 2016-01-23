@@ -14,18 +14,13 @@ For now, this will work:
     ln -s .dotfiles/emacs.d ${HOME}/.emacs.d
     ln -s .dotfiles/gitconfig ${HOME}/.gitconfig
     ln -s .dotfiles/hgrc ${HOME}/.hgrc
-    ln -s .dotfiles/i3 ${HOME}/.i3
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/profile ${HOME}/.profile
-    ln -s .dotfiles/screenrc ${HOME}/.screenrc
-    ln -s .dotfiles/startxwinrc ${HOME}/.startxwinrc
     ln -s .dotfiles/tarsnaprc ${HOME}/.tarsnaprc
     ln -s .dotfiles/tmux.conf ${HOME}/.tmux.conf
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
-    ln -s .dotfiles/Xdefaults ${HOME}/.Xdefaults
-    ln -s .dotfiles/XWinrc ${HOME}/.XWinrc
 
 ## Why symlinks?
 
