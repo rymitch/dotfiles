@@ -16,7 +16,7 @@ fi
 
 # Create the backup file name.
 
-REPO=$(basename $(pwd))
+REPO=$(basename $(dirname $(pwd)))-$(basename $(pwd))
 NAME=$REPO.`date +%Y%m%d.%H%M%S`
 FULL=$DROPBOX/Bundles/$NAME
 
