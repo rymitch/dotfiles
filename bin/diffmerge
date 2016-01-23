@@ -4,6 +4,10 @@ if [ -f /usr/bin/diffmerge ]; then
   DIFFMERGE=/usr/bin/diffmerge
   ARG1=$1
   ARG2=$2
+elif [ -f /usr/local/bin/diffmerge ]; then
+  DIFFMERGE=/usr/local/bin/diffmerge
+  ARG1=$1
+  ARG2=$2
 elif [ -f /Applications/DiffMerge.app/Contents/Resources/diffmerge.sh ]; then
   DIFFMERGE=/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh
   ARG1=$1
