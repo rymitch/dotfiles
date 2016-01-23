@@ -69,6 +69,10 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias du='du -h'
 
+# Floating point math in bc.
+
+alias bc='bc -l'
+
 # Clear the screen.
 
 alias clear='printf "\033c"'
