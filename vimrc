@@ -10,9 +10,7 @@ set timeoutlen=300
 
 " Set some basic global defaults.
 set viminfo='50,<1000,s100,:0,n~/.viminfo
-set history=1000
 set notitle
-set autoindent
 set nobackup
 set mousehide
 set nofoldenable
@@ -36,9 +34,6 @@ set smartcase
 " Move up/down by screen row instead of line.
 nmap j gj
 nmap k gk
-
-" Make backspace delete lots of things.
-set backspace=indent,eol,start
 
 " Allow switching edited buffers without saving.
 set hidden
@@ -68,10 +63,6 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 vnoremap <C-e> 3<C-e>
 vnoremap <C-y> 3<C-y>
-
-" Bash-like filename completion.
-set wildmenu
-set wildmode=list:longest
 
 " Wrap text in Markdown files.
 autocmd BufEnter *.md set wrap|set linebreak|set nolist|set nofoldenable
