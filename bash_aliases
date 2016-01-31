@@ -18,8 +18,8 @@ if command_exists gls ; then
   # When GNU coreutils is installed with a
   # 'g' prefix, then use gls.
 
-  alias ls='LC_COLLATE=C gls -hF --color=auto --group-directories-first'
-  alias dir='LC_COLLATE=C gls -ahlFL --color=auto --group-directories-first'
+  alias ls='LC_COLLATE=C gls -hFN --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C gls -ahlFNL --color=auto --group-directories-first'
 
 elif [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
 
