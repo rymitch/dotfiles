@@ -93,6 +93,10 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 " Configure ctrlp.
 let g:ctrlp_working_path_mode = 'ra'
 nmap <silent> <leader>t :CtrlP<CR>
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 " Paste from the clipboard with leader-v.
 function! GetClipMac()
