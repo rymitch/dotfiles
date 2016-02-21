@@ -7,8 +7,16 @@ exists() { type -t "$1" > /dev/null 2>&1; }
 
 path-append() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    path-remove $1
     PATH="${PATH:+"$PATH:"}$1"
   fi
+}
+path-prepend() {
+  path-remove $1
+  PATH="$1:$PATH"
+}
+path-remove() {
+  export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`;
 }
 
 # Don't put duplicate lines in the history. Ignore
@@ -46,9 +54,16 @@ if [ "$OSTYPE" == "cygwin" ]; then
   unset VIM
 fi
 
+# Homebrew can be picky about the versions of utilities
+# that it uses. Make sure that /usr/local/bin is first in
+# the path. Pkgsrc should come next.
+
+path-prepend /opt/pkg/bin
+path-prepend /opt/pkg/sbin
+path-prepend /usr/local/bin
+
 # Update PATH.
 
-path-append /usr/local/bin
 path-append /usr/bin
 [ "$OSTYPE" != "cygwin" ] && path-append /bin
 path-append /usr/sbin
@@ -151,6 +166,12 @@ set -o vi
 # Don't use Ctrl+D to exit the interactive shell.
 
 set -o ignoreeof
+
+# Initialize pyenv.
+
+if exists pyenv; then
+  eval "$(pyenv init -)"
+fi
 
 # Make less more friendly for non-text input files.
 
