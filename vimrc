@@ -14,6 +14,7 @@ set notitle
 set nobackup
 set mousehide
 set nofoldenable
+set nojoinspaces
 set nowrap
 set wildchar=^I
 set ts=2
