@@ -18,3 +18,5 @@
 	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
+[rebase]
+	autosquash = true
