@@ -177,6 +177,15 @@ if exists pyenv-virtualenv; then
 fi
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
+# Initialize rvm.
+
+path-append $HOME/.rvm/bin
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 # Make less more friendly for non-text input files.
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
