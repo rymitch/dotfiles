@@ -172,6 +172,10 @@ set -o ignoreeof
 if exists pyenv; then
   eval "$(pyenv init -)"
 fi
+if exists pyenv-virtualenv; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # Make less more friendly for non-text input files.
 
