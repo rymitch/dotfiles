@@ -182,8 +182,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 path-append $HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-if which ruby >/dev/null && which gem >/dev/null; then
+if exists ruby; then
+  if exists gem; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  fi
 fi
 
 # Make less more friendly for non-text input files.
