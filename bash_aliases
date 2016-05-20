@@ -84,3 +84,7 @@ alias e='emacsclient -n'
 
 alias myip='curl ifconfig.me'
 alias myhost='curl ifconfig.me/host'
+
+# SSH to tmux.
+
+function sshmux() { ssh -t "$@" "tmux attach || tmux new"; }
