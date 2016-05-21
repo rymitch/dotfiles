@@ -169,13 +169,17 @@ set -o ignoreeof
 
 # Initialize pyenv.
 
+if [ -d ${HOME}/.pyenv ] ; then
+  export PYENV_ROOT=${HOME}/.pyenv
+  export PATH=${PYENV_ROOT}/bin:$PATH
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+fi
 if exists pyenv; then
   eval "$(pyenv init -)"
 fi
 if exists pyenv-virtualenv; then
   eval "$(pyenv virtualenv-init -)"
 fi
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # Initialize rvm.
 
