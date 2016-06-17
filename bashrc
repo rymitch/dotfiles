@@ -30,8 +30,7 @@ export HISTIGNORE="[   ]*:&:bg:fg:exit"
 shopt -s histappend
 
 # Whenever displaying the prompt, write the previous
-# line to disk. Make sure to do this prior to sourcing
-# ~/local/etc/bashrc.
+# line to disk.
 
 export PROMPT_COMMAND="history -a"
 
@@ -39,12 +38,6 @@ export PROMPT_COMMAND="history -a"
 
 export PS1="\[\e[0;32m\]\h:\w\$ \[\e[m\]"
 export PS2="\[\e[1;31m\]\h:\w> \[\e[m\]"
-
-# Load the local bashrc.
-
-if [ -f "$HOME/local/etc/bashrc" ]; then
-  source "$HOME/local/etc/bashrc"
-fi
 
 # On cygwin, ignore some specific parts of the
 # environment that don't translate well.
@@ -54,22 +47,14 @@ if [ "$OSTYPE" == "cygwin" ]; then
   unset VIM
 fi
 
-# Homebrew can be picky about the versions of utilities
-# that it uses. Make sure that /usr/local/bin is first in
-# the path. Pkgsrc should come next.
-
-path-prepend /opt/pkg/bin
-path-prepend /opt/pkg/sbin
-path-prepend /usr/local/bin
-
 # Update PATH.
 
+path-prepend /usr/local/bin
 path-append /usr/bin
 [ "$OSTYPE" != "cygwin" ] && path-append /bin
 path-append /usr/sbin
 [ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
-path-append $HOME/local/bin
 path-append $HOME/bin
 path-append /cygdrive/c/Windows/system32
 path-append /cygdrive/c/Windows
@@ -88,30 +73,6 @@ if [ -f "$HOME/.bash_local" ]; then
   source "$HOME/.bash_local"
 fi
 
-# Tab completion.
-
-if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/git-completion.bash" ]]; then
-. "`brew --prefix`/etc/bash_completion.d/git-completion.bash"
-fi
-if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/hg-completion.bash" ]]; then
-. "`brew --prefix`/etc/bash_completion.d/hg-completion.bash"
-fi
-if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/docker" ]]; then
-. "`brew --prefix`/etc/bash_completion.d/docker"
-fi
-if exists brew && [[ -f "`brew --prefix`/etc/bash_completion.d/npm" ]]; then
-. "`brew --prefix`/etc/bash_completion.d/npm"
-fi
-
-# AWS bash tab completion.
-
-command -v aws_completer >/dev/null && complete -C aws_completer aws
-
-_git_dm()
-{
-  _git_branch
-}
-
 # User has read/write, group has read, other has none.
 
 umask 0027
@@ -120,34 +81,33 @@ umask 0027
 
 [ -z "$PS1" ] && return
 
-# Start the ssh-agent. From http://mah.everybody.org/docs/ssh.
+# Start the ssh-agent on cygwin. OSX has a built-in agent.
+# From http://mah.everybody.org/docs/ssh.
 
-SSH_ENV="$HOME/.ssh/environment"
+if [ "$OSTYPE" == "cygwin" ]; then
 
-function start_agent {
-   ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
-   chmod 600 "${SSH_ENV}"
-   . "${SSH_ENV}" > /dev/null
-}
+  SSH_ENV="$HOME/.ssh/environment"
 
-if [ -f "${SSH_ENV}" ]; then
-   . "${SSH_ENV}" > /dev/null
-   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-       start_agent;
-   }
-else
-   start_agent;
+  function start_agent {
+    ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+  }
+
+  if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+      start_agent;
+    }
+  else
+    start_agent;
+  fi
+
 fi
 
 # Set the default editor.
 
 export EDITOR=vim
-
-# Set the default browser.
-
-if [ -n "$USERPROFILE" ]; then
-  export BROWSER=`cygpath "$USERPROFILE"`/AppData/Local/Google/Chrome/Application/chrome.exe
-fi
 
 # When changing directory small typos can be ignored by bash.
 # For example, cd /vr/lgo/apaache would find /var/log/apache.
@@ -181,25 +141,6 @@ if exists pyenv-virtualenv; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-# Initialize rvm.
-
-path-append $HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-if exists ruby; then
-  if exists gem; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-  fi
-fi
-
 # Make less more friendly for non-text input files.
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# If this shell is interactive, turn on programmable completion
-# enhancements. Any completions you add in ~/.bash_completion
-# are sourced last.
-
-# case $- in
-#   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion ;;
-# esac

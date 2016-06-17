@@ -1,19 +1,11 @@
-# Set the title of the terminal.
-
-set_title () {
-  echo -ne "\e]2;$@\a\e]1;$@\a" ;
-}
-
 # Returns true if the specified command exists.
 
-command_exists () {
-  type "$1" &> /dev/null ;
-}
+exists() { type -t "$1" > /dev/null 2>&1; }
 
 # Aliases for 'ls'. The specific flags depend
 # on whether the system has BSD ls or GNU ls.
 
-if command_exists gls ; then
+if exists gls ; then
 
   # When GNU coreutils is installed with a
   # 'g' prefix, then use gls.
@@ -48,7 +40,7 @@ fi
 # Start a Windows explorer window in the current working
 # directory.
 
-if command_exists explorer.exe ; then
+if exists explorer.exe ; then
   alias explore='cygstart explorer `cygpath -aw .`'
 fi
 
@@ -76,15 +68,6 @@ alias cls='printf "\033c"'
 
 alias tmux='tmux -2'
 
-# Emacs
-
-alias e='emacsclient -n'
-
 # Retrieve my external IP address.
 
 alias myip='curl ifconfig.me'
-alias myhost='curl ifconfig.me/host'
-
-# SSH to tmux.
-
-function sshmux() { ssh -t "$@" "tmux attach || tmux new"; }
