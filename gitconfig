@@ -1,6 +1,7 @@
 [core]
 	whitespace = cr-at-eol
 	autocrlf = false
+	preloadindex = true
 [color]
 	status = always
 	branch = auto
