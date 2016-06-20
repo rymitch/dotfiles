@@ -13,6 +13,7 @@
 	st = status -sb
 	stp = !"git -c color.status=always status -sb | less -R"
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
+	wdiff = diff --color-words
 [push]
 	default = current
 [diff]
