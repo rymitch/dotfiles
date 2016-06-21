@@ -11,13 +11,11 @@ For now, this will work:
     ln -s .dotfiles/bash_logout ${HOME}/.bash_logout
     ln -s .dotfiles/bashrc ${HOME}/.bashrc
     ln -s .dotfiles/bin ${HOME}/bin
-    ln -s .dotfiles/emacs.d ${HOME}/.emacs.d
     ln -s .dotfiles/gitconfig ${HOME}/.gitconfig
     ln -s .dotfiles/hgrc ${HOME}/.hgrc
     ln -s .dotfiles/inputrc ${HOME}/.inputrc
     ln -s .dotfiles/minttyrc ${HOME}/.minttyrc
     ln -s .dotfiles/profile ${HOME}/.profile
-    ln -s .dotfiles/tarsnaprc ${HOME}/.tarsnaprc
     ln -s .dotfiles/tmux.conf ${HOME}/.tmux.conf
     ln -s .dotfiles/vim ${HOME}/.vim
     ln -s .dotfiles/vimrc ${HOME}/.vimrc
