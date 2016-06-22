@@ -10,8 +10,8 @@ if exists gls ; then
   # When GNU coreutils is installed with a
   # 'g' prefix, then use gls.
 
-  alias ls='LC_COLLATE=C gls -hFN --color=auto --group-directories-first'
-  alias dir='LC_COLLATE=C gls -ahlFNL --color=auto --group-directories-first'
+  alias ls='LC_COLLATE=C gls -hN --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C gls -ahlLN --color=auto --group-directories-first'
 
 elif [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
 
@@ -24,8 +24,8 @@ elif [ "$OSTYPE" = "cygwin" -o $(uname) == "Linux" ]; then
 
   # Cygwin uses GNU coreutils.
 
-  alias ls='LC_COLLATE=C ls -hF --color=auto --group-directories-first'
-  alias dir='LC_COLLATE=C ls -ahlFL --color=auto --group-directories-first'
+  alias ls='LC_COLLATE=C ls -hN --color=auto --group-directories-first'
+  alias dir='LC_COLLATE=C ls -ahlLN --color=auto --group-directories-first'
 
 else
 
