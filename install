@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# These variables can be defined on the command line
+# in order to override:
+#     DOTFILES_PATH=~/src/dotfiles ./install
+
+DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/rymitch/dotfiles.git}
+DOTFILES_PATH=${DOTFILES_PATH:-~/.dotfiles}
+
+# For safety, require "--force" to be specified on
+# the command line.
+
+function usage {
+  echo "Usage: $0 --force"
+  echo ""
+  echo "WARNING: This script will overwrite your existing dot files!"
+  echo ""
+  exit 1
+}
+
+[[ "$#" == 1 ]] || usage
+[[ "$1" == "--force" ]] || usage
+
+# Clone the dotfiles repository.
+
+if ! git clone "$DOTFILES_REPO" "$DOTFILES_PATH" ; then
+  exit 2
+fi
+
+# Link dot files to the home directory.
+
+targets=\
+( \
+  bash_aliases \
+  bash_logout \
+  bashrc \
+  bin \
+  gitconfig \
+  hgrc \
+  inputrc \
+  minttyrc \
+  profile \
+  tmux.conf \
+  vim \
+  vimrc \
+)
+
+for name in ${targets[@]} ; do
+  case $name in
+  "bin")
+    link="$HOME/$name"
+    ;;
+  *)
+    link="$HOME/.$name"
+    ;;
+  esac
+  if ! ln -sf "$DOTFILES_PATH/$name" "$link" ; then
+    exit 3
+  fi
+done
+
+exit 0
