@@ -20,4 +20,4 @@
 
 **This will overwrite your existing dot files!**
 
-```bash <(curl -fsSL https://raw.githubusercontent.com/rymitch/dotfiles/master/install) --force```
+    curl -fsSL https://raw.githubusercontent.com/rymitch/dotfiles/master/install | bash /dev/stdin --force
