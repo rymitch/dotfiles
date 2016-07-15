@@ -34,7 +34,6 @@ targets=\
   bash_aliases \
   bash_logout \
   bashrc \
-  bin \
   gitconfig \
   hgrc \
   inputrc \
@@ -47,10 +46,6 @@ targets=\
 
 for name in ${targets[@]} ; do
   case $name in
-  "bin")
-    link="$HOME/$name"
-    rm -rf $link
-    ;;
   "vim")
     link="$HOME/.vim"
     rm -rf $link
@@ -64,8 +59,9 @@ for name in ${targets[@]} ; do
   fi
 done
 
-# Set up z.
+# Add the dotfiles bin to the path. Set up z.
 
-echo ". \"$DOTFILES_PATH/z/z.sh\"" >$HOME/.bash_local
+echo "export PATH=$DOTFILES_PATH/bin:\$PATH" >$HOME/.bash_local
+echo ". \"$DOTFILES_PATH/z/z.sh\"" >>$HOME/.bash_local
 
 exit 0
