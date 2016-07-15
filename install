@@ -49,6 +49,11 @@ for name in ${targets[@]} ; do
   case $name in
   "bin")
     link="$HOME/$name"
+    rm -rf $link
+    ;;
+  "vim")
+    link="$HOME/.vim"
+    rm -rf $link
     ;;
   *)
     link="$HOME/.$name"
