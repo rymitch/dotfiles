@@ -5,7 +5,7 @@
 #     DOTFILES_PATH=~/src/dotfiles ./install
 
 DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/rymitch/dotfiles.git}
-DOTFILES_PATH=${DOTFILES_PATH:-~/.dotfiles}
+DOTFILES_PATH=${DOTFILES_PATH:-$HOME/.dotfiles}
 
 # For safety, require "--force" to be specified on
 # the command line.
@@ -58,5 +58,9 @@ for name in ${targets[@]} ; do
     exit 3
   fi
 done
+
+# Set up z.
+
+echo ". \"$DOTFILES_PATH/z/z.sh\"" >$HOME/.bash_local
 
 exit 0
