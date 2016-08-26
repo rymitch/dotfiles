@@ -129,7 +129,9 @@ set -o ignoreeof
 
 # Initialize pyenv.
 
-if [ -d ${HOME}/.pyenv ] ; then
+if [ -d ${HOME}/anaconda3/bin ] ; then
+    export PATH=${HOME}/anaconda3/bin:$PATH
+elif [ -d ${HOME}/.pyenv ] ; then
   export PYENV_ROOT=${HOME}/.pyenv
   export PATH=${PYENV_ROOT}/bin:$PATH
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
