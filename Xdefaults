@@ -16,8 +16,9 @@ URxvt*color12:     #729FCF
 URxvt*color13:     #AD7FA8
 URxvt*color14:     #34E2E2
 URxvt*color15:     #EEEEEC
-URxvt*font:        xft:Monospace:size=10
-URxvt*boldFont:    xft:Monospace:bold:size=10
+URxvt*font:        xft:Monospace:size=8
+URxvt*boldFont:    xft:Monospace:bold:size=8
+URxvt*geometry:    112x68
 URxvt*keysym.End:  \033[4~
 URxvt*keysym.Home: \033[1~
 URxvt*scrollBar:   false
