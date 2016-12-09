@@ -71,3 +71,13 @@ alias tmux='tmux -2'
 # Retrieve my external IP address.
 
 alias myip='curl ifconfig.me'
+
+# Make 'dirs' a little more helpful.
+
+alias dirs='dirs -v'
+
+# Push the current directory and run 'z'.
+
+if exists z ; then
+  alias zp='pushd . && z'
+fi
