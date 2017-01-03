@@ -61,6 +61,13 @@ path-append /cygdrive/c/Windows
 path-append /cygdrive/c/Windows/System32/Wbem
 path-append /cygdrive/c/Windows/System32/WindowsPowerShell/v1.0
 
+# Load z.
+
+if [[ -e $HOME/.dotfiles/z/z.sh ]]; then
+  . "$HOME/.dotfiles/z/z.sh"
+  alias zp='pushd . && z'
+fi
+
 # Load aliases.
 
 if [ -f "$HOME/.bash_aliases" ]; then

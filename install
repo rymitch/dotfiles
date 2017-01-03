@@ -67,10 +67,6 @@ echo "if [[ -d $DOTFILES_PATH/bin ]]; then" >>$HOME/.bash_local
 echo "  export PATH=$DOTFILES_PATH/bin:\$PATH" >>$HOME/.bash_local
 echo "fi" >>$HOME/.bash_local
 
-echo "if [[ -e $DOTFILES_PATH/z/z.sh ]]; then" >>$HOME/.bash_local
-echo "  . \"$DOTFILES_PATH/z/z.sh\"" >>$HOME/.bash_local
-echo "fi" >>$HOME/.bash_local
-
 echo "if [[ -d ~/git-lfs ]]; then" >>$HOME/.bash_local
 echo "  export PATH=\$PATH:~/git-lfs" >>$HOME/.bash_local
 echo "fi" >>$HOME/.bash_local
