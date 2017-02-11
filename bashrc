@@ -61,6 +61,12 @@ path-append /cygdrive/c/Windows
 path-append /cygdrive/c/Windows/System32/Wbem
 path-append /cygdrive/c/Windows/System32/WindowsPowerShell/v1.0
 
+# Color scheme for ls.
+
+if [[ -e $HOME/.dircolors ]]; then
+  eval "$(dircolors -b ~/.dircolors)"
+fi
+
 # Load z.
 
 if [[ -e $HOME/.dotfiles/z/z.sh ]]; then
