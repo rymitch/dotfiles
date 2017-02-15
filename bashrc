@@ -56,10 +56,20 @@ path-append /usr/sbin
 [ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
 path-append $HOME/bin
+
+# Add Windows paths, in both WSL and Cygwin formats.
+
 path-append /cygdrive/c/Windows/system32
+path-append /mnt/c/Windows/system32
+
 path-append /cygdrive/c/Windows
+path-append /mnt/c/Windows
+
 path-append /cygdrive/c/Windows/System32/Wbem
+path-append /mnt/c/Windows/System32/Wbem
+
 path-append /cygdrive/c/Windows/System32/WindowsPowerShell/v1.0
+path-append /mnt/c/Windows/System32/WindowsPowerShell/v1.0
 
 # Color scheme for ls.
 

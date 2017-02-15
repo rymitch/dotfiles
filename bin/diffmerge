@@ -20,6 +20,14 @@ elif [ -f /cygdrive/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe
   DIFFMERGE=/cygdrive/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe
   ARG1=`cygpath -aw "$1"`
   ARG2=`cygpath -aw "$2"`
+elif [ -f /mnt/c/Program\ Files/SourceGear/Common/DiffMerge/sgdm.exe ]; then
+  DIFFMERGE=/mnt/c/Program\ Files/SourceGear/Common/DiffMerge/sgdm.exe
+  ARG1=$1
+  ARG2=$2
+elif [ -f /mnt/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe ]; then
+  DIFFMERGE=/mnt/c/Program\ Files\ \(x86\)/SourceGear/DiffMerge/DiffMerge.exe
+  ARG1=$1
+  ARG2=$2
 
 fi
 
