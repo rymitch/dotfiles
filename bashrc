@@ -94,28 +94,13 @@ umask 0027
 
 [ -z "$PS1" ] && return
 
-# Start the ssh-agent on cygwin. OSX has a built-in agent.
-# From http://mah.everybody.org/docs/ssh.
+# Start the ssh keychain.
 
-if [ "$OSTYPE" == "cygwin" ]; then
-
-  SSH_ENV="$HOME/.ssh/environment"
-
-  function start_agent {
-    ssh-agent -t 2h | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-  }
-
-  if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-      start_agent;
-    }
-  else
-    start_agent;
+if exists keychain; then
+  if [ "$OSTYPE" == "cygwin" ]; then
+    keychain -q ~/.ssh/id_rsa
+    source ~/.keychain/*-sh
   fi
-
 fi
 
 # Set the default editor.
