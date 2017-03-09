@@ -110,6 +110,9 @@ if exists keychain; then
   if [ "$OSTYPE" == "cygwin" ]; then
     keychain -q ~/.ssh/id_rsa
     source ~/.keychain/*-sh
+  elif grep -q Microsoft /proc/version; then
+    keychain -q ~/.ssh/id_rsa
+    source ~/.keychain/*-sh
   fi
 fi
 
