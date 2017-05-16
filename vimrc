@@ -22,6 +22,7 @@ set sw=2
 set et
 set noerrorbells
 set vb t_vb=
+set modeline
 set modelines=5
 set sidescroll=1
 set sidescrolloff=3
@@ -74,6 +75,8 @@ autocmd BufEnter *.fcs set wrap|syntax off
 " Visual Studio project files are basically XML.
 au BufRead,BufNewFile *.proj set filetype=xml
 au BufRead,BufNewFile *.vcxproj set filetype=xml
+
+au BufRead,BufNewFile *.cpp set ts=4 et sw=4 sts=4 tw=72 ai
 
 " This is slow, but it ensures that syntax highlights stay in sync.
 au BufEnter * :syntax sync minlines=500
