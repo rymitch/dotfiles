@@ -9,7 +9,7 @@
 	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
 	la = !"git lg --all ; echo"
 	l = !"git --no-pager lg --max-count=25 ; echo"
-	dm = !"git difftool --dir-diff"
+	dm = !"git difftool --dir-diff --no-symlinks"
 	st = status -sb
 	stp = !"git -c color.status=always status -sb | less -R"
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
