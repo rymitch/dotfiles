@@ -55,6 +55,7 @@ path-append /usr/bin
 path-append /usr/sbin
 [ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
+path-append $HOME/.dotfiles/bin
 path-append $HOME/bin
 
 # Add Windows paths, in both WSL and Cygwin formats.
@@ -80,6 +81,7 @@ fi
 # Load z.
 
 if [[ -e $HOME/.dotfiles/z/z.sh ]]; then
+  _Z_NO_RESOLVE_SYMLINKS=1
   . "$HOME/.dotfiles/z/z.sh"
   alias zp='pushd . && z'
 fi

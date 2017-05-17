@@ -57,7 +57,7 @@ _z() {
 
         # maintain the data file
         local tempfile="$datafile.$RANDOM"
-        awk < <( _z_dirs ) -v path="$*" -v now="$(date +%s)" -F"|" '
+        awk < <(_z_dirs 2>/dev/null) -v path="$*" -v now="$(date +%s)" -F"|" '
             BEGIN {
                 rank[path] = 1
                 time[path] = now
@@ -125,7 +125,7 @@ _z() {
         # if we hit enter on a completion just go there
         case "$last" in
             # completions will always start with /
-            /*) [ -z "$list" -a -d "$last" ] && cd "$last" && return;;
+            /*) [ -z "$list" -a -d "$last" ] && builtin cd "$last" && return;;
         esac
 
         # no file yet
@@ -202,7 +202,9 @@ _z() {
             }
         ')"
 
-        [ $? -eq 0 ] && [ "$cd" ] && ${echo:-cd} "$cd"
+        [ $? -eq 0 ] && [ "$cd" ] && {
+          if [ "$echo" ]; then echo "$cd"; else builtin cd "$cd"; fi
+        }
     fi
 }
 
@@ -216,11 +218,11 @@ if type compctl >/dev/null 2>&1; then
         # populate directory list, avoid clobbering any other precmds.
         if [ "$_Z_NO_RESOLVE_SYMLINKS" ]; then
             _z_precmd() {
-                _z --add "${PWD:a}"
+                (_z --add "${PWD:a}" &)
             }
         else
             _z_precmd() {
-                _z --add "${PWD:A}"
+                (_z --add "${PWD:A}" &)
             }
         fi
         [[ -n "${precmd_functions[(r)_z_precmd]}" ]] || {
@@ -241,7 +243,7 @@ elif type complete >/dev/null 2>&1; then
     [ "$_Z_NO_PROMPT_COMMAND" ] || {
         # populate directory list. avoid clobbering other PROMPT_COMMANDs.
         grep "_z --add" <<< "$PROMPT_COMMAND" >/dev/null || {
-            PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''_z --add "$(command pwd '$_Z_RESOLVE_SYMLINKS' 2>/dev/null)" 2>/dev/null;'
+            PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''(_z --add "$(command pwd '$_Z_RESOLVE_SYMLINKS' 2>/dev/null)" 2>/dev/null &);'
         }
     }
 fi
