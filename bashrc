@@ -167,3 +167,7 @@ fi
 # Make less more friendly for non-text input files.
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Silence accessibility bus warnings in Linux.
+
+export NO_AT_BRIDGE=1
