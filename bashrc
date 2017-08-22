@@ -115,6 +115,9 @@ if exists keychain; then
   elif grep -q Microsoft /proc/version; then
     keychain -q ~/.ssh/id_rsa
     source ~/.keychain/*-sh
+  elif [ "$(lsb_release -si)" == "Debian" ]; then
+    keychain -q ~/.ssh/id_rsa
+    source ~/.keychain/*-sh
   fi
 fi
 
