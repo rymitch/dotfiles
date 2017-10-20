@@ -51,6 +51,7 @@ fi
 
 path-prepend $HOME/.local/bin
 path-prepend /usr/local/bin
+path-prepend /opt/wine-stable/bin
 path-append /usr/bin
 [ "$OSTYPE" != "cygwin" ] && path-append /bin
 path-append /usr/sbin
