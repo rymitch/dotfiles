@@ -144,6 +144,12 @@ set -o vi
 
 set -o ignoreeof
 
+# Load fzf.
+
+if [ -f ~/.fzf.bash ]; then
+  . ~/.fzf.bash
+fi
+
 # Enable tab completion.
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
