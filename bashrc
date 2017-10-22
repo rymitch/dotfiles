@@ -49,6 +49,7 @@ fi
 
 # Update PATH.
 
+path-prepend /usr/local/opt/python/libexec/bin
 path-prepend $HOME/.local/bin
 path-prepend /usr/local/bin
 path-prepend /opt/wine-stable/bin
