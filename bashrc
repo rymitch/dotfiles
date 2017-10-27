@@ -63,6 +63,9 @@ path-append $HOME/bin
 
 # Add Windows paths, in both WSL and Cygwin formats.
 
+path-append /cygdrive/c/Program\ Files/dotnet
+path-append /mnt/c/Program\ Files/dotnet
+
 path-append /cygdrive/c/Windows/system32
 path-append /mnt/c/Windows/system32
 
