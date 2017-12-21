@@ -41,6 +41,7 @@ targets=\
   inputrc \
   minttyrc \
   profile \
+  sqliterc \
   tmux.conf \
   vim \
   vimrc \
