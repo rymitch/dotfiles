@@ -9,7 +9,9 @@ let mapleader=","
 set timeoutlen=300
 
 " Set some basic global defaults.
-set viminfo='50,<1000,s100,:0,n~/.viminfo
+if !has('nvim')
+  set viminfo='50,<1000,s100,:0,n~/.viminfo
+endif
 set notitle
 set nobackup
 set mousehide
