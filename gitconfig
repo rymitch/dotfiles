@@ -21,7 +21,7 @@
 [push]
 	default = current
 [diff]
-	tool = diffmerge
+	tool = meld
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
 [difftool "meld"]
