@@ -78,6 +78,7 @@ autocmd BufEnter *.fcs set wrap|syntax off
 au BufRead,BufNewFile *.proj set filetype=xml
 au BufRead,BufNewFile *.vcxproj set filetype=xml
 
+au BufRead,BufNewFile *.cs set ts=4 et sw=4 sts=4 tw=72 ai
 au BufRead,BufNewFile *.cpp set ts=4 et sw=4 sts=4 tw=72 ai
 
 " This is slow, but it ensures that syntax highlights stay in sync.
