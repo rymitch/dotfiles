@@ -31,3 +31,5 @@
 	cmd = meld $LOCAL $REMOTE
 [rebase]
 	autosquash = true
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
