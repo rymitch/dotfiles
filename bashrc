@@ -186,3 +186,7 @@ fi
 # Silence accessibility bus warnings in Linux.
 
 export NO_AT_BRIDGE=1
+
+# Turn off .NET telemetry.
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
