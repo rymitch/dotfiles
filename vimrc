@@ -69,7 +69,7 @@ vnoremap <C-e> 3<C-e>
 vnoremap <C-y> 3<C-y>
 
 " Wrap text in Markdown files.
-autocmd BufEnter *.md set wrap|set linebreak|set nolist|set nofoldenable
+autocmd BufEnter *.md set wrap linebreak nolist nofoldenable tw=72
 
 " No syntax highlighting in FCS files.
 autocmd BufEnter *.fcs set wrap|syntax off
