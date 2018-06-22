@@ -29,6 +29,11 @@ export HISTIGNORE="[   ]*:&:bg:fg:exit"
 
 shopt -s histappend
 
+# Silence the annoying and useless "Display all
+# 9,982 possiblities" bash prompt on an empty line.
+
+shopt -s no_empty_cmd_completion
+
 # Whenever displaying the prompt, write the previous
 # line to disk.
 
