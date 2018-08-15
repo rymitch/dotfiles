@@ -71,6 +71,9 @@ vnoremap <C-y> 3<C-y>
 " Wrap text in Markdown files.
 autocmd BufEnter *.md set wrap linebreak nolist nofoldenable tw=72
 
+" Wrap text in TeX files.
+autocmd BufEnter *.tex set wrap linebreak nolist nofoldenable tw=72
+
 " No syntax highlighting in FCS files.
 autocmd BufEnter *.fcs set wrap|syntax off
 
