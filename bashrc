@@ -168,6 +168,12 @@ elif [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+# Enable the nix package manager.
+
+if [ -f ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then
+  . ${HOME}/.nix-profile/etc/profile.d/nix.sh
+fi
+
 # Initialize pyenv.
 
 if [ -d ${HOME}/anaconda3/bin ] ; then
