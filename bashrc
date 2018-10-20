@@ -63,6 +63,7 @@ path-append /usr/bin
 path-append /usr/sbin
 [ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
+path-append $HOME/.cargo/bin
 path-append $HOME/.dotfiles/bin
 path-append $HOME/bin
 
