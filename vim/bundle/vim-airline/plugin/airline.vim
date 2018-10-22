@@ -1,5 +1,7 @@
-" MIT License. Copyright (c) 2013-2016 Bailey Ling.
+" MIT License. Copyright (c) 2013-2018 Bailey Ling et al.
 " vim: et ts=2 sts=2 sw=2
+
+scriptencoding utf-8
 
 if &cp || v:version < 702 || (exists('g:loaded_airline') && g:loaded_airline)
   finish
@@ -30,27 +32,35 @@ function! s:init()
     silent call s:on_colorscheme_changed()
   endif
 
-  silent doautocmd User AirlineAfterInit
+  call airline#util#doautocmd('AirlineAfterInit')
 endfunction
 
+let s:active_winnr = -1
 function! s:on_window_changed()
+  let s:active_winnr = winnr()
+
   if pumvisible() && (!&previewwindow || g:airline_exclude_preview)
     return
   endif
   " Handle each window only once, since we might come here several times for
   " different autocommands.
-  let l:key = [bufnr('%'), winnr(), winnr('$')]
-  if get(t:, 'airline_last_window_changed', []) == l:key
-        \ && &stl is# '%!airline#statusline('.winnr().')'
+  let l:key = [bufnr('%'), s:active_winnr, winnr('$'), tabpagenr(), &ft]
+  if get(g:, 'airline_last_window_changed', []) == l:key
+        \ && &stl is# '%!airline#statusline('.s:active_winnr.')'
+        \ && &ft !~? 'gitcommit'
+    " fugitive is special, it changes names and filetypes several times,
+    " make sure the caching does not get into its way
     return
   endif
-  let t:airline_last_window_changed = l:key
+  let g:airline_last_window_changed = l:key
   call s:init()
   call airline#update_statusline()
 endfunction
 
 function! s:on_colorscheme_changed()
   call s:init()
+  unlet! g:airline#highlighter#normal_fg_hi
+  call airline#highlighter#reset_hlcache()
   let g:airline_gui_mode = airline#init#gui_mode()
   if !s:theme_in_vimrc
     call airline#switch_matching_theme()
@@ -74,8 +84,9 @@ function! s:airline_toggle()
     if exists("s:stl")
       let &stl = s:stl
     endif
+    call airline#highlighter#reset_hlcache()
 
-    silent doautocmd User AirlineToggledOff
+    call airline#util#doautocmd('AirlineToggledOff')
   else
     let s:stl = &statusline
     augroup airline
@@ -87,21 +98,44 @@ function! s:airline_toggle()
       autocmd CmdwinLeave * call airline#remove_statusline_func('airline#cmdwinenter')
 
       autocmd GUIEnter,ColorScheme * call <sid>on_colorscheme_changed()
-      autocmd SessionLoadPost,VimEnter,WinEnter,BufWinEnter,FileType,BufUnload *
+      if exists("##OptionSet")
+        " Make sure that g_airline_gui_mode is refreshed
+        autocmd OptionSet termguicolors call <sid>on_colorscheme_changed()
+      endif
+      if exists("##TerminalOpen")
+        autocmd TerminalOpen * call <sid>on_colorscheme_changed()
+      endif
+      " Set all statuslines to inactive
+      autocmd FocusLost * call airline#update_statusline_focuslost()
+      " Refresh airline for :syntax off
+      autocmd SourcePre */syntax/syntax.vim
+            \ call airline#extensions#tabline#buffers#invalidate()
+      autocmd VimEnter,WinEnter,BufWinEnter,FileType,BufUnload *
             \ call <sid>on_window_changed()
+      if exists('##CompleteDone')
+        autocmd CompleteDone * call <sid>on_window_changed()
+      endif
+      " non-trivial number of external plugins use eventignore=all, so we need to account for that
+      autocmd CursorMoved *
+            \   if winnr() != s:active_winnr
+            \ |   call <sid>on_window_changed()
+            \ | endif
 
-      autocmd VimResized * unlet! w:airline_lastmode | :call <sid>airline_refresh()
-      autocmd TabEnter * :unlet! w:airline_lastmode w:airline_active
+      autocmd VimResized,FocusGained * unlet! w:airline_lastmode | :call <sid>airline_refresh()
+      autocmd TabEnter * :unlet! w:airline_lastmode | let w:airline_active=1
       autocmd BufWritePost */autoload/airline/themes/*.vim
             \ exec 'source '.split(globpath(&rtp, 'autoload/airline/themes/'.g:airline_theme.'.vim', 1), "\n")[0]
             \ | call airline#load_theme()
     augroup END
 
+    if &laststatus < 2
+      set laststatus=2
+    endif
     if s:airline_initialized
       call s:on_window_changed()
     endif
 
-    silent doautocmd User AirlineToggledOn
+    call airline#util#doautocmd('AirlineToggledOn')
   endif
 endfunction
 
@@ -119,11 +153,12 @@ function! s:airline_theme(...)
 endfunction
 
 function! s:airline_refresh()
-  let nomodeline=''
-  if v:version > 703 || v:version == 703 && has("patch438")
-    let nomodeline = '<nomodeline>'
+  if !exists("#airline")
+    " disabled
+    return
   endif
-  exe printf("silent doautocmd %s User AirlineBeforeRefresh", nomodeline)
+  call airline#util#doautocmd('AirlineBeforeRefresh')
+  call airline#highlighter#reset_hlcache()
   call airline#load_theme()
   call airline#update_statusline()
 endfunction
