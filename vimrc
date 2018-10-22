@@ -88,9 +88,15 @@ au BufRead,BufNewFile *.cpp set ts=4 et sw=4 sts=4 tw=72 ai
 au BufEnter * :syntax sync minlines=500
 
 " Configure airline.
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_theme = 'light'
 let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
 let g:airline#extensions#bufferline#enabled = 0
 
 " Configure bufferline.
