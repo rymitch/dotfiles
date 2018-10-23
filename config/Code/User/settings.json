@@ -1,0 +1,13 @@
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.codeLens": false,
+    "editor.rulers": [72],
+    "window.menuBarVisibility": "default",
+    "window.titleBarStyle": "custom",
+    "editor.renderWhitespace": "none",
+    "editor.autoClosingBrackets": "never",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.enabled": false,
+    "azure.resourceFilter": []
+}
