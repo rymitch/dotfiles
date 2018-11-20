@@ -196,6 +196,10 @@ fi
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# Set the default URI for libvirt.
+
+export LIBVIRT_DEFAULT_URI=qemu:///system
+
 # Silence accessibility bus warnings in Linux.
 
 export NO_AT_BRIDGE=1
