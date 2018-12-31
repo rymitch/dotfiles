@@ -157,6 +157,6 @@ nnoremap <silent> <leader>r gq}
 nmap <silent> <leader>e :set syntax=e-prime<CR>
 
 " Find common non-ASCII characters.
-nmap <silent> <leader>u  /\([‘’”“—…·‬‭ ]\\| \+$\)<CR>
+nmap <silent> <leader>u /\([‘’”“—…·‬‭  ]\\| \+$\)<CR>
 
 " vim: set ts=2 sw=2 et:
