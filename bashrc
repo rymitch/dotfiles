@@ -44,8 +44,8 @@ export PROMPT_COMMAND="history -a"
 export PS1="\[\e[0;32m\]\h:\w\$ \[\e[m\]"
 export PS2="\[\e[1;31m\]\h:\w> \[\e[m\]"
 
-# On cygwin, ignore some specific parts of the
-# environment that don't translate well.
+# On Microsoft platforms, ignore some specific parts
+# of the environment that don't translate well.
 
 if [ "$OSTYPE" == "cygwin" ]; then
   export PATH=/usr/local/bin:/usr/bin
@@ -55,6 +55,7 @@ fi
 # Update PATH.
 
 path-prepend /usr/local/opt/python/libexec/bin
+path-prepend $HOME/.npm-packages/bin
 path-prepend $HOME/.local/bin
 path-prepend /usr/local/bin
 path-prepend /opt/wine-stable/bin
