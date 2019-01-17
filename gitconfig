@@ -9,6 +9,7 @@
 	checokut = checkout
 	co = checkout
 	dm = !"git difftool --dir-diff --no-symlinks"
+	fix = "!f() { git commit --fixup :/^$1; }; f"
 	l = !"git --no-pager lg --max-count=25 ; echo"
 	la = !"git lg --all ; echo"
 	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
