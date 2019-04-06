@@ -52,7 +52,7 @@ alias egrep='egrep --color=auto'
 
 # Humanize files sizes.
 
-alias df='df -h'
+alias df='df -hx "squashfs"'
 alias du='du -h'
 
 # Floating point math in bc.
