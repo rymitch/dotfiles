@@ -28,6 +28,7 @@ set modeline
 set modelines=5
 set sidescroll=1
 set sidescrolloff=3
+set autoindent
 
 " Search options
 set hlsearch
