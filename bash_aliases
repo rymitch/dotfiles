@@ -58,7 +58,11 @@ alias egrep='egrep --color=auto'
 
 # Humanize files sizes.
 
-alias df='df -hx "squashfs"'
+if [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
+  alias df='df -h'
+else
+  alias df='df -hx "squashfs"'
+fi
 alias du='du -h'
 
 # Floating point math in bc.
