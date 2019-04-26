@@ -47,7 +47,11 @@ fi
 # directory.
 
 if exists explorer.exe ; then
-  alias explore='cygstart explorer `cygpath -aw .`'
+  if [ "$OSTYPE" = "cygwin" ]; then
+    alias explorer='cygstart explorer `cygpath -aw .`'
+  else  # WSL on Windows 10
+    alias explorer='explorer.exe `wslpath .`'
+  fi
 fi
 
 # Colorize grep output.
@@ -56,7 +60,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Humanize files sizes.
+# Humanize file sizes.
 
 if [ $(uname) == "Darwin" -o $(uname) == "FreeBSD" ]; then
   alias df='df -h'
