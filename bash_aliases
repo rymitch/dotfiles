@@ -37,6 +37,12 @@ else
 
 fi
 
+# Prefer GNU tar over BSD tar.
+
+if exists gtar ; then
+  alias tar=gtar
+fi
+
 # Start a Windows explorer window in the current working
 # directory.
 
