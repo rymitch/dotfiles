@@ -2,6 +2,10 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+colorscheme gruvbox
+autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
+set bg=light
+
 " Change <Leader>
 let mapleader=","
 
