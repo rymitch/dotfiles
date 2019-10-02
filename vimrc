@@ -1,6 +1,20 @@
-execute pathogen#infect()
-syntax on
+call plug#begin('~/.vim/plugged')
+if !has('nvim')
+  Plug 'tpope/vim-sensible'
+endif
+Plug 'bling/vim-bufferline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'godlygeek/tabular'
+Plug 'morhetz/gruvbox'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
 filetype plugin indent on
+syntax enable
 
 colorscheme gruvbox
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
@@ -51,10 +65,6 @@ set hidden
 nnoremap ' `
 nnoremap ` '
 
-" Catch trailing whitespace.
-let g:better_whitespace_enabled = 0
-nmap <silent> <leader>s :ToggleWhitespace<CR>
-
 " Toggle highlighting.
 nmap <silent> <leader>q :silent :nohlsearch<CR>
 
@@ -76,16 +86,11 @@ vnoremap <C-y> 3<C-y>
 " Wrap text in Markdown files.
 autocmd BufEnter *.md set wrap linebreak nolist nofoldenable tw=72
 
-" Wrap text in TeX files.
-autocmd BufEnter *.tex set wrap linebreak nolist nofoldenable tw=72
-
-" No syntax highlighting in FCS files.
-autocmd BufEnter *.fcs set wrap|syntax off
-
 " Visual Studio project files are basically XML.
 au BufRead,BufNewFile *.proj set filetype=xml
 au BufRead,BufNewFile *.vcxproj set filetype=xml
 
+" C-like files
 au BufRead,BufNewFile *.cs set ts=4 et sw=4 sts=4 tw=72 ai
 au BufRead,BufNewFile *.cpp set ts=4 et sw=4 sts=4 tw=72 ai
 
@@ -111,9 +116,6 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#buffer_min_count = 2
 
-" Configure minizinc highlighting.
-let zinc_no_highlight_overlong = 1
-
 " Configure ctrlp.
 let g:ctrlp_working_path_mode = 'ra'
 nmap <silent> <leader>t :CtrlP<CR>
@@ -122,44 +124,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Paste from the clipboard with leader-v.
-function! GetClipMac()
-  execute ':r! pbpaste'
-endfunction
-function! GetClipWin()
-  let reg_save = @@
-  let @@ = join(readfile('/dev/clipboard'), "\n")
-  setlocal paste
-  exe 'normal p'
-  setlocal nopaste
-  let @@ = reg_save
-endfunction
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    nnoremap <silent> <leader>v :call GetClipMac()<CR>
-  else
-    nnoremap <silent> <leader>v :call GetClipWin()<CR>
-  endif
-endif
-
-"Copy to system clipboard.
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
-
-"Paste from system clipboard.
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-
 " Rewrap the current paragraph with Leader-r.
 nnoremap <silent> <leader>r gq}
-
-" Turn on e-prime syntax highlighting.
-nmap <silent> <leader>e :set syntax=e-prime<CR>
 
 " Find common non-ASCII characters.
 nmap <silent> <leader>u /\([‘’”“—…·‬‭  ]\\| \+$\)<CR>
