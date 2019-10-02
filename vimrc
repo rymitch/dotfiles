@@ -61,6 +61,9 @@ nmap k gk
 " Allow switching edited buffers without saving.
 set hidden
 
+" Use the system clipboard.
+set clipboard^=unnamedplus
+
 " ` is more useful than ' but less accessible.
 nnoremap ' `
 nnoremap ` '
