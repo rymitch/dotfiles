@@ -8,7 +8,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
 Plug 'plasticboy/vim-markdown'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'tpope/vim-repeat'
@@ -19,10 +18,6 @@ call plug#end()
 
 filetype plugin indent on
 syntax enable
-
-colorscheme gruvbox
-autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
-set bg=light
 
 " Line numbering
 set nu
