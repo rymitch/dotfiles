@@ -21,7 +21,7 @@ syntax enable
 
 " Line numbering
 set nu
-highlight LineNr ctermbg=255
+highlight LineNr ctermbg=255 ctermfg=101
 
 " Change <Leader>
 let mapleader=","
@@ -121,8 +121,8 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 
 " Configure ALE
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '▸▸'
-let g:ale_sign_warning = '▸▸'
+let g:ale_sign_error = '▶▶'
+let g:ale_sign_warning = '▶▶'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 highlight SignColumn ctermbg=255 ctermfg=Green
