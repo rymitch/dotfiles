@@ -137,6 +137,11 @@ fi
 # Set the default editor.
 
 export EDITOR=vim
+if [ -x ~/.appimage/nvim.appimage ] ; then
+  export EDITOR=~/.appimage/nvim.appimage
+  alias vi=~/.appimage/nvim.appimage
+  alias vim=~/.appimage/nvim.appimage
+fi
 
 # When changing directory small typos can be ignored by bash.
 # For example, cd /vr/lgo/apaache would find /var/log/apache.

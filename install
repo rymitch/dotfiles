@@ -32,6 +32,7 @@ fi
 targets=\
 ( \
   Xdefaults \
+  appimage \
   bash_aliases \
   bash_logout \
   bashrc \
@@ -49,6 +50,10 @@ targets=\
 
 for name in ${targets[@]} ; do
   case $name in
+  "appimage")
+    link="$HOME/.appimage"
+    rm -rf $link
+    ;;
   "vim")
     link="$HOME/.vim"
     rm -rf $link
