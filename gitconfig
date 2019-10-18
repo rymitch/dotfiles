@@ -8,7 +8,7 @@
 [alias]
 	checokut = checkout
 	co = checkout
-	dm = !"git difftool --dir-diff --no-symlinks"
+	dm = difftool --dir-diff --no-symlinks
 	fix = "!f() { git commit --fixup :/^$1; }; f"
 	l = !"git --no-pager lg --max-count=25 ; echo"
 	la = !"git lg --all ; echo"
@@ -17,7 +17,6 @@
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
 	stp = !"git -c color.status=always status -sb | less -R"
-	wdiff = diff --color-words
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
@@ -26,9 +25,7 @@
 	default = current
 [diff]
 	tool = meld
-[difftool "diffmerge"]
-	cmd = diffmerge $LOCAL $REMOTE
-[difftool "meld"]
-	cmd = meld $LOCAL $REMOTE
+[diff "json"]
+	textconv = jq -S '.'
 [rebase]
 	autosquash = true
