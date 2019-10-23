@@ -14,9 +14,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/tango.vim'
 call plug#end()
 
 filetype plugin indent on
+colorscheme tango
 syntax enable
 
 " Line numbering
