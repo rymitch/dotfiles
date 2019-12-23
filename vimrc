@@ -225,6 +225,6 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 nnoremap <silent> <leader>r gq}
 
 " Find common non-ASCII characters.
-nmap <silent> <leader>u /\([‘’”“—…·‬‭  ]\\| \+$\)<CR>
+nmap <silent> <leader>u /\([‘’”“—…·®‬‭  ]\\| \+$\)<CR>
 
 " vim: set ts=2 sw=2 et:
