@@ -181,6 +181,16 @@ if [ -f ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then
   . ${HOME}/.nix-profile/etc/profile.d/nix.sh
 fi
 
+# Intialize goenv.
+
+if [ -d ${HOME}/.goenv ] ; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH="$GOENV_ROOT/bin:$PATH"
+fi
+if exists goenv; then
+  eval "$(goenv init -)"
+fi
+
 # Initialize pyenv.
 
 if [ -d ${HOME}/anaconda3/bin ] ; then
