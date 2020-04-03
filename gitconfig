@@ -17,6 +17,7 @@
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
 	stp = !"git -c color.status=always status -sb | less -R"
+	vidir = !"git ls-files --cached --others | vidir --verbose -"
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
