@@ -1,0 +1,28 @@
+" Change <Leader>
+let mapleader=","
+
+" Search options
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" ` is more useful than ' but less accessible.
+nnoremap ' `
+nnoremap ` '
+
+" Scroll better.
+set scrolloff=3
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+vnoremap <C-e> 3<C-e>
+vnoremap <C-y> 3<C-y>
+
+" Toggle highlighting.
+nnoremap <leader>q :nohlsearch<CR>
+
+" Clean up usings.
+nnoremap <leader>r :vsc EditorContextMenus.CodeWindow.RemoveAndSort<CR>
+
+" Configure file finder
+nnoremap <leader>t :vsc Edit.GoToAll<CR>
