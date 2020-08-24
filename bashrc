@@ -19,25 +19,32 @@ path-remove() {
   export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`;
 }
 
-# Don't put duplicate lines in the history. Ignore
-# common commands.
-
+# Don't put duplicate lines in the history.
 export HISTCONTROL="ignoreboth"
-export HISTIGNORE="[   ]*:&:bg:fg:exit"
+
+# Ignore common commands from the history.
+export HISTIGNORE="[   ]*:&:bg:fg:ls:dir:exit:cls:git l:git st"
+
+# Add a timestamp to history.
+export HISTTIMEFORMAT='%F %T '
+
+# Enable unlimited history.
+export HISTFILESIZE=-1
+export HISTSIZE=-1
 
 # Append to the history file (don't overwrite it).
-
 shopt -s histappend
+
+# Attempt to save multi-line commands.
+shopt -s cmdhist
+
+# After each command, append the history and reload.
+# This allows multiple shells to cooperate nicely.
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$"\n"}history -a; history -c; history -r"
 
 # Silence the annoying and useless "Display all
 # 9,982 possiblities" bash prompt on an empty line.
-
 shopt -s no_empty_cmd_completion
-
-# Whenever displaying the prompt, write the previous
-# line to disk.
-
-export PROMPT_COMMAND="history -a"
 
 # Prompts.
 
