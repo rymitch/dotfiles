@@ -71,7 +71,6 @@ path-append /usr/bin
 path-append /usr/sbin
 [ "$OSTYPE" != "cygwin" ] && path-append /sbin
 path-append /opt/X11/bin
-path-append $HOME/.cargo/bin
 path-append $HOME/.dotfiles/bin
 path-append $HOME/bin
 
@@ -213,6 +212,10 @@ fi
 if exists pyenv-virtualenv; then
   eval "$(pyenv virtualenv-init -)"
 fi
+
+# Initialize rust.
+
+source "${HOME}/.cargo/env"
 
 # Make less more friendly for non-text input files.
 
