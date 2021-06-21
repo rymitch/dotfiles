@@ -210,7 +210,9 @@ fi
 
 # Initialize rust.
 
-source "${HOME}/.cargo/env"
+if [ -d ${HOME}/.cargo/env ] ; then
+  source "${HOME}/.cargo/env"
+fi
 
 # Make less more friendly for non-text input files.
 
