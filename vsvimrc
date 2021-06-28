@@ -25,6 +25,9 @@ nnoremap <C-d> :vsc Window.CloseDocumentWindow<CR>
 " Go to definition.
 nnoremap <leader>d :vsc Edit.GoToDefinition<CR>
 
+" Refactor rename.
+nnoremap <leader>e :vsc Refactor.Rename<CR>
+
 " Clean up usings.
 nnoremap <leader>g :vsc EditorContextMenus.CodeWindow.RemoveAndSort<CR>
 
