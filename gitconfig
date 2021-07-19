@@ -10,14 +10,16 @@
 	co = checkout
 	dm = difftool --dir-diff --no-symlinks
 	fix = "!f() { git commit --fixup :/^$1; }; f"
-	l = !"git --no-pager lg --max-count=20 ; echo"
-	la = !"git lg --all ; echo"
-	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
+  l = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --max-count=20
+	la = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --all
+	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
 	prunetags = !git tag -l | xargs git tag -d && git fetch -t
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
 	stp = !"git -c color.status=always status -sb | less -R"
 	vidir = !"git ls-files --cached --others | vidir --verbose -"
+[log]
+	date = local
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
