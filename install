@@ -38,11 +38,13 @@ targets=\
   gitconfig \
   inputrc \
   minttyrc \
+  p10k.zsh \
   profile \
   sqliterc \
   tmux.conf \
   vim \
   vimrc \
+  zshrc \
 )
 
 for name in ${targets[@]} ; do
