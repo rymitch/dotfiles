@@ -31,13 +31,11 @@ fi
 
 targets=\
 ( \
-  Xdefaults \
   bash_aliases \
   bash_logout \
   bashrc \
   dircolors \
   gitconfig \
-  hgrc \
   inputrc \
   minttyrc \
   profile \
