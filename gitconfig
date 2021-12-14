@@ -1,6 +1,7 @@
 [core]
 	whitespace = cr-at-eol
 	autocrlf = false
+	pager = less -X -F
 	preloadindex = true
 [color]
 	status = always
@@ -21,9 +22,9 @@
 [log]
 	date = local
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+	diff = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -X -F
+	log = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -X -F
+	show = perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less -X -F
 [push]
 	default = current
 [diff]
