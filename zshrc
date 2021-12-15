@@ -21,7 +21,6 @@ export PAGER=less
 
 # Configure the nvm plugin.
 export NVM_LAZY_LOAD=true
-export NVM_NO_USE=true
 
 # Configure the ssh agent plugin.
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
