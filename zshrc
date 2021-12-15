@@ -11,6 +11,10 @@ fi
 # "Couldn't connect to accessibility bus" warning.
 export NO_AT_BRIDGE=1
 
+# .NET configuration.
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export PATH="$PATH:$HOME/.dotnet/tools/"
+
 # Set the default editor and pager.
 export EDITOR=vi
 export PAGER=less
