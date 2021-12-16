@@ -38,6 +38,7 @@ if ! zgenom saved; then
   zgenom load romkatv/powerlevel10k powerlevel10k
   zgenom load zsh-users/zsh-completions
   zgenom load zsh-users/zsh-syntax-highlighting
+  zgenom ohmyzsh plugins/gitfast
   zgenom ohmyzsh plugins/ssh-agent
   zgenom ohmyzsh plugins/web-search
   zgenom save
