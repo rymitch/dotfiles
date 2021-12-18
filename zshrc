@@ -1,3 +1,6 @@
+# Don't put duplicates into the path array.
+typeset -U path
+
 # Enable the Powerlevel10k instant prompt.
 # Initialization code that may require console
 # input (password prompts, [y/n] confirmations,
@@ -13,7 +16,7 @@ export NO_AT_BRIDGE=1
 
 # .NET configuration.
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export PATH="$PATH:$HOME/.dotnet/tools/"
+path+=(~/.dotnet/tools/)
 
 # Set the default editor and pager.
 export EDITOR=vi
