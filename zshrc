@@ -79,6 +79,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias ls='LC_COLLATE=C ls -hN --color=auto --group-directories-first'
 alias azurite-clean='rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
+command -v sc-im &>/dev/null && alias sc='sc-im'
 
 # Customize Powerlevel10k. To customize, either
 # run `p10k configure` or edit ~/.p10k.zsh.
