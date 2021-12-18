@@ -34,7 +34,7 @@ zgenom autoupdate
 if ! zgenom saved; then
   zgenom load agkozak/zsh-z
   zgenom load lukechilds/zsh-nvm
-  zgenom load mattberther/pyenv
+  zgenom load mattberther/zsh-pyenv
   zgenom load romkatv/powerlevel10k powerlevel10k
   zgenom load zsh-users/zsh-completions
   zgenom load zsh-users/zsh-syntax-highlighting
