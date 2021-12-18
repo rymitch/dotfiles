@@ -16,7 +16,7 @@ export NO_AT_BRIDGE=1
 
 # .NET configuration.
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-path+=(~/.dotnet/tools/)
+[[ -d ~/.dotnet/tools/ ]] && path+=(~/.dotnet/tools/)
 
 # Set the default editor and pager.
 export EDITOR=vi
