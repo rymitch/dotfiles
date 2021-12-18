@@ -35,15 +35,22 @@ zstyle :omz:plugins:ssh-agent quiet yes
 source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate
 if ! zgenom saved; then
-  zgenom load agkozak/zsh-z
+
+  # Load near the start
   zgenom load lukechilds/zsh-nvm
   zgenom load mattberther/zsh-pyenv
+
+  zgenom load agkozak/zsh-z
   zgenom load romkatv/powerlevel10k powerlevel10k
   zgenom load zsh-users/zsh-completions
   zgenom load zsh-users/zsh-syntax-highlighting
   zgenom ohmyzsh plugins/gitfast
   zgenom ohmyzsh plugins/ssh-agent
   zgenom ohmyzsh plugins/web-search
+
+  # Load near the last.
+  zgenom load unixorn/fzf-zsh-plugin
+
   zgenom save
 fi
 
