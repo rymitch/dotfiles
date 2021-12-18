@@ -10,7 +10,7 @@
 	co = checkout
 	dm = difftool --dir-diff --no-symlinks
 	fix = "!f() { git commit --fixup :/^$1; }; f"
-  l = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --max-count=20
+	l = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --max-count=20
 	la = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --all
 	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
 	prunetags = !git tag -l | xargs git tag -d && git fetch -t
