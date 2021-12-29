@@ -98,3 +98,5 @@ else
     source /usr/share/doc/fzf/examples/completion.zsh
   fi
 fi
+
+[[ -f ~/.zsh_local ]] && source ~/.zsh_local
