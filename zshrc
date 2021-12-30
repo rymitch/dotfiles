@@ -65,6 +65,7 @@ setopt histreduceblanks
 setopt nomatch
 setopt notify
 setopt share_history
+unsetopt beep
 bindkey -v
 
 # Aliases
