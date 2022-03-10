@@ -22,6 +22,14 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export EDITOR=vi
 export PAGER=less
 
+# Allow an application to open a URL. In WSL, first
+# create a link to Windows Chrome. This avoids issues
+# with spaces in the path.
+# sudo ln -s "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe" /usr/local/bin/chrome-win
+if  [[ -x /usr/local/bin/chrome-win ]]; then
+  export BROWSER=/usr/local/bin/chrome-win
+fi
+
 # Configure the nvm plugin.
 export NVM_LAZY_LOAD=true
 
@@ -46,6 +54,7 @@ if ! zgenom saved; then
   zgenom load zsh-users/zsh-syntax-highlighting
   zgenom ohmyzsh plugins/gitfast
   zgenom ohmyzsh plugins/ssh-agent
+  zgenom ohmyzsh plugins/taskwarrior
   zgenom ohmyzsh plugins/web-search
 
   # Load near the last.
