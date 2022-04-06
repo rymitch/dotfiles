@@ -11,9 +11,8 @@
 	co = checkout
 	dm = difftool --dir-diff --no-symlinks
 	fix = "!f() { git commit --fixup :/^$1; }; f"
-	l = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --max-count=20
-	la = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit --all
-	lg = log --graph --format=format:'%C(blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)' --abbrev-commit
+	l = log --graph --format=compactgraph
+	la = log --graph --format=compactgraph --all
 	prunetags = !git tag -l | xargs git tag -d && git fetch -t
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
@@ -33,3 +32,7 @@
 	textconv = jq -S '.'
 [rebase]
 	autosquash = true
+[pretty]
+	compactgraph = %C(blue)%<(10)%h%C(reset)%C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n%<(10)%x20%C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)
+[format]
+	pretty = compactgraph
