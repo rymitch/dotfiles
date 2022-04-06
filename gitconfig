@@ -11,8 +11,9 @@
 	co = checkout
 	dm = difftool --dir-diff --no-symlinks
 	fix = "!f() { git commit --fixup :/^$1; }; f"
-	l = log --graph --format=compactgraph
+	l = log --graph --format=compactgraph --max-count=20
 	la = log --graph --format=compactgraph --all
+	lf = log --format=medium
 	prunetags = !git tag -l | xargs git tag -d && git fetch -t
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
