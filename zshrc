@@ -92,6 +92,12 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias ls='LC_COLLATE=C ls -hN --color=auto --group-directories-first'
 alias azurite-clean='rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
+
+# Apply maximum compression while maintaining zip compatibility.
+# Usage: maxzip archive.zip <input files>
+alias maxzip='7z a -tzip -mm=Deflate -mx=9 -mfb=258 -mpass=20'
+
+# Add the alias when the command is available.
 command -v sc-im &>/dev/null && alias sc='sc-im'
 
 # Customize Powerlevel10k. To customize, either
