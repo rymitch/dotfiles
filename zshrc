@@ -33,6 +33,9 @@ fi
 # Configure the nvm plugin.
 export NVM_LAZY_LOAD=true
 
+# Configure the pyenv plugin.
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+
 # Configure the ssh agent plugin.
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent lazy yes
