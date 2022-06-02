@@ -84,7 +84,7 @@ bindkey -v
 alias bc='bc -l' # enable floating point math
 alias clear='printf "\033c"'
 alias cls='printf "\033c"'
-alias df='df -hx "squashfs"'
+alias df='df -h -x squashfs -x tmpfs -x devtmpfs'
 alias dir='LC_COLLATE=C ls -ahlLN --color=auto --group-directories-first'
 alias du='du -h'
 alias egrep='egrep --color=auto'
