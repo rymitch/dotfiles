@@ -12,3 +12,7 @@ else
         export PATH=/opt/bin:$PATH
     fi
 fi
+
+if [ -e /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh ]; then
+    source /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh;
+fi

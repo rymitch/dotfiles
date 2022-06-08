@@ -118,4 +118,10 @@ else
   fi
 fi
 
+# Load local configuration.
 [[ -f ~/.zsh_local ]] && source ~/.zsh_local
+
+# Load nix.
+if [ -e /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh ]; then
+  source /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh;
+fi
