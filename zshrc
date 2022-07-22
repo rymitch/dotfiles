@@ -33,9 +33,6 @@ fi
 # Configure the nvm plugin.
 export NVM_LAZY_LOAD=true
 
-# Configure the pyenv plugin.
-export PYTHON_CONFIGURE_OPTS="--enable-shared"
-
 # Configure the ssh agent plugin.
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent lazy yes
@@ -47,20 +44,15 @@ source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate
 if ! zgenom saved; then
 
-  # Load near the start
-  zgenom load lukechilds/zsh-nvm
-  zgenom load mattberther/zsh-pyenv
-
   zgenom load agkozak/zsh-z
   zgenom load romkatv/powerlevel10k powerlevel10k
   zgenom load zsh-users/zsh-completions
   zgenom load zsh-users/zsh-syntax-highlighting
   zgenom ohmyzsh plugins/gitfast
   zgenom ohmyzsh plugins/ssh-agent
-  zgenom ohmyzsh plugins/taskwarrior
   zgenom ohmyzsh plugins/web-search
 
-  # Load near the last.
+  # Load near the end.
   zgenom load unixorn/fzf-zsh-plugin
 
   zgenom save
@@ -103,6 +95,13 @@ command -v sc-im &>/dev/null && alias sc='sc-im'
 # Customize Powerlevel10k. To customize, either
 # run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Configure pyenv.
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Enable fuzzy completion.
 if [[ -f ~/.fzf.zsh ]]; then
