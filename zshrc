@@ -97,11 +97,13 @@ command -v sc-im &>/dev/null && alias sc='sc-im'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure pyenv.
-export PYTHON_CONFIGURE_OPTS="--enable-shared"
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+if [[ -d "$HOME/.pyenv" ]]; then
+  export PYTHON_CONFIGURE_OPTS="--enable-shared"
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
 
 # Enable fuzzy completion.
 if [[ -f ~/.fzf.zsh ]]; then
