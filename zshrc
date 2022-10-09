@@ -122,6 +122,11 @@ fi
 # Load local configuration.
 [[ -f ~/.zsh_local ]] && source ~/.zsh_local
 
+# Load rust.
+if [[ -f "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
+
 # Load nix.
 if [ -e /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh ]; then
   source /home/rjmitchell/.nix-profile/etc/profile.d/nix.sh;
