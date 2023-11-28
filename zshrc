@@ -85,6 +85,13 @@ alias grep='grep --color=auto'
 alias ls='LC_COLLATE=C ls -hN --color=auto --group-directories-first'
 alias azurite-clean='rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
 
+# Mac-specific aliases
+if [[ $(uname) == 'Darwin' ]]; then
+  alias df='df -h'
+  alias dir='ls -ahlGL'
+  alias ls='ls -hG'
+fi
+
 # Apply maximum compression while maintaining zip compatibility.
 # Usage: maxzip archive.zip <input files>
 alias maxzip='7z a -tzip -mm=Deflate -mx=9 -mfb=258 -mpass=20'
