@@ -25,7 +25,6 @@
 	diff = diff-highlight | less -X -F
 	log = diff-highlight | less -X -F
 	show = diff-highlight | less -X -F
-
 [push]
 	default = current
 [diff]
