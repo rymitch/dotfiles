@@ -94,7 +94,9 @@ fi
 
 # Apply maximum compression while maintaining zip compatibility.
 # Usage: maxzip archive.zip <input files>
-alias maxzip='7z a -tzip -mm=Deflate -mx=9 -mfb=258 -mpass=20'
+if command -v 7z &>/dev/null; then
+  alias maxzip='7z a -tzip -mm=Deflate -mx=9 -mfb=258 -mpass=20'
+fi
 
 # Add the alias when the command is available.
 command -v sc-im &>/dev/null && alias sc='sc-im'
