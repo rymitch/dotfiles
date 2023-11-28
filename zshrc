@@ -14,9 +14,14 @@ fi
 # "Couldn't connect to accessibility bus" warning.
 export NO_AT_BRIDGE=1
 
-# .NET configuration.
+# .NET configuration
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 [[ -d ~/.dotnet/tools/ ]] && path+=(~/.dotnet/tools/)
+
+# git configuration
+if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]]; then
+  path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight/)
+fi
 
 # Set the default editor and pager.
 export EDITOR=vi
