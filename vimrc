@@ -66,8 +66,23 @@ nmap k gk
 " Allow switching edited buffers without saving.
 set hidden
 
+" OS detection.
+if !exists("g:os")
+  if has("win64") || has("win32") || has("win16")
+    let g:os = "Windows"
+  else
+    let g:os = substitute(system('uname'), '\n', '', '')
+  endif
+endif
+
 " Use the system clipboard.
-set clipboard^=unnamedplus
+if g:os == "Darwin"
+  set clipboard^=unnamed
+elseif g:os == "Linux"
+  set clipboard^=unnamedplus
+elseif g:os == "Windows"
+  set clipboard^=unnamed
+endif
 
 " ` is more useful than ' but less accessible.
 nnoremap ' `
