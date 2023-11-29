@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 if !has('nvim')
   Plug 'tpope/vim-sensible'
 endif
-Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
