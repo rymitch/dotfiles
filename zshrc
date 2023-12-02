@@ -88,19 +88,19 @@ alias bc='bc -l' # enable floating point math
 alias clear='printf "\033c"'
 alias cls='printf "\033c"'
 alias df='df -h -x squashfs -x tmpfs -x devtmpfs'
-alias dir='LC_COLLATE=C ls -ahlLN --color=auto --group-directories-first'
+alias dir='ls -AhlvLN --color=auto --group-directories-first'
 alias du='du -h'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
-alias ls='LC_COLLATE=C ls -hN --color=auto --group-directories-first'
+alias ls='ls -hvN --color=auto --group-directories-first'
 alias azurite-clean='rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
 
-# Mac-specific aliases
-if [[ $(uname) == 'Darwin' ]]; then
-  alias df='df -h'
-  alias dir='ls -ahlGL'
-  alias ls='ls -hG'
+# Use coreutils when available
+if command -v gls &>/dev/null; then
+  alias df="$(alias df | sed 's/^[^'\'']*'\''//;s/'\''$//;s/^df /gdf /')"
+  alias dir="$(alias dir | sed 's/^[^'\'']*'\''//;s/'\''$//;s/^ls /gls /')"
+  alias ls="$(alias ls | sed 's/^[^'\'']*'\''//;s/'\''$//;s/^ls /gls /')"
 fi
 
 # Apply maximum compression while maintaining zip compatibility.
