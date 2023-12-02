@@ -1,3 +1,6 @@
+autoload -Uz compinit
+compinit
+
 # Don't put duplicates into the path array.
 typeset -U path
 
