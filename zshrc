@@ -22,6 +22,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 if [[ -d /usr/share/doc/git/contrib/diff-highlight/ ]]; then
   path+=(/usr/share/doc/git/contrib/diff-highlight/)
 fi
+if [[ -d /usr/share/git-core/contrib/ ]]; then
+  path+=(/usr/share/git-core/contrib/)
+fi
 if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]]; then
   path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight/)
 fi
