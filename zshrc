@@ -19,17 +19,19 @@ export NO_AT_BRIDGE=1
 
 # .NET configuration
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-[[ -d ~/.dotnet/tools/ ]] && path+=(~/.dotnet/tools/)
+if [[ -d ~/.dotnet/tools ]]; then
+  path+=(~/.dotnet/tools)
+fi
 
 # git configuration
-if [[ -d /usr/share/doc/git/contrib/diff-highlight/ ]]; then
-  path+=(/usr/share/doc/git/contrib/diff-highlight/)
+if [[ -d /usr/share/doc/git/contrib/diff-highlight ]]; then
+  path+=(/usr/share/doc/git/contrib/diff-highlight)
 fi
-if [[ -d /usr/share/git-core/contrib/ ]]; then
-  path+=(/usr/share/git-core/contrib/)
+if [[ -d /usr/share/git-core/contrib ]]; then
+  path+=(/usr/share/git-core/contrib)
 fi
 if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]]; then
-  path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight/)
+  path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight)
 fi
 
 # Set the default editor and pager.
