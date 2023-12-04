@@ -44,9 +44,6 @@ if  [[ -x /usr/local/bin/chrome-win ]]; then
   export BROWSER=/usr/local/bin/chrome-win
 fi
 
-# Configure the nvm plugin.
-export NVM_LAZY_LOAD=true
-
 # Configure the ssh agent plugin.
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent lazy yes
