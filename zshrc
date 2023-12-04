@@ -86,11 +86,12 @@ unsetopt beep
 bindkey -v
 
 # Configure pyenv.
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]]; then
+  path+=($PYENV_ROOT/bin)
+fi
 if command -v pyenv &>/dev/null; then
   export PYTHON_CONFIGURE_OPTS="--enable-shared"
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
 
