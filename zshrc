@@ -85,7 +85,27 @@ setopt share_history
 unsetopt beep
 bindkey -v
 
-# Aliases
+# Configure pyenv.
+if command -v pyenv &>/dev/null; then
+  export PYTHON_CONFIGURE_OPTS="--enable-shared"
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+# Configure nvm.
+if [[ -d $HOME/.nvm ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    source "$NVM_DIR/nvm.sh" --no-use
+  fi
+  if [[ -s "$NVM_DIR/bash_completion" ]]; then
+    source "$NVM_DIR/bash_completion"
+  fi
+fi
+
+# Core aliases
 alias bc='bc -l' # enable floating point math
 alias clear='printf "\033c"'
 alias cls='printf "\033c"'
@@ -96,7 +116,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls -hvN --color=auto --group-directories-first'
-alias azurite-clean='rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
 
 # Use coreutils when available
 if command -v gls &>/dev/null; then
@@ -105,27 +124,23 @@ if command -v gls &>/dev/null; then
   alias ls="$(alias ls | sed 's/^[^'\'']*'\''//;s/'\''$//;s/^ls /gls /')"
 fi
 
-# Apply maximum compression while maintaining zip compatibility.
-# Usage: maxzip archive.zip <input files>
+# Aliases for optional commands
+if command -v sc-im &>/dev/null; then
+  # ncurses-based, vim-like spreadsheet
+  alias sc='sc-im'
+fi
 if command -v 7z &>/dev/null; then
+  # Apply maximum compression while maintaining zip compatibility.
+  # Usage: maxzip archive.zip <input files>
   alias maxzip='7z a -tzip -mm=Deflate -mx=9 -mfb=258 -mpass=20'
 fi
 
-# Add the alias when the command is available.
-command -v sc-im &>/dev/null && alias sc='sc-im'
+# Azure storage emulator. Load nvm first if needed.
+alias azurite-clean='nvm use default && rm -rf ~/.azurite && mkdir -p ~/.azurite && azurite --location ~/.azurite --debug ~/.azurite/debug.log'
 
 # Customize Powerlevel10k. To customize, either
 # run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Configure pyenv.
-if command -v pyenv &>/dev/null; then
-  export PYTHON_CONFIGURE_OPTS="--enable-shared"
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
 
 # Enable fuzzy completion.
 if [[ -f ~/.fzf.zsh ]]; then
