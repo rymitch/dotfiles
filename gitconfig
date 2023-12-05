@@ -14,9 +14,11 @@
 	l = log --graph --format=compactgraph --max-count=20
 	la = log --graph --format=compactgraph --all
 	lf = log --format=medium
+	lg = log --graph --format=compactgraph
 	prunetags = !git tag -l | xargs git tag -d && git fetch -t
 	serve = daemon --base-path=. --export-all --enable=receive-pack --reuseaddr --informative-errors --verbose
 	st = status -sb
+	stc = !"git -c color.status=no status --short | grep -v '^[ADMR]  ' | sort"
 	stp = !"git -c color.status=always status -sb | less -R"
 	vidir = !"git ls-files --cached --others | vidir --verbose -"
 [log]
