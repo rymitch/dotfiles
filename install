@@ -35,6 +35,7 @@ targets=\
   bash_logout \
   bashrc \
   dircolors \
+  gitattributes \
   gitconfig \
   inputrc \
   minttyrc \
