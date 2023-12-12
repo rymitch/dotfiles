@@ -40,3 +40,5 @@
 	compactgraph = %C(blue)%<(10)%h%C(reset)%C(cyan)%ad%C(reset) %C(green)(%cr)%C(reset)%C(yellow)%d%C(reset)%n%<(10)%x20%C(normal)%s%C(reset) %C(magenta)- %ae%C(reset)
 [format]
 	pretty = compactgraph
+[remote "origin"]
+	tagopt = --tags
