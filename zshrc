@@ -30,6 +30,9 @@ fi
 if [[ -d /usr/share/git-core/contrib ]]; then
   path+=(/usr/share/git-core/contrib)
 fi
+if [[ -d /opt/homebrew/share/git-core/contrib/diff-highlight ]]; then
+  path+=(/opt/homebrew/share/git-core/contrib/diff-highlight)
+fi
 if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]]; then
   path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight)
 fi
@@ -99,10 +102,18 @@ fi
 if [[ -d $HOME/.nvm ]]; then
   export NVM_DIR="$HOME/.nvm"
   if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    # git install
     source "$NVM_DIR/nvm.sh" --no-use
+  elif [[ -s /opt/homebrew/opt/nvm/nvm.sh ]]; then
+    # homebrew install
+    source /opt/homebrew/opt/nvm/nvm.sh
   fi
   if [[ -s "$NVM_DIR/bash_completion" ]]; then
+    # git install
     source "$NVM_DIR/bash_completion"
+  elif [[ -s /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm ]]; then
+    # homebrew install
+    source /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm
   fi
 fi
 
