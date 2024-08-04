@@ -23,6 +23,11 @@ if [[ -d ~/.dotnet/tools ]]; then
   path+=(~/.dotnet/tools)
 fi
 
+# Emacs configuration
+if [[ -d ~/.config/emacs/bin ]]; then
+  path+=(~/.config/emacs/bin)
+fi
+
 # git configuration
 if [[ -d /usr/share/doc/git/contrib/diff-highlight ]]; then
   path+=(/usr/share/doc/git/contrib/diff-highlight)
