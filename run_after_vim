@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Early exit if :PlugInstall has already executed.
+[[ -d ~/.vim/plugged ]] && exit 0
+
+# Execute :PlugInstall automatically. Suppress
+# the vim exit code, which always returns 1,
+vim -es -u ~/.vim/vimrc -i NONE -c "PlugInstall" -c "qa" || true
