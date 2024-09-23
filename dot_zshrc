@@ -7,6 +7,9 @@ typeset -U path
 # Add local bin to the path.
 path+=(~/.local/bin)
 
+# Enable less to interpret ANSI color.
+export LESS=-R
+
 # Enable the Powerlevel10k instant prompt.
 # Initialization code that may require console
 # input (password prompts, [y/n] confirmations,
