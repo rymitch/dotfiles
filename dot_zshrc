@@ -4,6 +4,9 @@ compinit
 # Don't put duplicates into the path array.
 typeset -U path
 
+# Add local bin to the path.
+path+=(~/.local/bin)
+
 # Enable the Powerlevel10k instant prompt.
 # Initialization code that may require console
 # input (password prompts, [y/n] confirmations,
