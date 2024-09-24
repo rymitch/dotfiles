@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 
-# Early exit if :PlugInstall has already executed.
-[[ -d ~/.vim/plugged ]] && exit 0
-
 # Execute :PlugInstall automatically. Suppress
-# the vim exit code, which always returns 1,
-vim -es -u ~/.vim/vimrc -i NONE -c "PlugInstall" -c "qa" || true
+# the vim exit code, which always returns 1.
+if [[ -d ~/.vim/plugged ]]; then
+  echo "Vim plugins were not installed vim has already been configured."
+else
+  echo "Installing vim plugins..."
+  vim -es -u ~/.vim/vimrc -i NONE -c "PlugInstall" -c "qa" || true
+fi
+
+# Update the font cache.
+if ! command -v fc-cache >/dev/null 2>&1; then
+  echo "The font cache was not updated because fc-cache does not exist."
+else
+  echo "Updating the font cache..."
+  fc-cache -f
+fi
