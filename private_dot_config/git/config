@@ -3,7 +3,7 @@
 	autocrlf = false
 	pager = less -X -F
 	preloadindex = true
-	attributesfile = ~/.gitattributes
+	attributesfile = ~/.config/git/attributes
 [color]
 	status = always
 	branch = auto
