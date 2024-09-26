@@ -12,7 +12,11 @@ fi
 # Update the font cache.
 if ! command -v fc-cache >/dev/null 2>&1; then
   echo "The font cache was not updated because fc-cache does not exist."
+elif fc-list | grep /MesloLGS >/dev/null; then
+  echo "The font cache was not updated because MesloNGS already exists."
 else
   echo "Updating the font cache..."
   fc-cache -f
 fi
+
+echo "Done!"
