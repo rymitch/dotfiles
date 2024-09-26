@@ -3,7 +3,7 @@
 # Execute :PlugInstall automatically. Suppress
 # the vim exit code, which always returns 1.
 if [[ -d ~/.vim/plugged ]]; then
-  echo "Vim plugins were not installed vim has already been configured."
+  echo "Vim plugins were not installed because vim has already been configured."
 else
   echo "Installing vim plugins..."
   vim -es -u ~/.vim/vimrc -i NONE -c "PlugInstall" -c "qa" || true
@@ -13,7 +13,7 @@ fi
 if ! command -v fc-cache >/dev/null 2>&1; then
   echo "The font cache was not updated because fc-cache does not exist."
 elif fc-list | grep /MesloLGS >/dev/null; then
-  echo "The font cache was not updated because MesloNGS already exists."
+  echo "The font cache was not updated because MesloLGS already exists."
 else
   echo "Updating the font cache..."
   fc-cache -f
