@@ -19,4 +19,15 @@ else
   fc-cache -f
 fi
 
+# Update tmux-sensible.
+if ! command -v git >/dev/null 2>&1; then
+  echo "The tmux-sensible directory was not updated because git is not installed."
+elif [[ -d ~/.local/share/tmux-sensible ]]; then
+  echo "Updating the tmux-sensible directory..."
+  git -C ~/.local/share/tmux-sensible pull
+else
+  echo "Cloning the tmux-sensible repository..."
+  git clone https://github.com/tmux-plugins/tmux-sensible ~/.local/share/tmux-sensible
+fi
+
 echo "Done!"
