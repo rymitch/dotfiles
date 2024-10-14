@@ -1,0 +1,60 @@
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
+
+[window]
+dimensions = { columns = 140, lines = 72 }
+
+[font]
+normal = { family = "Meslo LGS NF", style = "Regular" }
+size = 10
+
+[[keyboard.bindings]]
+key = "1"
+mods = "Alt"
+chars = "\u00000"
+[[keyboard.bindings]]
+key = "2"
+mods = "Alt"
+chars = "\u00001"
+[[keyboard.bindings]]
+key = "3"
+mods = "Alt"
+chars = "\u00002"
+[[keyboard.bindings]]
+key = "4"
+mods = "Alt"
+chars = "\u00003"
+[[keyboard.bindings]]
+key = "5"
+mods = "Alt"
+chars = "\u00004"
+
+# Alabaster theme
+[colors.primary]
+background = '#F7F7F7'
+foreground = '#434343'
+
+[colors.cursor]
+text = '#F7F7F7'
+cursor = '#434343'
+
+[colors.normal]
+black = '#000000'
+red = '#AA3731'
+green = '#448C27'
+yellow = '#CB9000'
+blue = '#325CC0'
+magenta = '#7A3E9D'
+cyan = '#0083B2'
+white = '#BBBBBB'
+
+[colors.bright]
+black = '#777777'
+red = '#F05050'
+green = '#60CB00'
+yellow = '#FFBC5D'
+blue = '#007ACC'
+magenta = '#E64CE6'
+cyan = '#00AACB'
+white = '#FFFFFF'

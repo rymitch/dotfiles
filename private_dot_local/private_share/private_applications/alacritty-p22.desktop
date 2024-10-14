@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Alacritty (p22)
+Exec=alacritty -e ssh p22 -t "tmux new -A -s p22"
+Icon=${SNAP}/usr/share/icons/Alacritty.png
+Comment=A fast, cross-platform, OpenGL terminal emulator
+Terminal=false
+Categories=System;TerminalEmulator;
