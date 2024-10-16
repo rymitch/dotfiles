@@ -9,6 +9,9 @@ dimensions = { columns = 140, lines = 72 }
 normal = { family = "Meslo LGS NF", style = "Regular" }
 size = 10
 
+[env]
+TERM = "xterm-256color"
+
 [[keyboard.bindings]]
 key = "1"
 mods = "Alt"
