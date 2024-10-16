@@ -3,7 +3,7 @@ program = "/bin/zsh"
 args = ["-l"]
 
 [window]
-dimensions = { columns = 140, lines = 72 }
+dimensions = { columns = 160, lines = 78 }
 
 [font]
 normal = { family = "Meslo LGS NF", style = "Regular" }
