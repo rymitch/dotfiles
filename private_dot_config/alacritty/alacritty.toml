@@ -16,7 +16,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 [[keyboard.bindings]]
 key = "W"
 mods = "Alt"
-chars = "\u0000w"
+chars = "\u0000s"
 [[keyboard.bindings]]
 key = "1"
 mods = "Alt"
