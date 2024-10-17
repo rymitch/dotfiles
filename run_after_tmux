@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Update tmux-sensible.
+if [[ -d ~/.local/share/tmux-sensible ]]; then
+  echo "Updating the tmux-sensible directory..."
+  git -C ~/.local/share/tmux-sensible pull
+else
+  echo "Cloning the tmux-sensible repository..."
+  git clone https://github.com/tmux-plugins/tmux-sensible ~/.local/share/tmux-sensible
+fi
+
+# Update tmux-mighty-scroll.
+if [[ -d ~/.local/share/tmux-mighty-scroll ]]; then
+  echo "Updating the tmux-mighty-scroll directory..."
+  git -C ~/.local/share/tmux-mighty-scroll pull
+else
+  echo "Cloning the tmux-mighty-scroll repository..."
+  git clone https://github.com/noscript/tmux-mighty-scroll ~/.local/share/tmux-mighty-scroll
+fi

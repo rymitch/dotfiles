@@ -3,38 +3,9 @@
 # Execute :PlugInstall automatically. Suppress
 # the vim exit code, which always returns 1.
 if [[ -d ~/.vim/plugged ]]; then
-  echo "Vim plugins were not installed because vim has already been configured."
+  echo "Updating vim plugins..."
+  vim -es -u ~/.vim/vimrc -i NONE -c "PlugUpdate" -c "qa" || true
 else
   echo "Installing vim plugins..."
   vim -es -u ~/.vim/vimrc -i NONE -c "PlugInstall" -c "qa" || true
 fi
-
-# Update the font cache.
-if ! command -v fc-cache >/dev/null 2>&1; then
-  echo "The font cache was not updated because fc-cache does not exist."
-elif fc-list | grep /MesloLGS >/dev/null; then
-  echo "The font cache was not updated because MesloLGS already exists."
-else
-  echo "Updating the font cache..."
-  fc-cache -f
-fi
-
-# Update tmux-sensible.
-if [[ -d ~/.local/share/tmux-sensible ]]; then
-  echo "Updating the tmux-sensible directory..."
-  git -C ~/.local/share/tmux-sensible pull
-else
-  echo "Cloning the tmux-sensible repository..."
-  git clone https://github.com/tmux-plugins/tmux-sensible ~/.local/share/tmux-sensible
-fi
-
-# Update tmux-mighty-scroll.
-if [[ -d ~/.local/share/tmux-mighty-scroll ]]; then
-  echo "Updating the tmux-mighty-scroll directory..."
-  git -C ~/.local/share/tmux-mighty-scroll pull
-else
-  echo "Cloning the tmux-mighty-scroll repository..."
-  git clone https://github.com/noscript/tmux-mighty-scroll ~/.local/share/tmux-mighty-scroll
-fi
-
-echo "Done!"
