@@ -1,23 +1,24 @@
+{{- $app := "/bin/zsh" }}
+{{- $app_args := "[\"-l\"]" }}
+{{- $font_size := "10" }}
+{{- $mod := "Alt" }}
+{{- if eq .chezmoi.os "darwin" }}
+{{-     $app = "/opt/homebrew/bin/tmux" }}
+{{-     $app_args = "[\"new\", \"-A\", \"-s\", \"osx\"]" }}
+{{-     $mod = "Command" }}
+{{-     $font_size = "14" }}
+{{- end -}}
+
 [shell]
-{{ if eq .chezmoi.os "darwin" }}
-program = "/opt/homebrew/bin/tmux"
-args = ["new", "-A", "-s", "osx"]
-{{ else }}
-program = "/bin/zsh"
-args = ["-l"]
-{{ end }}
+program = "{{ $app }}"
+args = {{ $app_args }}
 
 [window]
 dimensions = { columns = 160, lines = 78 }
 
 [font]
-{{ if eq .chezmoi.os "darwin" }}
 normal = { family = "MesloLGS NF", style = "Regular" }
-size = 14
-{{ else }}
-normal = { family = "Meslo LGS NF", style = "Regular" }
-size = 10
-{{ end }}
+size = {{ $font_size }}
 
 [env]
 TERM = "xterm-256color"
@@ -25,39 +26,39 @@ WINIT_X11_SCALE_FACTOR = "1"
 
 [[keyboard.bindings]]
 key = "W"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u0000s"
 [[keyboard.bindings]]
 key = "1"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00001"
 [[keyboard.bindings]]
 key = "2"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00002"
 [[keyboard.bindings]]
 key = "3"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00003"
 [[keyboard.bindings]]
 key = "4"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00004"
 [[keyboard.bindings]]
 key = "5"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00005"
 [[keyboard.bindings]]
 key = "6"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00006"
 [[keyboard.bindings]]
 key = "7"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00007"
 [[keyboard.bindings]]
 key = "8"
-mods = "Alt"
+mods = "{{ $mod }}"
 chars = "\u00008"
 [[keyboard.bindings]]
 key = "T"
