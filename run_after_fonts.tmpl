@@ -9,3 +9,9 @@ else
   echo "Updating the font cache..."
   fc-cache -f
 fi
+
+# Use thinner fonts on Mac OSX.
+{{ if eq .chezmoi.os "darwin" }}
+echo "Configuring thin fonts on Mac OSX..."
+defaults write org.alacritty AppleFontSmoothing -int 0
+{{ end }}
