@@ -1,13 +1,23 @@
 [shell]
+{{ if eq .chezmoi.os "darwin" }}
+program = "/opt/homebrew/bin/tmux"
+args = ["new", "-A", "-s", "osx"]
+{{ else }}
 program = "/bin/zsh"
 args = ["-l"]
+{{ end }}
 
 [window]
 dimensions = { columns = 160, lines = 78 }
 
 [font]
+{{ if eq .chezmoi.os "darwin" }}
+normal = { family = "MesloLGS NF", style = "Regular" }
+size = 14
+{{ else }}
 normal = { family = "Meslo LGS NF", style = "Regular" }
 size = 10
+{{ end }}
 
 [env]
 TERM = "xterm-256color"
