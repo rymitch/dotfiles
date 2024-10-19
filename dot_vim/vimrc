@@ -37,6 +37,7 @@ endif
 set notitle
 set nobackup
 set mousehide
+set mouse=a
 set nofoldenable
 set nojoinspaces
 set nowrap
