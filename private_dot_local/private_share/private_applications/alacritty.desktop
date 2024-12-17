@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Alacritty
+Exec=alacritty
+Icon=Alacritty
+Comment=A fast, cross-platform, OpenGL terminal emulator
+Terminal=false
+Categories=System;TerminalEmulator;

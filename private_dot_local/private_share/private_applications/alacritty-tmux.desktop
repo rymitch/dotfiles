@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Alacritty (p22)
-Exec=alacritty -e ssh p22 -t "tmux new -A -s p22"
-Icon={{ .chezmoi.homeDir }}/.local/share/icons/Alacritty.png
+Name=Alacritty (tmux)
+Exec=alacritty -e tmux new -A -s zsh
+Icon=Alacritty
 Comment=A fast, cross-platform, OpenGL terminal emulator
 Terminal=false
 Categories=System;TerminalEmulator;
