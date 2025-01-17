@@ -49,7 +49,8 @@ config.colors = {
   quick_select_match_fg = { Color = '#ffffff' },
 }
 
-config.font_size = 11.0
+config.font = wezterm.font { family = 'MesloLGS NF', weight = 'Regular' }
+config.font_size = 10.0
 config.window_padding = { bottom = 0, left = 0, right = 0, top = 0  }
 
 config.unix_domains = { { name = 'unix' } }
