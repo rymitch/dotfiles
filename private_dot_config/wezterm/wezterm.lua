@@ -47,6 +47,33 @@ config.colors = {
   quick_select_label_fg = { Color = '#ffffff' },
   quick_select_match_bg = { AnsiColor = 'Navy' },
   quick_select_match_fg = { Color = '#ffffff' },
+
+  tab_bar = {
+    background = '#434343',
+    active_tab = {
+      bg_color = '#f8f8f2',
+      fg_color = '#434343',
+      intensity = 'Bold',
+    },
+    inactive_tab = {
+      fg_color = '#f8f8f2',
+      bg_color = '#434343',
+    },
+    inactive_tab_hover = {
+      bg_color = '#f8f8f2',
+      fg_color = '#434343',
+      italic = true,
+    },
+    new_tab = {
+      fg_color = '#f8f8f2',
+      bg_color = '#434343',
+    },
+    new_tab_hover = {
+      bg_color = '#f8f8f2',
+      fg_color = '#434343',
+      italic = true,
+    },
+  }
 }
 
 config.font = wezterm.font { family = 'MesloLGS NF', weight = 'Regular' }
@@ -111,5 +138,10 @@ for i = 1, 8 do
     action = act.ActivateTab(i - 1),
   })
 end
+
+config.switch_to_last_active_tab_when_closing_tab = true
+config.tab_max_width = 32
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
 
 return config
