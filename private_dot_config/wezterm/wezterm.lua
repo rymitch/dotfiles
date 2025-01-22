@@ -110,14 +110,14 @@ config.keys = {
     action = act.DetachDomain { DomainName = 'unix' },
   },
   {
-    key = 's',
+    key = 'w',
     mods = 'LEADER',
-    action = act.ShowLauncherArgs { flags = 'WORKSPACES' },
+    action = act.ShowTabNavigator,
   },
   {
     key = 'w',
     mods = 'ALT',
-    action = act.ShowTabNavigator,
+    action = act.ShowLauncherArgs { flags = 'WORKSPACES' },
   },
   {
     key = 'w',
