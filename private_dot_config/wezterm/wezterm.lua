@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = wezterm.config_builder()
 
--- config.color_scheme = 'Alabaster'
+-- Color scheme (based on Alabaster)
 config.colors = {
   background = '#F7F7F7',
   foreground = '#434343',
@@ -76,70 +76,19 @@ config.colors = {
   }
 }
 
+-- Window appearance
 config.font = wezterm.font { family = 'MesloLGS NF', weight = 'Regular' }
 config.font_size = 10.0
 config.window_padding = { bottom = 0, left = 0, right = 0, top = 0  }
 
-config.unix_domains = { { name = 'unix' } }
+-- Tab bar
+config.hide_tab_bar_if_only_one_tab = true
+config.switch_to_last_active_tab_when_closing_tab = true
+config.tab_max_width = 32
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
 
-config.leader = {
-  key = 'q',
-  mods = 'ALT',
-  timeout_milliseconds = 2000,
-}
-
-config.keys = {
-  {
-    key = '[',
-    mods = 'LEADER',
-    action = act.ActivateCopyMode,
-  },
-  {
-    key = 'a',
-    mods = 'LEADER',
-    action = act.AttachDomain 'unix',
-  },
-  {
-    key = 'c',
-    mods = 'LEADER',
-    action = act.SpawnTab 'CurrentPaneDomain',
-  },
-  {
-    key = 'd',
-    mods = 'LEADER',
-    action = act.DetachDomain { DomainName = 'unix' },
-  },
-  {
-    key = 'w',
-    mods = 'LEADER',
-    action = act.ShowTabNavigator,
-  },
-  {
-    key = 'w',
-    mods = 'ALT',
-    action = act.ShowLauncherArgs { flags = 'WORKSPACES' },
-  },
-  {
-    key = 'w',
-    mods = 'LEADER',
-    action = act.ShowTabNavigator,
-  },
-  {
-    key = '&',
-    mods = 'LEADER|SHIFT',
-    action = act.CloseCurrentTab{ confirm = true },
-  }
-}
-
-for i = 1, 8 do
-  table.insert(config.keys, {
-    key = tostring(i),
-    mods = 'ALT',
-    action = act.ActivateTab(i - 1),
-  })
-end
-
-
+-- Mouse
 config.mouse_bindings = {
   { -- Disable the default click behavior
     event = { Up = { streak = 1, button = "Left"} },
@@ -158,9 +107,42 @@ config.mouse_bindings = {
   },
 }
 
-config.switch_to_last_active_tab_when_closing_tab = true
-config.tab_max_width = 32
-config.tab_bar_at_bottom = true
-config.use_fancy_tab_bar = false
+-- Keyboard: configure tmux helpers
+config.keys = {
+  { -- Alternate tmux leader key for OSX
+    key = 'q',
+    mods = 'ALT',
+    action = act.SendString "\x00",
+  },
+  { -- tmux workspace selector
+    key = 'w',
+    mods = 'ALT',
+    action = act.SendString "\x00s",
+  },
+  { -- tmux create workspace
+    key = 'w',
+    mods = 'ALT|SHIFT',
+    action = act.SendString "\x00S",
+  },
+  { -- tmux copy mode
+    key = 'e',
+    mods = 'ALT',
+    action = act.SendString "\x00[",
+  },
+  { -- tmux create tab
+    key = 't',
+    mods = 'CTRL|SHIFT',
+    action = act.SendString "\x00c",
+  },
+}
+
+-- Keyboard: switch tmux tabs with ALT+#
+for i = 1, 8 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'ALT',
+    action = act.SendString ("\x00" .. tostring(i)),
+  })
+end
 
 return config
