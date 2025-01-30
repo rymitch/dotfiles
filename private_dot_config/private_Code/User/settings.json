@@ -1,9 +1,14 @@
 {
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingComments": "never",
   "editor.autoClosingQuotes": "never",
   "editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace",
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderFinalNewline": "off",
+  "editor.renderWhitespace": "none",
   "editor.stickyScroll.enabled": false,
+  "files.insertFinalNewline": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.openEditorAtIndex1",
@@ -16,6 +21,25 @@
     "workbench.action.openEditorAtIndex8",
     "workbench.action.openEditorAtIndex9"
   ],
+  "terminal.integrated.middleClickBehavior": "paste",
+  "todohighlight.keywords": [
+    {
+      "text": "TODO:",
+      "color": "rgba(220,64,0,1)",
+      "diagnosticSeverity": "none",
+      "overviewRulerColor": "rgba(0,0,0,0)",
+      "fontWeight": "bold",
+      "border": "1px solid rgba(255,64,0,.06)",
+      "borderRadius": "2px",
+      "backgroundColor": "rgba(255,64,0,.03)"
+    }
+  ],
+  "todohighlight.include": [
+    "**/*.md"
+  ],
   "workbench.colorTheme": "Default Light Modern",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "github.copilot.enable": {
+    "markdown": true
+  }
 }
