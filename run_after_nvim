@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+url=https://github.com/neovim/neovim-releases/releases/download/v0.10.3/nvim-linux64.tar.gz
+prefix=~/.local
+
+# Delete any existing nvim.
+function find_rm {
+  find $1 -path "$1/share/containers" -prune -o -name "$2" -exec rm -f {} \;
+}
+find_rm $prefix nvim.1
+find_rm $prefix nvim.desktop
+find_rm $prefix nvim.mo
+find_rm $prefix nvim.png
+rm -rf $prefix/bin/nvim $prefix/lib/nvim $prefix/share/nvim
+
+# Fetch and unpack neovim.
+curl -fsSL $url | tar -xz --strip-components=1 -C $prefix

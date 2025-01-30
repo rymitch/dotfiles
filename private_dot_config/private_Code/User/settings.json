@@ -9,6 +9,9 @@
   "editor.renderWhitespace": "none",
   "editor.stickyScroll.enabled": false,
   "files.insertFinalNewline": true,
+  "github.copilot.enable": {
+    "markdown": true
+  },
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.openEditorAtIndex1",
@@ -21,8 +24,32 @@
     "workbench.action.openEditorAtIndex8",
     "workbench.action.openEditorAtIndex9"
   ],
+  "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.middleClickBehavior": "paste",
+  "todohighlight.include": [ "**/*.md" ],
   "todohighlight.keywords": [
+    {
+      "text": "  * [ ]",
+      "color": "rgba(0,0,0,0.9)",
+      "diagnosticSeverity": "none",
+      "isWholeLine": true,
+      "overviewRulerColor": "rgba(0,0,0,0)",
+      "fontWeight": "normal",
+      "border": "0",
+      "borderRadius": "0",
+      "backgroundColor": "rgba(0,0,0,0)"
+    },
+    {
+      "text": "  * [x]",
+      "color": "rgba(0,0,0,0.35)",
+      "diagnosticSeverity": "none",
+      "isWholeLine": true,
+      "overviewRulerColor": "rgba(0,0,0,0)",
+      "fontWeight": "normal",
+      "border": "0",
+      "borderRadius": "0",
+      "backgroundColor": "rgba(0,0,0,0)"
+    },
     {
       "text": "TODO:",
       "color": "rgba(220,64,0,1)",
@@ -34,12 +61,6 @@
       "backgroundColor": "rgba(255,64,0,.03)"
     }
   ],
-  "todohighlight.include": [
-    "**/*.md"
-  ],
   "workbench.colorTheme": "Default Light Modern",
-  "workbench.startupEditor": "none",
-  "github.copilot.enable": {
-    "markdown": true
-  }
+  "workbench.startupEditor": "none"
 }
