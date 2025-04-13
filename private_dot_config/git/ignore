@@ -1,3 +1,6 @@
+# python
+__pycache__/
+
 # vim
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
