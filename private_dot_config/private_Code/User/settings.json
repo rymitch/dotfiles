@@ -31,39 +31,41 @@
   ],
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.middleClickBehavior": "paste",
-  "todohighlight.include": [ "**/*.md" ],
+  "todohighlight.include": [
+    "**/*.md"
+  ],
   "todohighlight.keywords": [
     {
-      "text": "[ ]",
+      "backgroundColor": "rgba(255,63,0,0.07)",
+      "border": "0",
+      "borderRadius": "0",
       "color": "rgba(0,0,0,0.9)",
       "diagnosticSeverity": "none",
+      "fontWeight": "bold",
       "isWholeLine": false,
       "overviewRulerColor": "rgba(0,0,0,0)",
-      "fontWeight": "bold",
-      "border": "0",
-      "borderRadius": "0",
-      "backgroundColor": "rgba(255,63,0,0.07)"
+      "text": "[ ]"
     },
     {
-      "text": "  * [x]",
+      "backgroundColor": "rgba(0,0,0,0)",
+      "border": "0",
+      "borderRadius": "0",
       "color": "rgba(0,0,0,0.35)",
       "diagnosticSeverity": "none",
+      "fontWeight": "normal",
       "isWholeLine": false,
       "overviewRulerColor": "rgba(0,0,0,0)",
-      "fontWeight": "normal",
-      "border": "0",
-      "borderRadius": "0",
-      "backgroundColor": "rgba(0,0,0,0)"
+      "text": "  * [x]"
     },
     {
-      "text": "TODO:",
-      "color": "rgba(220,64,0,1)",
-      "diagnosticSeverity": "none",
-      "overviewRulerColor": "rgba(0,0,0,0)",
-      "fontWeight": "bold",
+      "backgroundColor": "rgba(255,64,0,.03)",
       "border": "1px solid rgba(255,64,0,.06)",
       "borderRadius": "2px",
-      "backgroundColor": "rgba(255,64,0,.03)"
+      "color": "rgba(220,64,0,1)",
+      "diagnosticSeverity": "none",
+      "fontWeight": "bold",
+      "overviewRulerColor": "rgba(0,0,0,0)",
+      "text": "TODO:"
     }
   ],
   "workbench.colorTheme": "Default Light Modern",
