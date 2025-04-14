@@ -145,4 +145,8 @@ for i = 1, 8 do
   })
 end
 
+-- This is a workaround so that Wayland uses
+-- the standard GNOME window decorations.
+config.enable_wayland = false
+
 return config
