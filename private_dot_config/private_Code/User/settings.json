@@ -12,6 +12,11 @@
   "github.copilot.enable": {
     "markdown": true
   },
+  "remote.defaultExtensionsIfInstalledLocally": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.vscode-pull-request-github"
+  ],
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.openEditorAtIndex1",
