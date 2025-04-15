@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+syspython=/usr/bin/python3
+if ! command -v $syspython &>/dev/null; then
+  echo "Skipping uv because $syspython is not installed"
+  exit 0
+fi
+
+if command -v uv &>/dev/null; then
+  echo "Updating uv..."
+  $syspython -m pip install --upgrade --user uv
+  exit 0
+fi
+
+echo "Installing uv..."
+$syspython -m pip install --user uv
