@@ -44,6 +44,13 @@ if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]
   path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight)
 fi
 
+# Make sure the system python3 user bin directory
+# is on the path. (This is useful on macOS.)
+pyusersite=$(realpath $(/usr/bin/python3 -m site --user-site)/../../../bin)
+if [[ -d $pyusersite ]]; then
+  path+=($pyusersite)
+fi
+
 # Set the default editor and pager.
 export EDITOR=vi
 export PAGER=less
