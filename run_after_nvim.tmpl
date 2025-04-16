@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+prefix=~/.local
+
+{{ if eq .chezmoi.os "darwin" }}
+url=https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-macos-arm64.tar.gz
+{{ else }}
+url=https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
+{{ end }}
+
+# Early exit when nvim is already installed.
+if [[ -x $prefix/bin/nvim ]]; then
+  exit 0
+fi
+
+# Fetch and unpack neovim.
+curl -fsSL $url | tar -xz --strip-components=1 -C $prefix
