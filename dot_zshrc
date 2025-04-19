@@ -43,6 +43,9 @@ fi
 if [[ -d /opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight ]]; then
   path+=(/opt/homebrew/Cellar/git/2.43.0/share/git-core/contrib/diff-highlight)
 fi
+if [[ -d /usr/share/git-core/contrib ]]; then
+  path+=(/usr/share/git-core/contrib)
+fi
 
 # Make sure the system python3 user bin directory
 # is on the path. (This is useful on macOS.)
