@@ -49,9 +49,11 @@ fi
 
 # Make sure the system python3 user bin directory
 # is on the path. (This is useful on macOS.)
-pyusersite=$(realpath $(/usr/bin/python3 -m site --user-site)/../../../bin)
-if [[ -d $pyusersite ]]; then
-  path+=($pyusersite)
+if [[ -x /usr/bin/python3 ]]; then
+  pyusersite=$(realpath $(/usr/bin/python3 -m site --user-site)/../../../bin)
+  if [[ -d $pyusersite ]]; then
+    path+=($pyusersite)
+  fi
 fi
 
 # Set the default editor and pager.
