@@ -53,6 +53,11 @@ fi
 
 # Set the default editor and pager.
 export EDITOR=vi
+if command -v nvim &>/dev/null; then
+  export EDITOR=nvim
+fi
+
+# Set the default pager.
 export PAGER=less
 
 # Allow an application to open a URL. In WSL, first
