@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+prefix=~/.local
+
+# Early exit when lazygit is already installed.
+if [[ -x $prefix/bin/lazygit ]]; then
+  exit 0
+fi
+
+# Install lazygit on linux.
+{{ if eq .chezmoi.os "linux" }}
+
+  # Create a temp directory.
+  tmpdir=$(mktemp -d)
+  cd $tmpdir
+
+  # Fetch lazygit.
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+
+  # Install lazygit to the local bin.
+  install lazygit -D -t ~/.local/bin/
+
+{{ end }}
