@@ -5,11 +5,14 @@ return {
   -- Add Alabaster
   { "p00f/alabaster.nvim" },
 
+  -- Add GitHub themes
+  { "projekt0n/github-nvim-theme" },
+
   -- Set the default color scheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "modus-operandi",
+      colorscheme = "github_light",
     },
   },
 }
