@@ -186,6 +186,9 @@ fi
 [[ -f ~/.zsh_local ]] && source ~/.zsh_local
 
 # Load rust.
+if [[ -d ~/.cargo/bin ]]; then
+  path+=(~/.cargo/bin)
+fi
 if [[ -f "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
