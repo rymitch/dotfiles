@@ -1,9 +1,16 @@
 [core]
 	whitespace = cr-at-eol
 	autocrlf = false
-	pager = less -X -F
+	pager = delta
 	preloadindex = true
 	attributesfile = ~/.config/git/attributes
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	light = true      # or light = true, or omit for auto-detection
+[merge]
+	conflictstyle = zdiff3
 [color]
 	status = always
 	branch = auto
@@ -24,10 +31,6 @@
 	vidir = !"git ls-files --cached --others | vidir --verbose -"
 [log]
 	date = local
-[pager]
-	diff = diff-highlight | less -X -F
-	log = diff-highlight | less -X -F
-	show = diff-highlight | less -X -F
 [push]
 	default = current
 [diff]
