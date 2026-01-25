@@ -25,8 +25,8 @@
       "ls"
     ];
     shellAliases = {
-      ls = "ls -F";
-      dir = "ls -alFsh";
+      ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
+      dir = "LC_COLLATE=C ls -ahlN --color=auto --group-directories-first";
     };
   };
 
