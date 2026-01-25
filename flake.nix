@@ -13,7 +13,7 @@
     nixosConfigurations.nixos-utm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./configuration.nix
+        ./hosts/nixos-utm/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
