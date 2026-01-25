@@ -11,6 +11,11 @@
 * https://krisztianfekete.org/nixos-on-apple-silicon-with-utm/
 * https://www.tonybtw.com/tutorial/nixos-from-scratch/
 
+## Bootstrap Nix on UTM
+
+* https://www.tonybtw.com/tutorial/nixos-from-scratch/
+* https://gist.github.com/samelie/db65e7decbfdb74d748d44860840b51f
+
 ## Run WezTerm on Nix
 
 It is problematic to run OpenGL programs using Nix on a non-NixOS
