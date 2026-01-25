@@ -10,11 +10,31 @@
 * https://somas.is/notes/organizing-nix-configuration-without-flakes/
 * https://krisztianfekete.org/nixos-on-apple-silicon-with-utm/
 * https://www.tonybtw.com/tutorial/nixos-from-scratch/
-
-## Bootstrap Nix on UTM
-
-* https://www.tonybtw.com/tutorial/nixos-from-scratch/
 * https://gist.github.com/samelie/db65e7decbfdb74d748d44860840b51f
+
+## Create a NixOS virtual machine on UTM
+
+1. Use the UTM user interface to create a new VM:
+   1. Pick "Virtualize"
+   2. Pick "Other"
+   3. Configure the RAM as needed.
+   4. Select the "nixos-minimal" ISO file.
+   5. Configure the storage as needed.
+   6. Use the defaults for the remaining steps.
+   7. On the last page, check "Open VM Settings" and click "Save".
+2. In the VM settings:
+   1. Under "Display" pick "virtio-gpu-gl-pci".
+   2. Under "Network" pick "Emulated VLAN".
+   3. Under "Port Forward" click "New". Enter "22" in the second box, and "2222" in the fourth box. Click "Save".
+   4. Click "Save" to close the VM settings.
+3. Start the VM and wait for a bash prompt to appear.
+4. Bootstrap the NixOS installation:
+   1. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   2. `cd dotfiles`
+   3. `sudo sh hosts/nixos-utm/format-drive.sh`
+   4. `sudo shutdown -h now`
+5. In the UTM settings for the VM, delete the USB drive where the ISO image is attached.
+6. Start the VM.
 
 ## Run WezTerm on Nix
 
