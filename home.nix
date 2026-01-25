@@ -6,6 +6,7 @@
       cowsay
       hello
       nerd-fonts.meslo-lg
+      xorg.xrdb
     ];
 
     username = "rmitchell";
