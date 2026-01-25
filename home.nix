@@ -5,12 +5,15 @@
     packages = with pkgs; [
       cowsay
       hello
+      nerd-fonts.meslo-lg
     ];
 
     username = "rmitchell";
     homeDirectory = "/home/rmitchell";
     stateVersion = "25.11";
   };
+
+  fonts.fontconfig.enable = true;
 
   programs.bash = {
     enable = true;
@@ -97,6 +100,13 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  programs.urxvt = {
+    enable = true;
+    fonts = [
+      "xft:MesloLGS Nerd Font Mono:style=Regular:size=10"
+    ];
   };
 
   programs.ripgrep = {
