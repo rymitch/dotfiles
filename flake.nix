@@ -1,5 +1,5 @@
 {
-  description = "NixOS from Scratch";
+  description = "My Home Manager configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
@@ -17,7 +17,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixos-lima, nixos-wsl, ... }: {
+
     nixosConfigurations.nixos-utm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
@@ -32,5 +33,44 @@
         }
       ];
     };
+
+    #nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    #  system = "x86_64-linux";
+    #  modules = [
+    #    nixos-wsl.nixosModules.default
+    #    {
+    #      system.stateVersion = "25.05";
+    #      wsl.enable = true;
+    #    }
+    #  ];
+    #};
+
+    #nixosConfigurations.nixsample-aarch64 = nixpkgs.lib.nixosSystem {
+    #  system = "aarch64-linux";
+    #  specialArgs = { inherit nixos-lima; };
+    #  modules = [
+    #    home-manager.nixosModules.home-manager {
+    #      home-manager = {
+    #        sharedModules = [ ];
+    #        useGlobalPkgs = true;
+    #        useUserPackages = true;
+    #      };
+    #    }
+    #    ./hosts/lima
+    #  ];
+    #};
+
+    #homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
+    #  inherit pkgs;
+    #  modules = [ ./home.nix ];
+    #};
+    #homeConfigurations.rmitchell = home-manager.lib.homeManagerConfiguration {
+    #  inherit pkgs;
+    #  modules = [ ./home.nix ];
+    #};
+    #homeConfigurations.rjmitchell = home-manager.lib.homeManagerConfiguration {
+    #  inherit pkgs;
+    #  modules = [ ./home.nix ];
+    #};
   };
 }
