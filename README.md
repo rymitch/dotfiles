@@ -32,7 +32,7 @@
    4. `sudo shutdown -h now`
 5. In the Hyper-V settings for the VM, delete the DVD drive where the ISO image
    is attached.
-6. Start the VM.
+6. Start the VM. NixOS is ready for use.
 
 ## Create a NixOS virtual machine on UTM
 
@@ -59,7 +59,32 @@
    4. `sudo shutdown -h now`
 5. In the UTM settings for the VM, delete the USB drive where the ISO image is
    attached.
-6. Start the VM.
+6. Start the VM. NixOS is ready for use.
+
+## Create a NixOS virtual machine on WSL
+
+1. Download `nixos.wsl` for the latest
+   [release](https://github.com/nix-community/NixOS-WSL/releases/latest).
+2. Create a new NixOS distribution:
+   `wsl --import NixOS /c/Projects/Nix/NixOS nixos.wsl --version 2`
+3. Enter the new NixOS distribution: `wsl -d NixOS`
+4. Bootstrap the NixOS installation:
+   1. `cd ~`
+   2. `nix-shell -p git`
+   3. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   4. `cd dotfiles`
+   5. `sudo nixos-rebuild boot --flake .#nixos-wsl`
+   6. Stop the NixOS instance:
+      1. Exit the Nix shell: `exit`
+      2. Exit the WSL shell: `exit`
+      3. Stop the WSL instance: `wsl -t NixOS`
+   7. Start a shell inside NixOS and immediately exit it to apply the new
+      generation: `wsl -d NixOS --user root exit`
+   8. Stop the NixOS instance again: `wsl -t NixOS`
+5. Open the WSL shell. NixOS is ready for use.
+
+For more detail, refer to the NixOS-WSL
+[instructions](https://nix-community.github.io/NixOS-WSL/install.html).
 
 ## Create a Nix-based macOS virtual machine on UTM
 
@@ -110,10 +135,6 @@ one copy of the same WSL distribution:
 9. Exit the shell: `exit`
 10. Restart the distribution: `wsl --terminate NixOnUbuntu`
 11. Run the distribution: `wsl -d NixOnUbuntu`
-
-## Install NixOS on WSL
-
-* [Instructions](https://nix-community.github.io/NixOS-WSL/install.html)
 
 ## Install a root certificate on Ubuntu
 

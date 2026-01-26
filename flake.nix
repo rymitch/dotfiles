@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-lima, nix-darwin, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixos-lima, nixos-wsl, nix-darwin, ... }: {
 
     nixosConfigurations.nixos-hv = let
       system = "x86_64-linux";
@@ -65,6 +65,40 @@
       };
       modules = [
         ./hosts/nixos-utm/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users."${loginName}" = import ./home.nix {
+              pkgs = nixpkgs.legacyPackages."${system}";
+              inherit loginName;
+              inherit displayName;
+              inherit homeDirectory;
+            };
+            backupFileExtension = "backup";
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.nixos-wsl = let
+      system = "x86_64-linux";
+      loginName = "rjmitchell";
+      displayName = "Ryan Mitchell";
+      homeDirectory = "/home/rjmitchell";
+    in nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit loginName;
+        inherit displayName;
+      };
+      modules = [
+        nixos-wsl.nixosModules.default
+        {
+          system.stateVersion = "25.11";
+	  wsl.defaultUser = "${loginName}";
+          wsl.enable = true;
+        }
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
@@ -139,17 +173,6 @@
         }
       ];
     };
-
-    #nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-    #  system = "x86_64-linux";
-    #  modules = [
-    #    nixos-wsl.nixosModules.default
-    #    {
-    #      system.stateVersion = "25.05";
-    #      wsl.enable = true;
-    #    }
-    #  ];
-    #};
 
     #homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
     #  inherit pkgs;
