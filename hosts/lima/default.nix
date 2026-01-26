@@ -24,6 +24,14 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  users.users.rmitchell = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";

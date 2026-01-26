@@ -1,4 +1,4 @@
-{ config, pkgs, ... } :
+{ pkgs, user, homeDirectory, ... } :
 
 {
   home = {
@@ -9,8 +9,8 @@
       xorg.xrdb
     ];
 
-    username = "rmitchell";
-    homeDirectory = "/home/rmitchell";
+    username = "${user}";
+    homeDirectory = "${homeDirectory}";
     stateVersion = "25.11";
   };
 
