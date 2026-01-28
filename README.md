@@ -12,6 +12,26 @@
 * https://www.tonybtw.com/tutorial/nixos-from-scratch/
 * https://gist.github.com/samelie/db65e7decbfdb74d748d44860840b51f
 
+## Create a NixOS virtual machine on Hyper-V
+
+1. Use the Hyper-V user interface to create a new VM:
+   1. Use the defaults, unless otherwise specified.
+   2. Pick "Generation 2"
+   3. Configure the RAM and storage size as needed.
+   4. Pick "Install an operating system from a bootable image file" and select the "nixos-minimal" ISO file.
+2. In the VM settings:
+   1. Under "Security" uncheck "Enable Secure Boot".
+   2. Under "Checkpoints" uncheck "Enable checkpoints".
+   3. Click "OK" to save and close the VM settings.
+3. Start the VM and wait for a bash prompt to appear.
+4. Bootstrap the NixOS installation:
+   1. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   2. `cd dotfiles`
+   3. `sudo sh hosts/nixos-hv/format-drive.sh`
+   4. `sudo shutdown -h now`
+5. In the Hyper-V settings for the VM, delete the DVD drive where the ISO image is attached.
+6. Start the VM.
+
 ## Create a NixOS virtual machine on UTM
 
 1. Use the UTM user interface to create a new VM:

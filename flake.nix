@@ -19,6 +19,21 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-lima, nixos-wsl, ... }: {
 
+    nixosConfigurations.nixos-hv = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/nixos-hv/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.rmitchell = import ./home.nix;
+            backupFileExtension = "backup";
+          };
+        }
+      ];
+    };
+
     nixosConfigurations.nixos-utm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
