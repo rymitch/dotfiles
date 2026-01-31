@@ -18,7 +18,8 @@
    1. Use the defaults, unless otherwise specified.
    2. Pick "Generation 2"
    3. Configure the RAM and storage size as needed.
-   4. Pick "Install an operating system from a bootable image file" and select the "nixos-minimal" ISO file.
+   4. Pick "Install an operating system from a bootable image file" and select
+      the "nixos-minimal" ISO file.
 2. In the VM settings:
    1. Under "Security" uncheck "Enable Secure Boot".
    2. Under "Checkpoints" uncheck "Enable checkpoints".
@@ -29,7 +30,8 @@
    2. `cd dotfiles`
    3. `sudo sh hosts/nixos-hv/format-drive.sh`
    4. `sudo shutdown -h now`
-5. In the Hyper-V settings for the VM, delete the DVD drive where the ISO image is attached.
+5. In the Hyper-V settings for the VM, delete the DVD drive where the ISO image
+   is attached.
 6. Start the VM.
 
 ## Create a NixOS virtual machine on UTM
@@ -44,8 +46,10 @@
    7. On the last page, check "Open VM Settings" and click "Save".
 2. In the VM settings:
    1. Under "Display" pick "virtio-gpu-gl-pci".
-   2. Under "Network" pick "Emulated VLAN". This enables the "Port Forward" section.
-   3. Under "Port Forward" click "New". Enter "22" in the second box, and "2222" in the fourth box. Click "Save".
+   2. Under "Network" pick "Emulated VLAN". This enables the "Port Forward"
+      section.
+   3. Under "Port Forward" click "New". Enter "22" in the second box, and
+      "2222" in the fourth box. Click "Save".
    4. Click "Save" to close the VM settings.
 3. Start the VM and wait for a bash prompt to appear.
 4. Bootstrap the NixOS installation:
@@ -53,8 +57,30 @@
    2. `cd dotfiles`
    3. `sudo sh hosts/nixos-utm/bootstrap.sh`
    4. `sudo shutdown -h now`
-5. In the UTM settings for the VM, delete the USB drive where the ISO image is attached.
+5. In the UTM settings for the VM, delete the USB drive where the ISO image is
+   attached.
 6. Start the VM.
+
+## Create a Nix-based macOS virtual machine on UTM
+
+1. Use the UTM user interface to create a new VM:
+   1. Pick "Virtualize"
+   2. Pick "macOS 12+"
+   3. Use the defaults for the remaining steps, configuring the RAM and storage
+      as needed.
+2. Start the VM and wait for the macOS install to complete.
+3. Open a terminal and bootstrap the Nix installation:
+   1. `curl -sSf -L https://install.lix.systems/lix | sh -s -- install`
+   2. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   3. If prompted, install the developer tools.
+   4. To refresh the shell environment, close the existing terminal and open a
+      new terminal.
+   5. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   6. `cd dotfiles`
+   7. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
+   8. `sudo shutdown -h now`
+4. To refresh the shell envrionment, close the existing terminal and open a new
+   terminal.
 
 ## Run WezTerm on Nix
 
