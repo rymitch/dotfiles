@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, loginName, displayName, ... }:
 
 {
   imports =
@@ -52,9 +52,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  users.users.${user} = {
+  users.users.${loginName} = {
     isNormalUser = true;
-    description = "Ryan Mitchell"
+    description = "${displayName}"
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree

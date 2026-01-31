@@ -25,12 +25,14 @@
 
     nixosConfigurations.nixos-hv = let
       system = "x86_64-linux";
-      user = "rmitchell";
+      loginName = "rmitchell";
+      displayName = "Ryan Mitchell";
       homeDirectory = "/home/rmitchell";
     in nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit user;
+        inherit loginName;
+        inherit displayName;
       };
       modules = [
         ./hosts/nixos-hv/configuration.nix
@@ -38,9 +40,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.rmitchell = import ./home.nix {
+            users."${loginName}" = import ./home.nix {
               pkgs = nixpkgs.legacyPackages."${system}";
-              inherit user;
+              inherit loginName;
+              inherit displayName;
               inherit homeDirectory;
             };
             backupFileExtension = "backup";
@@ -51,12 +54,14 @@
 
     nixosConfigurations.nixos-utm = let
       system = "aarch64-linux";
-      user = "rmitchell";
+      loginName = "rmitchell";
+      displayName = "Ryan Mitchell";
       homeDirectory = "/home/rmitchell";
     in nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit user;
+        inherit loginName;
+        inherit displayName;
       };
       modules = [
         ./hosts/nixos-utm/configuration.nix
@@ -64,9 +69,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."${user}" = import ./home.nix {
+            users."${loginName}" = import ./home.nix {
               pkgs = nixpkgs.legacyPackages."${system}";
-              inherit user;
+              inherit loginName;
+              inherit displayName;
               inherit homeDirectory;
             };
             backupFileExtension = "backup";
@@ -77,12 +83,14 @@
 
     nixosConfigurations.nixos-lima = let
       system = "aarch64-linux";
-      user = "rmitchell";
+      loginName = "rmitchell";
+      displayName = "Ryan Mitchell";
       homeDirectory = "/home/rmitchell";
     in nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit user;
+        inherit loginName;
+        inherit displayName;
         inherit nixos-lima;
       };
       modules = [
@@ -91,9 +99,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.rmitchell = import ./home.nix {
+            users."${loginName}" = import ./home.nix {
               pkgs = nixpkgs.legacyPackages."${system}";
-              inherit user;
+              inherit loginName;
+              inherit displayName;
               inherit homeDirectory;
             };
             backupFileExtension = "backup";
@@ -104,12 +113,14 @@
 
     darwinConfigurations.nix-mac = let
       system = "aarch64-linux";
-      user = "rmitchell";
+      loginName = "rmitchell";
+      displayName = "Ryan Mitchell";
       homeDirectory = "/Users/rmitchell";
     in nix-darwin.lib.darwinSystem {
       inherit system;
       specialArgs = {
-        inherit user;
+        inherit loginName;
+        inherit displayName;
       };
       modules = [
         ./hosts/nix-mac/configuration.nix
@@ -117,9 +128,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.rmitchell = import ./home.nix {
+            users."${loginName}" = import ./home.nix {
               pkgs = nixpkgs.legacyPackages."${system}";
-              inherit user;
+              inherit loginName;
+              inherit displayName;
               inherit homeDirectory;
             };
             backupFileExtension = "backup";

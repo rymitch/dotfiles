@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, nixos-lima, ... }:
+{ config, lib, pkgs, loginName, displayName, modulesPath, nixos-lima, ... }:
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -24,13 +24,15 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  users.users.rmitchell = {
+  users.users.${loginName} = {
     isNormalUser = true;
+    description = "${displayName}"
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree
     ];
   };
+
 
   swapDevices = [ ];
 

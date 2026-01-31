@@ -44,14 +44,14 @@
    7. On the last page, check "Open VM Settings" and click "Save".
 2. In the VM settings:
    1. Under "Display" pick "virtio-gpu-gl-pci".
-   2. Under "Network" pick "Emulated VLAN".
+   2. Under "Network" pick "Emulated VLAN". This enables the "Port Forward" section.
    3. Under "Port Forward" click "New". Enter "22" in the second box, and "2222" in the fourth box. Click "Save".
    4. Click "Save" to close the VM settings.
 3. Start the VM and wait for a bash prompt to appear.
 4. Bootstrap the NixOS installation:
    1. `git clone https://github.com/rymitch/dotfiles.git -b nix`
    2. `cd dotfiles`
-   3. `sudo sh hosts/nixos-utm/format-drive.sh`
+   3. `sudo sh hosts/nixos-utm/bootstrap.sh`
    4. `sudo shutdown -h now`
 5. In the UTM settings for the VM, delete the USB drive where the ISO image is attached.
 6. Start the VM.

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, loginName, displayName, ... }:
 
 {
   ids.gids.nixbld = 350;
@@ -6,16 +6,16 @@
 
   system.stateVersion = 4;
 
-  system.primaryUser = "${user}";
+  system.primaryUser = "${loginName}";
 
   system.defaults.dock.autohide = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  users.users."${user}" = {
-    name = "${user}";
-    description = "Ryan Mitchell";
-    home = "/Users/${user}";
+  users.users.${loginName} = {
+    name = "${loginName}";
+    description = "${displayName}";
+    home = "/Users/${loginName}";
   };
 
   environment.systemPackages = [
