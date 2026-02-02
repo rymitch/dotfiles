@@ -28,7 +28,7 @@
 4. Bootstrap the NixOS installation:
    1. `git clone https://github.com/rymitch/dotfiles.git -b nix`
    2. `cd dotfiles`
-   3. `sudo sh hosts/nixos-hv/format-drive.sh`
+   3. `sudo sh hosts/nixos-hv/bootstrap.sh`
    4. `sudo shutdown -h now`
 5. In the Hyper-V settings for the VM, delete the DVD drive where the ISO image
    is attached.

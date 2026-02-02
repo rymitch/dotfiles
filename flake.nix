@@ -25,9 +25,9 @@
 
     nixosConfigurations.nixos-hv = let
       system = "x86_64-linux";
-      loginName = "rmitchell";
+      loginName = "rjmitchell";
       displayName = "Ryan Mitchell";
-      homeDirectory = "/home/rmitchell";
+      homeDirectory = "/home/rjmitchell";
     in nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {

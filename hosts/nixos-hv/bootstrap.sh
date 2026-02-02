@@ -21,4 +21,4 @@ mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 
 nixos-install --flake .#nixos-hv
-nixos-enter --root /mnt -c 'passwd rmitchell'
+nixos-enter --root /mnt -c 'passwd rjmitchell'

@@ -54,7 +54,7 @@
 
   users.users.${loginName} = {
     isNormalUser = true;
-    description = "${displayName}"
+    description = "${displayName}";
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree
