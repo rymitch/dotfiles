@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, loginName, displayName, ... }:
+{ config, lib, pkgs, home-manager, nvf, loginName, displayName, ... }:
 
 {
   imports =
@@ -16,6 +16,7 @@
     useUserPackages = true;
     users."${loginName}" = import ../../home/home.nix {
       inherit pkgs;
+      inherit nvf;
       inherit loginName;
       inherit displayName;
       homeDirectory = "/home/${loginName}";

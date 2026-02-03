@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,12 +25,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-lima, nixos-wsl, nix-darwin, ... }: {
+  outputs = { self, nixpkgs, home-manager, nvf, nixos-lima, nixos-wsl, nix-darwin, ... }: {
 
     nixosConfigurations.nixos-hv = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit home-manager;
+        inherit nvf;
         loginName = "rjmitchell";
         displayName = "Ryan Mitchell";
       };
@@ -41,6 +46,7 @@
       specialArgs = {
         inherit home-manager;
         inherit nixos-lima;
+        inherit nvf;
         loginName = "rmitchell";
         displayName = "Ryan Mitchell";
       };
@@ -54,6 +60,7 @@
       system = "aarch64-linux";
       specialArgs = {
         inherit home-manager;
+        inherit nvf;
         loginName = "rmitchell";
         displayName = "Ryan Mitchell";
       };
@@ -67,6 +74,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit home-manager;
+        inherit nvf;
         loginName = "rjmitchell";
         displayName = "Ryan Mitchell";
       };

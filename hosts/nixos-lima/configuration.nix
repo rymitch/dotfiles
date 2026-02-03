@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, nixos-lima, loginName, displayName, modulesPath, ... }:
+{ config, lib, pkgs, home-manager, nixos-lima, nvf, loginName, displayName, modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -32,6 +32,7 @@
     useUserPackages = true;
     users."${loginName}" = import ../../home/home.nix {
       inherit pkgs;
+      inherit nvf;
       inherit loginName;
       inherit displayName;
       homeDirectory = "/home/${loginName}";

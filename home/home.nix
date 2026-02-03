@@ -1,4 +1,4 @@
-{ pkgs, loginName, displayName, homeDirectory, ... } :
+{ pkgs, nvf, loginName, displayName, homeDirectory, ... } :
 
 {
   imports = [
