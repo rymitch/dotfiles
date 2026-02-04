@@ -52,6 +52,20 @@
       ];
     };
 
+    nixosConfigurations.nixos-lima = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {
+        inherit home-manager;
+        inherit nixos-lima;
+        loginName = "rmitchell";
+        displayName = "Ryan Mitchell";
+      };
+      modules = [
+        home-manager.nixosModules.home-manager
+        ./hosts/nixos-lima/configuration.nix
+      ];
+    };
+
     nixosConfigurations.nixos-utm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {
@@ -79,36 +93,6 @@
       modules = [
         nixos-wsl.nixosModules.default
         ./hosts/nixos-wsl/configuration.nix
-      ];
-    };
-
-    nixosConfigurations.nixos-lima = let
-      system = "aarch64-linux";
-      loginName = "rmitchell";
-      displayName = "Ryan Mitchell";
-      homeDirectory = "/home/rmitchell";
-    in nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit loginName;
-        inherit displayName;
-        inherit nixos-lima;
-      };
-      modules = [
-        ./hosts/lima
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users."${loginName}" = import ./home.nix {
-              pkgs = nixpkgs.legacyPackages."${system}";
-              inherit loginName;
-              inherit displayName;
-              inherit homeDirectory;
-            };
-            backupFileExtension = "backup";
-          };
-        }
       ];
     };
 

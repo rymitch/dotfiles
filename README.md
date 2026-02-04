@@ -34,6 +34,11 @@
    is attached.
 6. Start the VM. NixOS is ready for use.
 
+## Create a NixOS virtual machine on Lima
+
+1. Bootstrap the NixOS installation:
+   1. `sudo sh hosts/nixos-utm/bootstrap.sh`
+
 ## Create a NixOS virtual machine on UTM
 
 1. Use the UTM user interface to create a new VM:
