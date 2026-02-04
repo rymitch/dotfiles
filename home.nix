@@ -36,7 +36,7 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.gitMinimal;
+    package = pkgs.gitFull;
     settings = {
       alias = {
         checokut = "checkout";
