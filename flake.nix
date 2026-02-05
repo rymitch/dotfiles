@@ -63,16 +63,12 @@
       ];
     };
 
-    nixosConfigurations.nixos-wsl = let
+    nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      loginName = "rjmitchell";
-      displayName = "Ryan Mitchell";
-    in nixpkgs.lib.nixosSystem {
-      inherit system;
       specialArgs = {
-        inherit loginName;
-        inherit displayName;
         inherit home-manager;
+        loginName = "rjmitchell";
+        displayName = "Ryan Mitchell";
       };
       modules = [
         nixos-wsl.nixosModules.default

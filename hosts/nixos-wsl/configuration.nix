@@ -6,12 +6,6 @@
       (import "${home-manager}/nixos")
     ];
 
-  system.stateVersion = "25.11";
-  wsl.defaultUser = "${loginName}";
-  wsl.enable = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -24,17 +18,22 @@
     backupFileExtension = "backup";
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   programs.nix-ld.enable = true;
 
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
       AllowUsers = ["${loginName}"];
-      UseDns = true;
-      X11Forwarding = false;
+      X11Forwarding = true;
       PermitRootLogin = "no";
     };
   };
+
+  system.stateVersion = "25.11";
+
+  wsl.defaultUser = "${loginName}";
+  wsl.enable = true;
 }
