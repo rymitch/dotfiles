@@ -1,6 +1,10 @@
 { pkgs, loginName, displayName, homeDirectory, ... } :
 
 {
+  imports = [
+    ./ckcolor.nix
+  ];
+
   home = {
     packages = with pkgs; [
       cowsay
