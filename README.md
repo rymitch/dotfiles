@@ -34,6 +34,12 @@
    is attached.
 6. Start the VM. NixOS is ready for use.
 
+To build and activate a new configuration:
+
+1. `git clone git@github.com/rymitch/dotfiles.git -b nix`
+2. `cd dotfiles`
+3. `sudo nixos-rebuild switch --flake .#nixos-hv`
+
 ## Create a NixOS virtual machine on Lima
 
 1. Bootstrap the NixOS installation:
@@ -87,6 +93,12 @@
       generation: `wsl -d NixOS --user root exit`
    8. Stop the NixOS instance again: `wsl -t NixOS`
 5. Open the WSL shell. NixOS is ready for use.
+
+To build and activate a new configuration:
+
+1. `git clone git@github.com/rymitch/dotfiles.git -b nix`
+2. `cd dotfiles`
+3. `sudo nixos-rebuild switch --flake .#nixos-wsl`
 
 For more detail, refer to the NixOS-WSL
 [instructions](https://nix-community.github.io/NixOS-WSL/install.html).
