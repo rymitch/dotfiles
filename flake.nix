@@ -23,32 +23,16 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-lima, nixos-wsl, nix-darwin, ... }: {
 
-    nixosConfigurations.nixos-hv = let
+    nixosConfigurations.nixos-hv = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      loginName = "rjmitchell";
-      displayName = "Ryan Mitchell";
-      homeDirectory = "/home/rjmitchell";
-    in nixpkgs.lib.nixosSystem {
-      inherit system;
       specialArgs = {
-        inherit loginName;
-        inherit displayName;
+        inherit home-manager;
+        loginName = "rjmitchell";
+        displayName = "Ryan Mitchell";
       };
       modules = [
+        home-manager.nixosModules.home-manager
         ./hosts/nixos-hv/configuration.nix
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users."${loginName}" = import ./home.nix {
-              pkgs = nixpkgs.legacyPackages."${system}";
-              inherit loginName;
-              inherit displayName;
-              inherit homeDirectory;
-            };
-            backupFileExtension = "backup";
-          };
-        }
       ];
     };
 
