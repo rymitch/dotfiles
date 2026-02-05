@@ -45,6 +45,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
+  programs.nix-ld.enable = true;
+
   security = {
     sudo.wheelNeedsPassword = false;
   };

@@ -28,6 +28,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.nix-ld.enable = true;
+
   services.openssh = {
     enable = true;
     settings.X11Forwarding = true;

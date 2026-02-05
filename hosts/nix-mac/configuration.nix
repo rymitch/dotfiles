@@ -18,6 +18,8 @@
     home = "/Users/${loginName}";
   };
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = [
   ];
 }

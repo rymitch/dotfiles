@@ -3,6 +3,7 @@
 {
   imports = [
     ./ckcolor.nix
+    ./uv.nix
   ];
 
   home = {
