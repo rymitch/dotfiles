@@ -97,7 +97,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."${loginName}" = import ./home.nix {
+            users."${loginName}" = import ./home/home.nix {
               pkgs = nixpkgs.legacyPackages."${system}";
               inherit loginName;
               inherit displayName;
@@ -111,15 +111,15 @@
 
     #homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
     #  inherit pkgs;
-    #  modules = [ ./home.nix ];
+    #  modules = [ ./home/home.nix ];
     #};
     #homeConfigurations.rmitchell = home-manager.lib.homeManagerConfiguration {
     #  inherit pkgs;
-    #  modules = [ ./home.nix ];
+    #  modules = [ ./home/home.nix ];
     #};
     #homeConfigurations.rjmitchell = home-manager.lib.homeManagerConfiguration {
     #  inherit pkgs;
-    #  modules = [ ./home.nix ];
+    #  modules = [ ./home/home.nix ];
     #};
   };
 }

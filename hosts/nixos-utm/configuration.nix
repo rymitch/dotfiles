@@ -14,7 +14,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users."${loginName}" = import ../../home.nix {
+    users."${loginName}" = import ../../home/home.nix {
       inherit pkgs;
       inherit loginName;
       inherit displayName;
