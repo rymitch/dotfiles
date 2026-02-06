@@ -3,6 +3,7 @@
 {
   imports = [
     ./ckcolor.nix
+    ./jq.nix
     ./uv.nix
   ];
 
