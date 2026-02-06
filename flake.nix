@@ -30,10 +30,7 @@
     nixosConfigurations.nixos-hv = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit home-manager;
-        inherit nvf;
-        loginName = "rjmitchell";
-        displayName = "Ryan Mitchell";
+        inherit home-manager nvf;
       };
       modules = [
         home-manager.nixosModules.home-manager
@@ -44,11 +41,7 @@
     nixosConfigurations.nixos-lima = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {
-        inherit home-manager;
-        inherit nixos-lima;
-        inherit nvf;
-        loginName = "rmitchell";
-        displayName = "Ryan Mitchell";
+        inherit home-manager nixos-lima nvf;
       };
       modules = [
         home-manager.nixosModules.home-manager
@@ -59,10 +52,7 @@
     nixosConfigurations.nixos-utm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {
-        inherit home-manager;
-        inherit nvf;
-        loginName = "rmitchell";
-        displayName = "Ryan Mitchell";
+        inherit home-manager nvf;
       };
       modules = [
         home-manager.nixosModules.home-manager
@@ -73,10 +63,7 @@
     nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit home-manager;
-        inherit nvf;
-        loginName = "rjmitchell";
-        displayName = "Ryan Mitchell";
+        inherit home-manager nvf;
       };
       modules = [
         nixos-wsl.nixosModules.default

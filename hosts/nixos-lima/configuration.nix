@@ -1,4 +1,10 @@
-{ config, lib, pkgs, home-manager, nixos-lima, nvf, loginName, displayName, modulesPath, ... }:
+{ config, lib, pkgs, home-manager, nixos-lima, nvf, modulesPath, ... }:
+let
+  loginName = "rmitchell";
+  displayName = "Ryan Mitchell";
+  email = "ryan@mitchell.plus";
+  homeDirectory = "/home/${loginName}";
+in {
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -31,11 +37,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users."${loginName}" = import ../../home/home.nix {
-      inherit pkgs;
-      inherit nvf;
-      inherit loginName;
-      inherit displayName;
-      homeDirectory = "/home/${loginName}";
+      inherit pkgs nvf loginName displayName email homeDirectory;
     };
     backupFileExtension = "backup";
   };

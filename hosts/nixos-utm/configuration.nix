@@ -1,6 +1,10 @@
-{ config, lib, pkgs, home-manager, nvf, loginName, displayName, ... }:
-
-{
+{ config, lib, pkgs, home-manager, nvf, ... }:
+let
+  loginName = "rmitchell";
+  displayName = "Ryan Mitchell";
+  email = "ryan@mitchell.plus";
+  homeDirectory = "/home/${loginName}";
+in {
   imports =
     [
       ./hardware-configuration.nix
@@ -15,11 +19,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users."${loginName}" = import ../../home/home.nix {
-      inherit pkgs;
-      inherit nvf;
-      inherit loginName;
-      inherit displayName;
-      homeDirectory = "/home/${loginName}";
+      inherit pkgs nvf loginName displayName email homeDirectory;
     };
     backupFileExtension = "backup";
   };
