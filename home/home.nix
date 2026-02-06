@@ -10,6 +10,7 @@
     packages = with pkgs; [
       cowsay
       hello
+      meld
       nerd-fonts.meslo-lg
       xorg.xrdb
     ];
@@ -68,7 +69,9 @@
       };
       delta = {
         navigate = "true";
-        light = "false";
+      };
+      diff = {
+        tool = "meld";
       };
       format = {
         pretty = "compactgraph";
@@ -95,8 +98,7 @@
         directory = [ "/etc/nixos" ];
       };
       user = {
-        name = "Ryan Mitchell";
-        email = "ryan@mitchell.plus";
+        name = "${displayName}";
       };
     };
   };
