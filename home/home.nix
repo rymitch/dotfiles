@@ -8,6 +8,7 @@
     ./tmux.nix
     ./uv.nix
     ./wezterm.nix
+    ./zsh.nix
   ];
 
   home = {
@@ -85,20 +86,5 @@
     fonts = [
       "xft:MesloLGS Nerd Font Mono:style=Regular:size=10"
     ];
-  };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    history = {
-      ignorePatterns = [
-        "cls"
-        "dir"
-        "exit"
-        "fg"
-        "ls"
-      ];
-    };
   };
 }
