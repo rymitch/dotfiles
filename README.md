@@ -78,6 +78,32 @@ To build and activate a new configuration:
 2. `cd dotfiles`
 3. `sudo nixos-rebuild switch --flake .#nixos-utm`
 
+## Create a Nix-based macOS virtual machine on UTM
+
+1. Use the UTM user interface to create a new VM:
+   1. Pick "Virtualize"
+   2. Pick "macOS 12+"
+   3. Use the defaults for the remaining steps, configuring the RAM and storage
+      as needed.
+2. Start the VM and wait for the macOS install to complete.
+3. Open a terminal and bootstrap the Nix installation:
+   1. `curl -sSf -L https://install.lix.systems/lix | sh -s -- install`
+   2. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   3. If prompted, install the developer tools.
+   4. To refresh the shell environment, close the existing terminal and open a
+      new terminal.
+   5. `git clone https://github.com/rymitch/dotfiles.git -b nix`
+   6. `cd dotfiles`
+   7. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
+   8. `sudo shutdown -h now`
+4. To refresh the shell environment, close the existing terminal and open a new
+   terminal.
+
+To build and activate a new configuration:
+
+1. `cd dotfiles`
+2. `sudo darwin-rebuild switch --flake .#nix-mac`
+
 ## Create a NixOS virtual machine on WSL
 
 1. Download `nixos.wsl` for the latest
@@ -108,27 +134,6 @@ To build and activate a new configuration:
 
 For more detail, refer to the NixOS-WSL
 [instructions](https://nix-community.github.io/NixOS-WSL/install.html).
-
-## Create a Nix-based macOS virtual machine on UTM
-
-1. Use the UTM user interface to create a new VM:
-   1. Pick "Virtualize"
-   2. Pick "macOS 12+"
-   3. Use the defaults for the remaining steps, configuring the RAM and storage
-      as needed.
-2. Start the VM and wait for the macOS install to complete.
-3. Open a terminal and bootstrap the Nix installation:
-   1. `curl -sSf -L https://install.lix.systems/lix | sh -s -- install`
-   2. `git clone https://github.com/rymitch/dotfiles.git -b nix`
-   3. If prompted, install the developer tools.
-   4. To refresh the shell environment, close the existing terminal and open a
-      new terminal.
-   5. `git clone https://github.com/rymitch/dotfiles.git -b nix`
-   6. `cd dotfiles`
-   7. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
-   8. `sudo shutdown -h now`
-4. To refresh the shell environment, close the existing terminal and open a new
-   terminal.
 
 ## Run WezTerm on Nix
 

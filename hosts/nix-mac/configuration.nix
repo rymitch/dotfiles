@@ -1,25 +1,32 @@
-{ config, lib, pkgs, loginName, displayName, ... }:
+{ config, lib, pkgs, home-manager, nvf, ... }:
+let
+  loginName = "rmitchell";
+  displayName = "Ryan Mitchell";
+  email = "ryan@mitchell.plus";
+  homeDirectory = "/Users/${loginName}";
+in {
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users."${loginName}" = import ../../home/home.nix {
+      inherit pkgs nvf loginName displayName email homeDirectory;
+    };
+    backupFileExtension = "backup";
+  };
 
-{
   ids.gids.nixbld = 350;
-  nix.settings.experimental-features = "nix-command flakes";
 
-  system.stateVersion = 4;
-
-  system.primaryUser = "${loginName}";
-
-  system.defaults.dock.autohide = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  system.defaults.dock.autohide = true;
+  system.primaryUser = "${loginName}";
+  system.stateVersion = 4;
 
   users.users.${loginName} = {
     name = "${loginName}";
     description = "${displayName}";
-    home = "/Users/${loginName}";
+    home = "${homeDirectory}";
   };
-
-  programs.nix-ld.enable = true;
-
-  environment.systemPackages = [
-  ];
 }

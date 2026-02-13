@@ -71,32 +71,14 @@
       ];
     };
 
-    darwinConfigurations.nix-mac = let
+    darwinConfigurations.nix-mac = nix-darwin.lib.darwinSystem {
       system = "aarch64-linux";
-      loginName = "rmitchell";
-      displayName = "Ryan Mitchell";
-      homeDirectory = "/Users/rmitchell";
-    in nix-darwin.lib.darwinSystem {
-      inherit system;
       specialArgs = {
-        inherit loginName;
-        inherit displayName;
+        inherit home-manager nvf;
       };
       modules = [
+        home-manager.darwinModules.home-manager
         ./hosts/nix-mac/configuration.nix
-        home-manager.darwinModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users."${loginName}" = import ./home/home.nix {
-              pkgs = nixpkgs.legacyPackages."${system}";
-              inherit loginName;
-              inherit displayName;
-              inherit homeDirectory;
-            };
-            backupFileExtension = "backup";
-          };
-        }
       ];
     };
 
