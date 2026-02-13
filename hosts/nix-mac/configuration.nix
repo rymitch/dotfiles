@@ -20,6 +20,8 @@ in {
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  programs.zsh.enable = true;
+
   system.defaults.dock.autohide = true;
   system.primaryUser = "${loginName}";
   system.stateVersion = 4;

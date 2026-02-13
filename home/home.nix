@@ -10,6 +10,7 @@
 
   home = {
     packages = with pkgs; [
+      coreutils-full
       cowsay
       hello
       meld
@@ -27,18 +28,27 @@
 
   fonts.fontconfig.enable = true;
 
+  home.shellAliases = {
+    bc = "bc -l";
+    clear = "printf \"\\033c\"";
+    cls = "printf \"\\033c\"";
+    df = "df -hx \"squashfs\"";
+    dir = "LC_COLLATE=C ls -ahlN --color=auto --group-directories-first";
+    du = "du -h";
+    grep = "grep --color=auto";
+    ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
+    myip = "curl ifconfig.me";
+  };
+
   programs.bash = {
     enable = true;
     historyIgnore = [
+      "cls"
       "dir"
       "exit"
       "fg"
       "ls"
     ];
-    shellAliases = {
-      ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
-      dir = "LC_COLLATE=C ls -ahlN --color=auto --group-directories-first";
-    };
   };
 
   programs.delta = {
@@ -220,5 +230,20 @@
 
       return config
     '';
+  };
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
+    history = {
+      ignorePatterns = [
+        "cls"
+        "dir"
+        "exit"
+        "fg"
+        "ls"
+      ];
+    };
   };
 }
