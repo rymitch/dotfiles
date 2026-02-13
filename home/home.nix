@@ -14,14 +14,24 @@
     ./zsh.nix
   ];
 
+  fonts.fontconfig.enable = true;
+
   home = {
     packages = with pkgs; [
       coreutils-full
-      cowsay
-      hello
-      meld
-      xorg.xrdb
     ];
+
+    shellAliases = {
+      bc = "bc -l";
+      clear = "printf \"\\033c\"";
+      cls = "printf \"\\033c\"";
+      df = "df -hx \"squashfs\"";
+      dir = "LC_COLLATE=C ls -ahlN --color=auto --group-directories-first";
+      du = "du -h";
+      grep = "grep --color=auto";
+      ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
+      myip = "curl ifconfig.me";
+    };
 
     username = "${loginName}";
     homeDirectory = "${homeDirectory}";
@@ -30,20 +40,6 @@
 
   mine.user.email = "${email}";
   mine.user.name = "${displayName}";
-
-  fonts.fontconfig.enable = true;
-
-  home.shellAliases = {
-    bc = "bc -l";
-    clear = "printf \"\\033c\"";
-    cls = "printf \"\\033c\"";
-    df = "df -hx \"squashfs\"";
-    dir = "LC_COLLATE=C ls -ahlN --color=auto --group-directories-first";
-    du = "du -h";
-    grep = "grep --color=auto";
-    ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
-    myip = "curl ifconfig.me";
-  };
 
   programs.neovim = {
     enable = true;

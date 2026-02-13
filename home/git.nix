@@ -11,6 +11,10 @@
     };
   };
 
+  config.home.packages = [
+    pkgs.meld
+  ];
+
   config.programs.delta = {
     enable = true;
   };
