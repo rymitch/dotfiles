@@ -72,6 +72,12 @@ To build and activate a new configuration:
    attached.
 6. Start the VM. NixOS is ready for use.
 
+To build and activate a new configuration:
+
+1. `git clone git@github.com/rymitch/dotfiles.git -b nix`
+2. `cd dotfiles`
+3. `sudo nixos-rebuild switch --flake .#nixos-utm`
+
 ## Create a NixOS virtual machine on WSL
 
 1. Download `nixos.wsl` for the latest
