@@ -11,6 +11,10 @@
     };
   };
 
+  config.programs.delta = {
+    enable = true;
+  };
+
   config.programs.git = {
     enable = true;
     package = pkgs.gitFull;
