@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 {
+  config.home.packages = [
+    pkgs.nerd-fonts.meslo-lg
+  ];
+
   config.programs.wezterm = {
     enable = true;
     extraConfig = ''

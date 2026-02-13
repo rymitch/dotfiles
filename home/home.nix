@@ -7,6 +7,7 @@
     ./jq.nix
     ./tmux.nix
     ./uv.nix
+    ./urxvt.nix
     ./wezterm.nix
     ./zsh.nix
   ];
@@ -17,7 +18,6 @@
       cowsay
       hello
       meld
-      nerd-fonts.meslo-lg
       xorg.xrdb
     ];
 
@@ -79,12 +79,5 @@
 
   services.ssh-agent = {
     enable = true;
-  };
-
-  programs.urxvt = {
-    enable = true;
-    fonts = [
-      "xft:MesloLGS Nerd Font Mono:style=Regular:size=10"
-    ];
   };
 }
