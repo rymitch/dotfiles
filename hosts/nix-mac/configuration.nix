@@ -22,6 +22,8 @@ in {
 
   programs.zsh.enable = true;
 
+  services.openssh.enable = true;
+
   system.defaults.dock.autohide = true;
   system.primaryUser = "${loginName}";
   system.stateVersion = 4;
