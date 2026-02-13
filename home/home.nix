@@ -2,13 +2,14 @@
 
 {
   imports = [
+    ./bash.nix
     ./ckcolor.nix
     ./git.nix
     ./jq.nix
     ./ssh.nix
     ./tmux.nix
-    ./uv.nix
     ./urxvt.nix
+    ./uv.nix
     ./wezterm.nix
     ./zsh.nix
   ];
@@ -42,17 +43,6 @@
     grep = "grep --color=auto";
     ls = "LC_COLLATE=C ls -hN --color=auto --group-directories-first";
     myip = "curl ifconfig.me";
-  };
-
-  programs.bash = {
-    enable = true;
-    historyIgnore = [
-      "cls"
-      "dir"
-      "exit"
-      "fg"
-      "ls"
-    ];
   };
 
   programs.neovim = {
