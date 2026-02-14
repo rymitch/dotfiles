@@ -30,6 +30,7 @@ in {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.nix-ld.enable = true;
+  programs.zsh.enable = true;
 
   services.openssh = {
     enable = true;
@@ -41,12 +42,10 @@ in {
   time.timeZone = "Europe/America/Indianapolis";
 
   users.users.${loginName} = {
-    isNormalUser = true;
     description = "${displayName}";
     extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      tree
-    ];
+    isNormalUser = true;
+    shell = pkgs.zsh;
   };
 }
 
