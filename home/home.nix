@@ -2,10 +2,12 @@
 
 {
   imports = [
+    nvf.homeManagerModules.default
     ./bash.nix
     ./ckcolor.nix
     ./git.nix
     ./jq.nix
+    ./neovim.nix
     ./ssh.nix
     ./tmux.nix
     ./urxvt.nix
@@ -40,15 +42,4 @@
 
   mine.user.email = "${email}";
   mine.user.name = "${displayName}";
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.ripgrep = {
-    enable = true;
-  };
 }
