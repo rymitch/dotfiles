@@ -1,5 +1,9 @@
 { config, nvf, lib, pkgs, ... }:
 {
+  config.programs.fd = {
+    enable = true;
+  };
+
   config.programs.nvf = {
     enable = true;
     settings = {
