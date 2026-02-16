@@ -11,6 +11,7 @@
 * https://krisztianfekete.org/nixos-on-apple-silicon-with-utm/
 * https://www.tonybtw.com/tutorial/nixos-from-scratch/
 * https://gist.github.com/samelie/db65e7decbfdb74d748d44860840b51f
+* https://github.com/jack-thesparrow/schrovimger
 
 ## Create a NixOS virtual machine on Hyper-V
 
