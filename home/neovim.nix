@@ -1,6 +1,15 @@
 { config, nvf, lib, pkgs, ... }:
 {
+  config.home.packages = [
+    pkgs.ghostscript
+    pkgs.imagemagick
+  ];
+
   config.programs.fd = {
+    enable = true;
+  };
+
+  config.programs.lazygit = {
     enable = true;
   };
 
@@ -19,7 +28,53 @@
               win.border = "rounded";
             };
           };
-          #cheatsheet.enable = true;
+        };
+        languages = {
+          enableTreesitter = true;
+          enableFormat = true;
+          nix.enable = true;
+          markdown.enable = true;
+          python.enable = true;
+        };
+        keymaps = [
+          {
+            key = "<leader><space>";
+            mode = "n";
+            silent = true;
+            action = "<cmd>lua Snacks.picker.files()<cr>";
+            desc = "Find Files (Root Dir)";
+          }
+          {
+            key = "<leader>,";
+            mode = "n";
+            silent = true;
+            action = "<cmd>lua Snacks.picker.buffers()<cr>";
+            desc = "Buffers";
+          }
+          {
+            key = "<leader>/";
+            mode = "n";
+            silent = true;
+            action = "<cmd>lua Snacks.picker.grep()<cr>";
+            desc = "Grep (Root Dir)";
+          }
+          {
+            key = "H";
+            mode = "n";
+            silent = true;
+            action = "<cmd>:bp<cr>";
+            desc = "Next buffer";
+          }
+          {
+            key = "L";
+            mode = "n";
+            silent = true;
+            action = "<cmd>:bn<cr>";
+            desc = "Previous buffer";
+          }
+        ];
+        lsp = {
+          enable = false;
         };
         tabline.nvimBufferline = {
           enable = true;
@@ -53,8 +108,21 @@
         ui = {
           noice.enable = true;
         };
-        utility = {
-          snacks-nvim.enable = true;
+        utility.snacks-nvim = {
+          enable = true;
+          setupOpts = {
+            bigfile.enabled = true;
+            explorer.enabled = true;
+            image.enabled = true;
+            input.enabled = true;
+            notifier.enabled = true;
+            picker.enabled = true;
+            quickfile.enabled = true;
+            scope.enabled = true;
+            scroll.enabled = true;
+            statuscolumn.enabled = true;
+            words.enabled = true;
+          };
         };
       };
     };
