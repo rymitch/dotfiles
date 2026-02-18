@@ -41,13 +41,13 @@
       };
       core = {
         attributesfile = "~/.config/git/attributes";
-        autocrlf = "false";
-        fileMode = "false";
+        autocrlf = false;
+        fileMode = false;
         pager = "delta";
         whitespace = "cr-at-eol";
       };
       delta = {
-        navigate = "true";
+        navigate = true;
       };
       diff = {
         tool = "meld";
@@ -71,7 +71,7 @@
         default = "current";
       };
       rebase = {
-        autosquash = "true";
+        autosquash = true;
       };
       safe = {
         directory = [ "/etc/nixos" ];
