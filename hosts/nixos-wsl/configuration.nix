@@ -22,6 +22,7 @@ in {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.nix-ld.enable = true;
+  programs.zsh.enable = true;
 
   services.openssh = {
     enable = true;
@@ -34,6 +35,13 @@ in {
   };
 
   system.stateVersion = "25.11";
+
+  users.users.${loginName} = {
+    description = "${displayName}";
+    extraGroups = [ "wheel" ];
+    isNormalUser = true;
+    shell = pkgs.zsh;
+  };
 
   wsl.defaultUser = "${loginName}";
   wsl.enable = true;
