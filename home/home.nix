@@ -12,7 +12,7 @@
     ./tmux.nix
     ./urxvt.nix
     ./uv.nix
-    ./wezterm.nix
+    #./wezterm.nix
     ./zsh.nix
   ];
 
