@@ -28,7 +28,11 @@
               win.border = "rounded";
             };
           };
+          #cheatsheet.enable = true;
         };
+        #globals = {
+        #  mapleader = " ";
+        #};
         languages = {
           enableTreesitter = true;
           enableFormat = true;
@@ -76,6 +80,22 @@
         lsp = {
           enable = false;
         };
+        #mini.tabline = {
+        #  enable = true;
+        #};
+        #options = {
+        #  tabstop = 2;
+        #  softtabstop = 2;
+        #  showtabline = 2;
+        #  expandtab = true;
+        #  shiftwidth = 2;
+        #  smartindent = true;
+        #  breakindent = true;
+        #};
+        #statusline.lualine = {
+        #  enable = true;
+        #  # lualine.theme = "palenight";
+        #};
         tabline.nvimBufferline = {
           enable = true;
           mappings = {
@@ -112,6 +132,7 @@
           enable = true;
           setupOpts = {
             bigfile.enabled = true;
+            #dashboard.enabled = true;
             explorer.enabled = true;
             image.enabled = true;
             input.enabled = true;
@@ -124,6 +145,7 @@
             words.enabled = true;
           };
         };
+        #telescope.enable = true;
       };
     };
   };
