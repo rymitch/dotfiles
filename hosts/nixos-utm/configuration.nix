@@ -29,6 +29,8 @@ in {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 
