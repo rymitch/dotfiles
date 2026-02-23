@@ -5,6 +5,14 @@ let
   email = "ryan@mitchell.plus";
   homeDirectory = "/Users/${loginName}";
 in {
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+      SYSTEMD_EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
