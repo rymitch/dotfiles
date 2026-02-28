@@ -35,7 +35,7 @@
       plugins = [
         { name = "agkozak/zsh-z"; }
         { name = "joshskidmore/zsh-fzf-history-search"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+        { name = "romkatv/powerlevel10k"; tags = [ "as:theme" "depth:1" ]; }
         { name = "unixorn/fzf-zsh-plugin"; }
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-completions"; }
