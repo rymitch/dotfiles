@@ -95,14 +95,14 @@ To build and activate a new configuration:
       new terminal.
    5. `git clone https://github.com/rymitch/dotfiles.git -b nix`
    6. `cd dotfiles`
-   7. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
+   7. `sudo -H nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
 4. To refresh the shell environment, close the existing terminal and open a new
    terminal.
 
 To build and activate a new configuration:
 
 1. `cd dotfiles`
-2. `sudo darwin-rebuild switch --flake .#nix-mac`
+2. `sudo -H darwin-rebuild switch --flake .#nix-mac`
 
 ## Create a NixOS virtual machine on WSL
 

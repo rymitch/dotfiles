@@ -26,13 +26,24 @@ in {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "1password-cli"
+    "1password"
+  ];
+
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  programs._1password-gui.enable = true;
+  programs._1password.enable = true;
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
 
+  system.defaults.controlcenter.BatteryShowPercentage = true;
   system.defaults.dock.autohide = true;
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 25;
+  system.defaults.NSGlobalDomain.KeyRepeat = 2;
+  system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
   system.primaryUser = "${loginName}";
   system.stateVersion = 4;
 
