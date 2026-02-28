@@ -96,7 +96,6 @@ To build and activate a new configuration:
    5. `git clone https://github.com/rymitch/dotfiles.git -b nix`
    6. `cd dotfiles`
    7. `sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#nix-mac`
-   8. `sudo shutdown -h now`
 4. To refresh the shell environment, close the existing terminal and open a new
    terminal.
 
