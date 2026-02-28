@@ -25,6 +25,7 @@ in {
   homebrew = {
     enable = true;
     casks = [
+      "qcad"
       "sanesidebuttons"
       "utm"
     ];
