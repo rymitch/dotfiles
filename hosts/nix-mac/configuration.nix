@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, nvf, ... }:
+{ config, lib, pkgs, home-manager, homebrew-cask, homebrew-core, nix-homebrew, nvf, ... }:
 let
   loginName = "rmitchell";
   displayName = "Ryan Mitchell";
@@ -22,6 +22,14 @@ in {
     backupFileExtension = "backup";
   };
 
+  homebrew = {
+    enable = true;
+    casks = [
+      "sanesidebuttons"
+    ];
+    taps = builtins.attrNames config.nix-homebrew.taps; # Align homebrew taps config with nix-homebrew
+  };
+
   ids.gids.nixbld = 350;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -32,6 +40,16 @@ in {
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  nix-homebrew = {
+    enable = true;
+    mutableTaps = true;
+    taps = {
+      "homebrew/homebrew-core" = homebrew-core;
+      "homebrew/homebrew-cask" = homebrew-cask;
+    };
+    user = "${loginName}";
+  };
 
   programs._1password-gui.enable = true;
   programs._1password.enable = true;
