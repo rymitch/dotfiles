@@ -27,6 +27,7 @@ in {
     casks = [
       "qcad"
       "sanesidebuttons"
+      "unnaturalscrollwheels"
       "utm"
     ];
     taps = builtins.attrNames config.nix-homebrew.taps; # Align homebrew taps config with nix-homebrew
