@@ -62,6 +62,7 @@ in {
   system.defaults.controlcenter.BatteryShowPercentage = true;
   system.defaults.dock.autohide = true;
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 25;
+  system.defaults.NSGlobalDomain."com.apple.keyboard.fnState" = true;
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
   system.primaryUser = "${loginName}";
