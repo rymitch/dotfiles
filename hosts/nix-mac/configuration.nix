@@ -37,11 +37,6 @@ in {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password-cli"
-    "1password"
-  ];
-
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   nix-homebrew = {
@@ -54,8 +49,6 @@ in {
     user = "${loginName}";
   };
 
-  programs._1password-gui.enable = true;
-  programs._1password.enable = true;
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
