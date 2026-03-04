@@ -29,6 +29,7 @@ in {
       "sanesidebuttons"
       "unnaturalscrollwheels"
       "utm"
+      "wezterm"
     ];
     taps = builtins.attrNames config.nix-homebrew.taps; # Align homebrew taps config with nix-homebrew
   };
