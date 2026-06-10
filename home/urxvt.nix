@@ -2,7 +2,7 @@
 {
   config.home.packages = [
     pkgs.nerd-fonts.meslo-lg
-    pkgs.xorg.xrdb
+    pkgs.xrdb
   ];
 
   config.programs.urxvt = {
